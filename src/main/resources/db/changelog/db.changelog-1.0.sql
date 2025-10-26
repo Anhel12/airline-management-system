@@ -10,7 +10,8 @@ CREATE TABLE passenger(
     first_name VARCHAR NOT NULL,
     middle_name VARCHAR NOT NULL,
     last_name VARCHAR,
-    sex VARCHAR(6) NOT NULL
+    sex VARCHAR(6) NOT NULL,
+    role VARCHAR NOT NULL
 );
 
 --changeset dgilev:2
@@ -50,7 +51,7 @@ CREATE TABLE crew(
     middle_name VARCHAR NOT NULL,
     last_name VARCHAR,
     position_id BIGINT NOT NULL REFERENCES position(id),
-    certification INTEGER NOT NULL
+    certification VARCHAR NOT NULL
 );
 
 --changeset dgilev:7
@@ -81,4 +82,18 @@ CREATE TABLE booking(
     passenger_id BIGINT NOT NULL REFERENCES passenger(id),
     total_amount INTEGER NOT NULL,
     status VARCHAR NOT NULL
+);
+
+--changeset dgilev:10
+CREATE TABLE flight_crew(
+    id BIGSERIAL PRIMARY KEY,
+    flight_id BIGINT NOT NULL REFERENCES flight(id),
+    crew_id BIGINT NOT NULL REFERENCES crew(id)
+);
+
+--changeset dgilev:11
+CREATE TABLE booking_passenger(
+    id BIGSERIAL PRIMARY KEY,
+    booking_id BIGINT NOT NULL REFERENCES booking(id),
+    passenger BIGINT NOT NULL REFERENCES passenger(id)
 );
