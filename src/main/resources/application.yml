@@ -1,0 +1,23 @@
+
+logging:
+  level:
+    root: WARN
+  file:
+    name: org.example.log
+    path: /
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/airlinedata
+    username: postgres
+    password: 586910
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+
