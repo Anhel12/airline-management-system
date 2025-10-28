@@ -36,10 +36,10 @@ public class Flight {
     private Aircraft aircraft;
 
     @Builder.Default
-    @OneToMany(mappedBy = "flight")
+    @OneToMany(mappedBy = "flight", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
     private List<Booking> bookingList = new ArrayList<>();
 
     @Builder.Default
-    @OneToMany(mappedBy = "flight")
+    @OneToMany(mappedBy = "flight", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
     private List<FlightCrew> flightCrewList = new ArrayList<>();
 }

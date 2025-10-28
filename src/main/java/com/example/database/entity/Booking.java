@@ -43,6 +43,6 @@ public class Booking {
     private Status status;
 
     @Builder.Default
-    @OneToMany(mappedBy = "booking")
+    @OneToMany(mappedBy = "booking", cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, orphanRemoval = true)
     private List<BookingPassenger> bookingPassengerList = new ArrayList<>();
 }

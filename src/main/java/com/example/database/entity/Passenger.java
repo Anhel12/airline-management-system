@@ -52,6 +52,6 @@ public class Passenger {
     private Role role;
 
     @Builder.Default
-    @OneToMany(mappedBy = "passenger")
+    @OneToMany(mappedBy = "passenger", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
     private List<BookingPassenger> bookingPassengerList = new ArrayList<>();
 }

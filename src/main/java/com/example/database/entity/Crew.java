@@ -37,6 +37,6 @@ public class Crew {
     private String certification;
 
     @Builder.Default
-    @OneToMany(mappedBy = "crew")
+    @OneToMany(mappedBy = "crew", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
     private List<FlightCrew> flightCrewList = new ArrayList<>();
 }

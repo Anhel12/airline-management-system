@@ -68,8 +68,7 @@ CREATE TABLE flight(
     number VARCHAR NOT NULL UNIQUE,
     departure_date_time TIMESTAMP NOT NULL,
     arrival_date_time TIMESTAMP NOT NULL,
-    aircraft_id BIGINT NOT NULL REFERENCES aircraft(id),
-    crew_id NUMERIC NOT NULL REFERENCES crew(id)
+    aircraft_id BIGINT NOT NULL REFERENCES aircraft(id)
 );
 
 --changeset dgilev:9
@@ -79,7 +78,6 @@ CREATE TABLE booking(
     booking_date DATE NOT NULL,
     flight_id BIGINT NOT NULL REFERENCES flight(id),
     seat_id BIGINT NOT NULL REFERENCES seat(id),
-    passenger_id BIGINT NOT NULL REFERENCES passenger(id),
     total_amount INTEGER NOT NULL,
     status VARCHAR NOT NULL
 );
