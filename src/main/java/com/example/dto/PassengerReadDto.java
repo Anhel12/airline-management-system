@@ -1,10 +1,12 @@
-package com.example.database.dto;
+package com.example.dto;
 
 import com.example.database.entity.Role;
 import com.example.database.entity.Sex;
+import lombok.Builder;
 
 import java.time.LocalDate;
 
+@Builder
 public record PassengerReadDto(
         Long id,
         String phoneNumber,
