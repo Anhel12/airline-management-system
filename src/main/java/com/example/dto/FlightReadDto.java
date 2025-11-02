@@ -10,6 +10,6 @@ public record FlightReadDto (
         String flightNumber,
         LocalDateTime departureDateTime,
         LocalDateTime arrivalDateTime,
-        AircraftDto aircraftDto
+        AircraftReadDto aircraft
 
 ){}

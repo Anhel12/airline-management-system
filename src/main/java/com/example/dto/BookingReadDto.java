@@ -11,8 +11,8 @@ public record BookingReadDto(
         Long id,
         String bookingNumber,
         LocalDate bookingDate,
-        FlightReadDto flightReadDto,
-        List<String> seatDtoList,
+        FlightReadDto flight,
+        List<SeatReadDto> seatList,
         Integer totalAmount,
         Status status
 ) {
