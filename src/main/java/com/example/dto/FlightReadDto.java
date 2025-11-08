@@ -8,8 +8,9 @@ import java.time.LocalDateTime;
 public record FlightReadDto (
         Long id,
         String flightNumber,
+        AirportReadDto departureAirport,
+        AirportReadDto arrivalAirport,
         LocalDateTime departureDateTime,
-        LocalDateTime arrivalDateTime,
-        AircraftReadDto aircraft
+        LocalDateTime arrivalDateTime
 
 ){}

@@ -1,12 +1,12 @@
 package com.example.mapper;
 
+import com.example.database.Repository.BookingSeatRepository;
 import com.example.database.Repository.FlightRepository;
-import com.example.database.Repository.SeatRepository;
 import com.example.database.entity.Booking;
+import com.example.database.entity.BookingSeat;
 import com.example.database.entity.Flight;
 import com.example.database.entity.Seat;
 import com.example.dto.BookingCreateEditDto;
-import com.example.dto.BookingReadDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +17,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class BookingCreateEditMapper implements Mapper<BookingCreateEditDto, Booking> {
     private final FlightRepository flightRepository;
-    private final SeatRepository seatRepository;
+    private final BookingSeatRepository bookingSeatReposiory;
 
     @Override
     public Booking map(BookingCreateEditDto object) {
@@ -36,7 +36,7 @@ public class BookingCreateEditMapper implements Mapper<BookingCreateEditDto, Boo
         booking.setBookingNumber(bookingDto.bookingNumber());
         booking.setBookingDate(bookingDto.bookingDate());
         booking.setFlight(getFlight(bookingDto.flight_id()));
-        booking.setSeatList(getSeat(bookingDto.seat_id()));
+        booking.setBookingSeatList(getBookingSeat(bookingDto.seat_id()));
         booking.setTotalAmount(bookingDto.totalAmount());
         booking.setStatus(bookingDto.status());
     }
@@ -47,9 +47,9 @@ public class BookingCreateEditMapper implements Mapper<BookingCreateEditDto, Boo
                 .orElse(null);
     }
 
-    public List<Seat> getSeat(List<Long> seatIds){
-        return Optional.ofNullable(seatIds)
-                .map(seatRepository::findAllById)
+    public List<BookingSeat> getBookingSeat(List<Long> bookingSeatIds){
+        return Optional.ofNullable(bookingSeatIds)
+                .map(bookingSeatReposiory::findAllById)
                 .orElse(null);
 
     }

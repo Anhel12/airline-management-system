@@ -22,15 +22,19 @@ public class Flight {
     @Column(name = "number", nullable = false, unique = true)
     private String flightNumber;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "departure_airport_id", nullable = false)
+    private Airport departureAirport;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "arrival_airport_id", nullable = false)
+    private Airport arrivalAirport;
+
     @Column(name = "departure_date_time", nullable = false)
     private LocalDateTime departureDateTime;
 
     @Column(name = "arrival_date_time", nullable = false)
     private LocalDateTime arrivalDateTime;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "aircraft_id", nullable = false)
-    private Aircraft aircraft;
 
     @Builder.Default
     @OneToMany(mappedBy = "flight", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)

@@ -18,9 +18,10 @@ public class BookingReadMapper implements Mapper<Booking, BookingReadDto> {
 
     @Override
     public BookingReadDto map(Booking object) {
-        List<SeatReadDto> seatReadDtoList = Optional.ofNullable(object.getSeatList())
+        List<SeatReadDto> seatReadDtoList = Optional.ofNullable(object.getBookingSeatList())
                 .stream()
                 .flatMap(List::stream)
+                .map(bookingSeat -> bookingSeat.getSeat())
                 .map(seatReadMapper::map)
                 .toList();
 

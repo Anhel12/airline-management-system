@@ -25,6 +25,7 @@ public class Seat {
     @JoinColumn(name = "seat_class_id", nullable = false)
     private SeatClass seatClass;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Booking booking;
+    @OneToOne(mappedBy = "seat", fetch = FetchType.LAZY)
+    private BookingSeat bookingSeat;
+
 }

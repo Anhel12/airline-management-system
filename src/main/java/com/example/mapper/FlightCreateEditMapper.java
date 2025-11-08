@@ -1,7 +1,9 @@
 package com.example.mapper;
 
 import com.example.database.Repository.AircraftRepository;
+import com.example.database.Repository.AirportRepository;
 import com.example.database.entity.Aircraft;
+import com.example.database.entity.Airport;
 import com.example.database.entity.Flight;
 import com.example.dto.FlightCreateEditDto;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +14,7 @@ import java.util.Optional;
 @Component
 @RequiredArgsConstructor
 public class FlightCreateEditMapper implements Mapper<FlightCreateEditDto, Flight> {
-    private final AircraftRepository aircraftRepository;
+    private final AirportRepository airportRepository;
 
     @Override
     public Flight map(FlightCreateEditDto object) {
@@ -29,14 +31,16 @@ public class FlightCreateEditMapper implements Mapper<FlightCreateEditDto, Fligh
 
     public void copy(FlightCreateEditDto flightDto, Flight flight){
         flight.setFlightNumber(flightDto.flightNumber());
+        flight.setDepartureAirport(getAirport(flightDto.departureAirportId()));
+        flight.setArrivalAirport(getAirport(flightDto.arrivalAirportId()));
         flight.setDepartureDateTime(flightDto.departureDateTime());
         flight.setArrivalDateTime(flightDto.arrivalDateTime());
-        flight.setAircraft(getAircraft(flightDto.aircraft_id()));
+
     }
 
-    public Aircraft getAircraft(Long aircraftId){
-        return Optional.ofNullable(aircraftId)
-                .flatMap(aircraftRepository::findById)
+    public Airport getAirport(Long airportId){
+        return Optional.ofNullable(airportId)
+                .flatMap(airportRepository::findById)
                 .orElse(null);
     }
 }

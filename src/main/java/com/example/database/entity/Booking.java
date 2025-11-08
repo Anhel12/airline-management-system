@@ -28,10 +28,6 @@ public class Booking {
     @JoinColumn(name = "flight_id", nullable = false)
     private Flight flight;
 
-    @OneToMany
-    @JoinColumn(name = "seat_id", nullable = false)
-    private List<Seat> seatList = new ArrayList<>();
-
     @Column(name = "total_amount", nullable = false)
     private Integer totalAmount;
 
@@ -42,4 +38,8 @@ public class Booking {
     @Builder.Default
     @OneToMany(mappedBy = "booking", cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, orphanRemoval = true)
     private List<BookingPassenger> bookingPassengerList = new ArrayList<>();
+
+    @Builder.Default
+    @OneToMany(mappedBy = "booking", cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, orphanRemoval = true)
+    private List<BookingSeat> bookingSeatList = new ArrayList<>();
 }

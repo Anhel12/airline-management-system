@@ -12,6 +12,12 @@ public record FlightCreateEditDto(
     String flightNumber,
 
     @NotBlank
+    Long departureAirportId,
+
+    @NotBlank
+    Long arrivalAirportId,
+
+    @NotBlank
     @Future
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     LocalDateTime departureDateTime,
@@ -22,7 +28,7 @@ public record FlightCreateEditDto(
     LocalDateTime arrivalDateTime,
 
     @NotBlank
-    Long aircraft_id
+    Long aircraftId
 
 ) {
 
