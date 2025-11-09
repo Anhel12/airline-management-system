@@ -44,6 +44,7 @@ public class BookingService {
     public Optional<BookingReadDto> update(Long id, BookingCreateEditDto bookingDto){
         return bookingRepository.findById(id)
                 .map(entity -> bookingCreateEditMapper.map(bookingDto, entity))
+                .map(bookingRepository::saveAndFlush)
                 .map(bookingReadMapper::map);
     }
 

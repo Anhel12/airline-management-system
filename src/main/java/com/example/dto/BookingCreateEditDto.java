@@ -5,12 +5,13 @@ import com.example.database.entity.Status;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Positive;
+import lombok.Builder;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.List;
 
-
+@Builder
 public record BookingCreateEditDto(
 
         @NotBlank
