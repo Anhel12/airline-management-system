@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Aviro Airlines - Вход в профиль</title>
+    <link rel="stylesheet" href="styles/login.css" />
+</head>
+<body>
+<main class="screen">
+    <div class="rectangle" role="presentation"></div>
+    <header class="view">
+        <div class="aviro-airlines">
+            <h1 class="div">
+                <span class="brand-bold">Aviro</span> Airlines
+            </h1>
+        </div>
+        <button class="close" type="button" aria-label="Закрыть">
+            <img th:src="@{img/close.png}" alt="" />
+        </button>
+    </header>
+    <section class="view-2">
+        <div class="view-6">
+            <h2 class="text-wrapper-6">Вход в профиль</h2>
+            <p class="text-wrapper-5">Введите телефон или почту</p>
+        </div>
+        <form class="login-form" action="#" method="post">
+            <div class="div-3">
+                <label for="phone-email" class="text-wrapper-4">Телефон/Почта</label>
+                <input
+                        type="text"
+                        id="phone-email"
+                        name="phone-email"
+                        class="div-2"
+                        required
+                        aria-required="true"
+                        autocomplete="username"
+                />
+            </div>
+            <div class="view-5">
+                <label for="password" class="text-wrapper-3">Пароль</label>
+                <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="div-2"
+                        required
+                        aria-required="true"
+                        autocomplete="current-password"
+                />
+            </div>
+            <div class="view-3">
+                <button type="submit" class="view-4">
+                    <span class="text-wrapper-2">Вход</span>
+                </button>
+            </div>
+        </form>
+    </section>
+</main>
+</body>
+</html>

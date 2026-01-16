@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Aviro Airlines - Покупка авиабилета</title>
+    <link rel="stylesheet" href="styles/home_registration.css" />
+</head>
+<body>
+<main class="aviro-airlines">
+    <section class="view" aria-label="Слоган компании">
+        <h1 class="text-wrapper">ВАШЕ СПОКОЙСТВИЕ НА БОРТУ</h1>
+        <p class="div">- НАШ ПРИОРИТЕТ</p>
+    </section>
+    <nav class="text-wrapper-2" aria-label="Дополнительная навигация">
+        <a href="#ticket-management">Управление билетом</a>
+    </nav>
+    <header class="view-2">
+        <div class="aviro-airlines-wrapper">
+            <a href="/" class="p" aria-label="Aviro Airlines - Главная страница">
+                <span class="brand-title"><b>Aviro</b> Airlines</span>
+            </a>
+        </div>
+        <nav class="div-wrapper" aria-label="Основная навигация">
+            <a href="#baggage" class="text-wrapper-4">Нормы багажа</a>
+        </nav>
+        <div class="view-3">
+            <a href="#login" class="text-wrapper-5">Вход</a>
+        </div>
+    </header>
+    <section class="view-4" aria-label="Форма регистрации на рейс">
+        <form class="search-form" role="search">
+            <div class="view-5">
+                <input
+                        type="number"
+                        id="documentNumber"
+                        class="rectangle"
+                        name="documentNumber"
+                        placeholder="Номер документа, заказа или билета"
+                        aria-label="Номер документа"
+                        required
+                />
+            </div>
+            <div class="view-6">
+                <input
+                        type="text"
+                        id="passengerLastName"
+                        class="rectangle-2"
+                        name="passengerLastName"
+                        placeholder="Фамилия пассажира"
+                        aria-label="Фамилия пассажира"
+                        required
+                />
+            </div>
+            <div class="view-10">
+                <button type="submit" class="rectangle-3" aria-label="Найти билеты">
+                    <span class="text-wrapper-11">Найти</span>
+                </button>
+            </div>
+        </form>
+    </section>
+    <nav class="text-wrapper-12" aria-label="Регистрация на рейс">
+        <a href="#check-in">Регистрация на рейс</a>
+        <div class="rectangle-5" role="presentation"></div>
+    </nav>
+    <nav class="text-wrapper-13" aria-label="Статус рейса">
+        <span>Статус рейса</span>
+    </nav>
+    <div class="view-21" aria-label="Активная вкладка">
+        <span class="text-wrapper-40">Покупка авиабилета</span>
+    </div>
+</main>
+<footer class="footer">
+    <div class="footer-rectangle">
+        <div class="view-12">
+            <h2 class="text-wrapper-14">Aviro Airlines</h2>
+            <h2 class="text-wrapper-15">Информация</h2>
+        </div>
+        <nav class="view-13" aria-label="Информация">
+            <ul>
+                <li class="text-wrapper-16">Конфиденциальность</li>
+                <li class="text-wrapper-17">Подготовка груза к перевозке</li>
+                <li class="text-wrapper-18">Врачи на борту</li>
+                <li class="text-wrapper-19">Требования к качеству для поставщиков</li>
+            </ul>
+        </nav>
+        <nav class="view-14" aria-label="О компании">
+            <ul>
+                <li class="text-wrapper-20">О компании</li>
+                <li class="text-wrapper-22">Устойчивое развитие</li>
+                <li class="text-wrapper-21">Партнеры</li>
+                <li class="text-wrapper-23">Контакты</li>
+                <li class="text-wrapper-24">Вакансии</li>
+            </ul>
+        </nav>
+        <nav class="view-15" aria-label="Дополнительная информация">
+            <ul>
+                <li class="text-wrapper-25">Офисы продаж и представительства</li>
+                <li class="text-wrapper-27">Закупки</li>
+                <li class="text-wrapper-26">Новости</li>
+                <li class="text-wrapper-28">Благотворительность</li>
+                <li class="text-wrapper-29">Экологическая политика</li>
+            </ul>
+        </nav>
+        <nav class="view-16" aria-label="Направления и поддержка">
+            <ul>
+                <li class="text-wrapper-30">Направления</li>
+                <li class="text-wrapper-32">Страны</li>
+                <li class="text-wrapper-31">Рейсы</li>
+                <li class="text-wrapper-33">Обратная связь</li>
+                <li class="text-wrapper-34">Справочный центр</li>
+            </ul>
+        </nav>
+        <div class="rectangle-4" role="separator"></div>
+        <section class="view-17" aria-label="Контактная информация">
+            <div class="view-18">
+                <span class="text-wrapper-35">тел:</span>
+                <span class="text-wrapper-36">Бесплатно по России</span>
+                <span class="text-wrapper-37">8 800 555-35-35</span>
+            </div>
+            <div class="view-19">
+                <span class="text-wrapper-38" aria-label="Открыть чат">Чат</span>
+                <img class="chat" th:src="@{img/chat.svg}" alt="Иконка чата" />
+            </div>
+            <div class="view-20">
+                <span class="text-wrapper-39" aria-label="Звонок онлайн">Звонок онлайн</span>
+                <img class="phone" th:src="@{img/phone.svg}" alt="Иконка телефона" />
+            </div>
+        </section>
+    </div>
+</footer>
+</body>
+</html>

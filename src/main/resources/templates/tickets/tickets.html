@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Aviro Airlines - Поиск авиабилетов</title>
+    <link rel="stylesheet" href="styles/tickets.css" />
+</head>
+<body>
+<div class="screen">
+    <div class="rectangle"></div>
+    <header class="view">
+        <nav class="div" aria-label="Форма поиска билетов">
+            <form class="search-form" role="search">
+                <div class="view-2">
+                    <input
+                            type="text"
+                            class="rectangle-input"
+                            placeholder="Откуда"
+                            aria-label="Город отправления"
+                            required
+                    />
+                </div>
+
+                <div class="view-3">
+                    <input
+                            type="text"
+                            class="rectangle-input"
+                            placeholder="Куда"
+                            aria-label="Город назначения"
+                            required
+                    />
+                </div>
+
+                <div class="view-5">
+                    <input
+                            type="text"
+                            class="rectangle-input"
+                            placeholder="Туда"
+                            onfocus="this.type='date'"
+                            onblur="this.type='text'"
+                            required
+                    />
+                </div>
+
+                <div class="view-6">
+                    <input
+                            type="text"
+                            class="rectangle-input"
+                            placeholder="Обратно"
+                            onfocus="this.type='date'"
+                            onblur="this.type='text'"
+                    />
+                </div>
+
+                <div class="view-4">
+                    <input
+                            type="number"
+                            class="rectangle-input"
+                            placeholder="Пассажиры"
+                            min="1"
+                            max="9"
+                            required
+                    />
+                </div>
+
+                <div class="view-7">
+                    <button type="submit" class="rectangle-4">
+                        Найти
+                    </button>
+                </div>
+
+                <img
+                        class="image"
+                        th:src="@{img/swap2.png}"
+                        alt="Поменять направления"
+                />
+            </form>
+        </nav>
+        <div class="view-8">
+            <div class="aviro-airlines">
+                <h1 class="p"><span class="brand-bold">Aviro </span>Airlines</h1>
+            </div>
+            <nav class="div-wrapper" aria-label="Дополнительная навигация">
+                <a href="#" class="text-wrapper-8">Нормы багажа</a>
+            </nav>
+            <div class="view-9">
+                <a href="#" class="text-wrapper-9">Вход</a>
+            </div>
+        </div>
+        <section class="view-10" aria-label="Информация о поиске">
+            <span class="text-wrapper-10">07 Нояб</span>
+            <span class="text-wrapper-11">Сургут - Москва</span>
+            <span class="text-wrapper-12">1 пассажир</span>
+            <img class="free-icon-full-stop" th:src="@{img/dot.svg}" alt="" aria-hidden="true" />
+            <img class="img" th:src="@{img/dot.svg}" alt="" aria-hidden="true" />
+        </section>
+    </header>
+    <main class="view-11">
+        <div class="main-inner">
+        <section class="view-12" aria-label="Фильтры поиска">
+            <h2 class="text-wrapper-13">Туда</h2>
+            <div class="view-13">
+                <label for="direct-flights-toggle" class="text-wrapper-14">Прямые рейсы</label>
+                <input type="checkbox" id="direct-flights-toggle" class="view-14" aria-label="Только прямые рейсы" />
+            </div>
+        </section>
+        <nav class="navbar" aria-label="Выбор даты">
+            <div class="view-15"></div>
+            <button type="button" class="free-icon-right" aria-label="Следующая неделя">
+                <img th:src="@{img/right-arrow-line.svg}" alt="" />
+            </button>
+            <button type="button" class="free-icon-left-arrow" aria-label="Предыдущая неделя">
+                <img th:src="@{img/left-arrow-line.svg}" alt="" />
+            </button>
+            <button type="button" class="text-wrapper-15">Чт 06 Нояб</button>
+            <button type="button" class="text-wrapper-16">Вт 04 Нояб</button>
+            <button type="button" class="text-wrapper-17">Ср 05 Нояб</button>
+            <button type="button" class="text-wrapper-18" aria-current="date">Пт 07 Нояб</button>
+            <button type="button" class="text-wrapper-19">Сб 08 Нояб</button>
+            <button type="button" class="text-wrapper-20">Вс 09 Нояб</button>
+            <button type="button" class="text-wrapper-21">Пн 10 Нояб</button>
+            <div class="rectangle-5" aria-hidden="true"></div>
+        </nav>
+        <article class="view-16" aria-label="Рейс UT296">
+            <div class="view-17">
+                <div class="rectangle-6"></div>
+                <button type="button" class="text-wrapper-22">Выбрать</button>
+            </div>
+            <div class="element">
+                <div class="frame">
+                    <time class="text-wrapper-23" datetime="19:35">19:35</time>
+                    <span class="text-wrapper-24">VKO</span>
+                </div>
+            </div>
+            <div class="view-18">
+                <time class="text-wrapper-25" datetime="18:00">18:00</time>
+                <span class="text-wrapper-26">SGC</span>
+            </div>
+            <div class="div-3">
+                <span class="text-wrapper-27">UT296</span>
+                <span class="text-wrapper-28">3ч 35м, прямой</span>
+                <div class="view-19" aria-hidden="true">
+                    <span class="text-wrapper-29">------------------------------------</span>
+                    <span class="text-wrapper-30">&gt;</span>
+                </div>
+            </div>
+            <div class="view-20">
+                <div class="rectangle-7"></div>
+                <span class="text-wrapper-31">8000 руб</span>
+            </div>
+        </article>
+        <aside class="view-30" aria-label="Итоговая стоимость">
+            <div class="view-31">
+                <div class="rectangle-8"></div>
+                <button type="button" class="text-wrapper-59">Продолжить</button>
+            </div>
+            <div class="view-32">
+                <span class="text-wrapper-60">8000 руб</span>
+                <span class="text-wrapper-61">Взрослые:</span>
+                <div class="rectangle-9" aria-hidden="true"></div>
+                <div class="rectangle-10" aria-hidden="true"></div>
+                <span class="text-wrapper-62">Авиабилеты</span>
+                <span class="text-wrapper-63">8000 руб</span>
+            </div>
+        </aside>
+        </div>
+    </main>
+</div>
+</body>
+</html>

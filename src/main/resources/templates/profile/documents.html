@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Aviro Airlines - Документы</title>
+    <link rel="stylesheet" href="styles/documents.css" />
+</head>
+<body>
+<div class="element">
+    <div class="rectangle"></div>
+    <header class="view">
+        <div class="aviro-airlines">
+            <h1 class="div">
+                <span class="brand-bold">Aviro</span> Airlines
+            </h1>
+        </div>
+        <nav class="div-wrapper">
+            <a href="#" class="text-wrapper-2">Нормы багажа</a>
+        </nav>
+    </header>
+    <nav class="view-2" role="navigation" aria-label="Основная навигация">
+        <a href="#" class="div-2">
+            <img class="tickets" th:src="@{img/tickets.svg}" alt="" role="presentation" />
+            <span class="text-wrapper-3">Мои заказы</span>
+        </a>
+        <a href="#" class="div-3" aria-current="page">
+            <img class="documents" th:src="@{img/documents.svg}" alt="" role="presentation" />
+            <span class="text-wrapper-4">Документы</span>
+        </a>
+    </nav>
+    <main class="view-3">
+        <div class="rectangle-3"></div>
+        <h2 class="text-wrapper-5">Документы</h2>
+        <section aria-labelledby="new-document-heading">
+            <h3 id="new-document-heading" class="text-wrapper-6">Новый документ</h3>
+            <form>
+                <div class="view-4">
+                    <div class="rectangle-6"></div>
+                    <label for="citizenship" class="text-wrapper-7">Гражданство</label>
+                    <span id="citizenship" name="citizenship" class="text-wrapper-8">Россия</span>
+                </div>
+                <div class="view-5">
+                    <div class="rectangle-6"></div>
+                    <label for="document-type" class="text-wrapper-7">Документ</label>
+                    <span id="document-type" name="document-type" class="text-wrapper-9">Паспорт РФ</span>
+                </div>
+                <fieldset class="view-6">
+                    <legend class="visually-hidden">Пол</legend>
+                    <div class="view-wrapper">
+                        <label class="view-7">
+                            <img class="male"  th:src="@{img/male.svg}">
+                            <label for="gender-male" class="text-wrapper-10">М</label>
+                            <input type="radio" id="gender-male" name="gender" value="male" class="male" />
+                        </label>
+                    </div>
+                    <div class="view-wrapper">
+                        <label class="view-8">
+                            <img class="female" th:src="@{img/female.svg}">
+                            <label for="gender-female" class="text-wrapper-11">Ж</label>
+                            <input type="radio" id="gender-female" name="gender" value="female" class="female" />
+                        </label>
+                    </div>
+                </fieldset>
+                <h4 class="text-wrapper-12">Данные паспорта РФ</h4>
+                <div class="view-9">
+                    <div class="rectangle-5"></div>
+                    <input type="text" id="last-name" name="last-name" placeholder="Фамилия" class="text-wrapper-13" />
+                </div>
+                <div class="view-10">
+                    <div class="rectangle-5"></div>
+                    <input type="text" id="first-name" name="first-name" placeholder="Имя" class="text-wrapper-13" />
+                </div>
+                <div class="view-11">
+                    <div class="rectangle-5"></div>
+                    <input type="text" id="middle-name" name="middle-name" placeholder="Отчество" class="text-wrapper-13" />
+                </div>
+                <div class="view-121">
+                    <div class="rectangle-5"></div>
+                    <input
+                            type="text"
+                            id="birth-date"
+                            name="birth-date"
+                            placeholder="Дата рождения"
+                            class="text-wrapper-13"
+                    />
+                </div>
+                <div class="view-131">
+                    <div class="rectangle-5"></div>
+                    <input
+                            type="text"
+                            id="document-number"
+                            name="document-number"
+                            placeholder="№ Документа"
+                            class="text-wrapper-13"
+                            maxlength="8"
+                    />
+                </div>
+                <button type="submit" class="view-141">
+                    <div class="rectangle-4"></div>
+                    <span class="text-wrapper-141">Добавить</span>
+                </button>
+            </form>
+        </section>
+    </main>
+</div>
+<footer class="footer">
+    <div class="footer-rectangle">
+        <div class="view-12">
+            <h2 class="text-wrapper-14">Aviro Airlines</h2>
+            <h2 class="text-wrapper-15">Информация</h2>
+        </div>
+        <nav class="view-13" aria-label="Информация">
+            <ul>
+                <li class="text-wrapper-16">Конфиденциальность</li>
+                <li class="text-wrapper-17">Подготовка груза к перевозке</li>
+                <li class="text-wrapper-18">Врачи на борту</li>
+                <li class="text-wrapper-19">Требования к качеству для поставщиков</li>
+            </ul>
+        </nav>
+        <nav class="view-14" aria-label="О компании">
+            <ul>
+                <li class="text-wrapper-20">О компании</li>
+                <li class="text-wrapper-22">Устойчивое развитие</li>
+                <li class="text-wrapper-21">Партнеры</li>
+                <li class="text-wrapper-23">Контакты</li>
+                <li class="text-wrapper-24">Вакансии</li>
+            </ul>
+        </nav>
+        <nav class="view-15" aria-label="Дополнительная информация">
+            <ul>
+                <li class="text-wrapper-25">Офисы продаж и представительства</li>
+                <li class="text-wrapper-27">Закупки</li>
+                <li class="text-wrapper-26">Новости</li>
+                <li class="text-wrapper-28">Благотворительность</li>
+                <li class="text-wrapper-29">Экологическая политика</li>
+            </ul>
+        </nav>
+        <nav class="view-16" aria-label="Направления и поддержка">
+            <ul>
+                <li class="text-wrapper-30">Направления</li>
+                <li class="text-wrapper-32">Страны</li>
+                <li class="text-wrapper-31">Рейсы</li>
+                <li class="text-wrapper-33">Обратная связь</li>
+                <li class="text-wrapper-34">Справочный центр</li>
+            </ul>
+        </nav>
+        <div class="rectangle-6" role="separator"></div>
+        <section class="view-17" aria-label="Контактная информация">
+            <div class="view-18">
+                <span class="text-wrapper-35">тел:</span>
+                <span class="text-wrapper-36">Бесплатно по России</span>
+                <span class="text-wrapper-37">8 800 555-35-35</span>
+            </div>
+            <div class="view-19">
+                <span class="text-wrapper-38" aria-label="Открыть чат">Чат</span>
+                <img class="chat" th:src="@{img/chat.svg}" alt="Иконка чата" />
+            </div>
+            <div class="view-20">
+                <span class="text-wrapper-39" aria-label="Звонок онлайн">Звонок онлайн</span>
+                <img class="phone" th:src="@{img/phone.svg}" alt="Иконка телефона" />
+            </div>
+        </section>
+    </div>
+</footer>
+</body>
+</html>

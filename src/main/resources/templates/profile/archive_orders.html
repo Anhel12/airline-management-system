@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Мои заказы - Aviro Airlines</title>
+    <link rel="stylesheet" href="styles/archive_orders.css" />
+</head>
+<body>
+<div class="screen">
+    <header class="view">
+        <div class="aviro-airlines">
+            <h1 class="div">
+                <span class="brand-bold">Aviro</span> Airlines
+            </h1>
+        </div>
+        <nav class="div-wrapper">
+            <a href="#" class="text-wrapper-2">Нормы багажа</a>
+        </nav>
+    </header>
+    <nav class="view-2" role="navigation" aria-label="Основная навигация">
+        <a href="#" class="element" aria-current="page">
+            <img class="tickets" th:src="@{img/tickets.svg}" alt="" role="presentation" />
+            <span class="text-wrapper-3">Мои заказы</span>
+        </a>
+        <a href="#" class="element-2">
+            <img class="documents" th:src="@{img/documents.svg}" alt="" role="presentation" />
+            <span class="text-wrapper-4">Документы</span>
+        </a>
+    </nav>
+    <div class="view-3" role="tablist" aria-label="Фильтр заказов">
+        <button class="view-4" role="tab" aria-selected="false" aria-controls="active-orders">
+            <div class="rectangle-3"></div>
+            <span class="text-wrapper-5">Активные</span>
+        </button>
+        <button class="view-5" role="tab" aria-selected="true" aria-controls="archive-orders">
+            <div class="rectangle-4"></div>
+            <span class="text-wrapper-6">Архив</span>
+        </button>
+    </div>
+    <main class="view-6" role="main" id="active-orders" aria-labelledby="page-title">
+        <img class="eyes" th:src="@{img/eyes.svg}" alt="" role="presentation" />
+        <p class="element-3">
+            Здесь будут все завершенные и отменённые заказы
+        </p>
+        <h2 class="text-wrapper-7">Архивных заказов пока нет</h2>
+    </main>
+    <h1 class="text-wrapper-8" id="page-title">Мои заказы</h1>
+</div>
+<footer class="footer">
+    <div class="footer-rectangle">
+        <div class="view-12">
+            <h2 class="text-wrapper-14">Aviro Airlines</h2>
+            <h2 class="text-wrapper-15">Информация</h2>
+        </div>
+        <nav class="view-13" aria-label="Информация">
+            <ul>
+                <li class="text-wrapper-16">Конфиденциальность</li>
+                <li class="text-wrapper-17">Подготовка груза к перевозке</li>
+                <li class="text-wrapper-18">Врачи на борту</li>
+                <li class="text-wrapper-19">Требования к качеству для поставщиков</li>
+            </ul>
+        </nav>
+        <nav class="view-14" aria-label="О компании">
+            <ul>
+                <li class="text-wrapper-20">О компании</li>
+                <li class="text-wrapper-22">Устойчивое развитие</li>
+                <li class="text-wrapper-21">Партнеры</li>
+                <li class="text-wrapper-23">Контакты</li>
+                <li class="text-wrapper-24">Вакансии</li>
+            </ul>
+        </nav>
+        <nav class="view-15" aria-label="Дополнительная информация">
+            <ul>
+                <li class="text-wrapper-25">Офисы продаж и представительства</li>
+                <li class="text-wrapper-27">Закупки</li>
+                <li class="text-wrapper-26">Новости</li>
+                <li class="text-wrapper-28">Благотворительность</li>
+                <li class="text-wrapper-29">Экологическая политика</li>
+            </ul>
+        </nav>
+        <nav class="view-16" aria-label="Направления и поддержка">
+            <ul>
+                <li class="text-wrapper-30">Направления</li>
+                <li class="text-wrapper-32">Страны</li>
+                <li class="text-wrapper-31">Рейсы</li>
+                <li class="text-wrapper-33">Обратная связь</li>
+                <li class="text-wrapper-34">Справочный центр</li>
+            </ul>
+        </nav>
+        <div class="rectangle-5" role="separator"></div>
+        <section class="view-17" aria-label="Контактная информация">
+            <div class="view-18">
+                <span class="text-wrapper-35">тел:</span>
+                <span class="text-wrapper-36">Бесплатно по России</span>
+                <span class="text-wrapper-37">8 800 555-35-35</span>
+            </div>
+            <div class="view-19">
+                <span class="text-wrapper-38" aria-label="Открыть чат">Чат</span>
+                <img class="chat" th:src="@{img/chat.svg}" alt="Иконка чата" />
+            </div>
+            <div class="view-20">
+                <span class="text-wrapper-39" aria-label="Звонок онлайн">Звонок онлайн</span>
+                <img class="phone" th:src="@{img/phone.svg}" alt="Иконка телефона" />
+            </div>
+        </section>
+    </div>
+</footer>
+</body>
+</html>

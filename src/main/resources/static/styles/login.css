@@ -1,0 +1,321 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+    outline: 2px solid #4a90e2 !important;
+    outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+    text-decoration: none;
+}
+
+:root {
+    --variable-collection: rgba(178, 189, 141, 0.2);
+    --variable-collection-brand: rgba(0, 170, 255, 1);
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+}
+
+.screen .rectangle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #EDEDED;
+}
+
+.screen .brand-bold {
+    font-weight: 700;
+}
+
+.screen .view {
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1280px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.screen .aviro-airlines {
+    width: 132px;
+    height: 47px;
+    display: flex;
+}
+
+.screen .div {
+    flex: 1;
+    width: 165px;
+    font-family: "Ranga-Bold", Helvetica;
+    font-weight: 400;
+    color: var(--variable-collection-brand);
+    font-size: 40px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.screen .text-wrapper {
+    font-weight: 700;
+}
+
+.screen .span {
+    font-family: "Ranga-Regular", Helvetica;
+}
+
+.screen .close {
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.screen .view-2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 322px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    aspect-ratio: 1.24;
+}
+
+.screen .view-3 {
+    position: absolute;
+    top: 252px;
+    left: 40px;
+    width: 322px;
+    height: 48px;
+}
+
+.screen .view-4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 48px;
+    background-color: var(--variable-collection-brand);
+    border-radius: 10px;
+}
+
+.screen .text-wrapper-2 {
+    width: 13.04%;
+    height: 43.75%;
+    top: 27.08%;
+    left: 43.17%;
+    font-family: "Red Hat Display-Black", Helvetica;
+    font-weight: 900;
+    color: #ffffff;
+    font-size: 16px;
+    position: absolute;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.screen .view-5 {
+    position: absolute;
+    top: 179px;
+    left: 40px;
+    width: 322px;
+    height: 48px;
+}
+
+.screen .div-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 48px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: #00000080;
+}
+
+.screen .text-wrapper-3 {
+    width: 18.39%;
+    height: 43.33%;
+    top: 28.33%;
+    left: 7.45%;
+    font-family: "Red Hat Display-Regular", Helvetica;
+    font-weight: 400;
+    color: #8e8e8e99;
+    font-size: 16px;
+    position: absolute;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.screen .div-3 {
+    top: 112px;
+    left: 40px;
+    width: 322px;
+    position: absolute;
+    height: 48px;
+}
+
+.screen .text-wrapper-4 {
+    width: 37.76%;
+    height: 43.33%;
+    top: 28.33%;
+    left: 7.45%;
+    font-family: "Red Hat Display-Regular", Helvetica;
+    font-weight: 400;
+    color: #8e8e8e99;
+    font-size: 16px;
+    position: absolute;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.screen .view-6 {
+    position: absolute;
+    width: 52.60%;
+    height: 20.60%;
+    top: 6.45%;
+    left: 10.00%;
+}
+
+.screen .text-wrapper-5 {
+    width: 82.51%;
+    height: 25.30%;
+    top: 74.70%;
+    left: 0;
+    font-family: "Red Hat Display-Regular", Helvetica;
+    font-weight: 400;
+    color: #8e8e8e;
+    font-size: 12px;
+    position: absolute;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.screen .text-wrapper-6 {
+    width: 98.10%;
+    height: 50.60%;
+    top: 0;
+    left: 0;
+    font-family: "Red Hat Display-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #313131;
+    font-size: 24px;
+    position: absolute;
+    letter-spacing: 0;
+    line-height: normal;
+}
+/* Original CSS code should be injected here */
+
+.screen .close {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.screen .close img {
+    width: 50px;
+    height: 50px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+}
+
+.screen .login-form {
+    width: 100%;
+    height: 100%;
+}
+
+.screen .div-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 48px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: #00000080;
+    padding: 0 24px;
+    font-family: "Red Hat Display-Regular", Helvetica;
+    font-weight: 400;
+    font-size: 16px;
+    color: #313131;
+    outline: none;
+}
+
+.screen .div-2:focus {
+    border-color: var(--variable-collection-brand);
+    border-width: 2px;
+}
+
+.screen .div-3 label,
+.screen .view-5 label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    z-index: 1;
+}
+
+.screen .div-2:focus + label,
+.screen .div-2:not(:placeholder-shown) + label {
+    font-size: 12px;
+    top: -20px;
+    padding-left: 0;
+    color: #313131;
+}
+
+.screen .view-4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 48px;
+    background-color: var(--variable-collection-brand);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.screen .view-4:hover {
+    background-color: #0099e6;
+}
+
+.screen .view-4:active {
+    background-color: #0088cc;
+}
+
+.screen .view-4:focus {
+    outline: 2px solid #4a90e2;
+    outline-offset: 2px;
+}
