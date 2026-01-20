@@ -19,7 +19,7 @@ a {
 
 :root {
     --variable-collection: rgba(178, 189, 141, 0.2);
-    --variable-collection-brand: rgba(0, 170, 255, 1);
+    --variable-collection-brand: #00AAFF;
 }
 
 .screen {

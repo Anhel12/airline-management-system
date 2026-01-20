@@ -12,33 +12,36 @@
     <header class="view">
         <div class="aviro-airlines">
             <h1 class="div">
-                <span class="brand-bold">Aviro</span> Airlines
+               <a href="/home">
+                   <span class="brand-bold">Aviro</span> Airlines
+               </a>
             </h1>
         </div>
-        <button class="close" type="button" aria-label="Закрыть">
+        <a href="/home" class="close" aria-label="Закрыть">
             <img th:src="@{img/close.png}" alt="" />
-        </button>
+        </a>
     </header>
     <section class="view-2">
         <div class="view-6">
             <h2 class="text-wrapper-6">Вход в профиль</h2>
             <p class="text-wrapper-5">Введите телефон или почту</p>
         </div>
-        <form class="login-form" action="#" method="post">
+        <form class="login-form" th:action="@{/login}" method="POST">
             <div class="div-3">
-                <label for="phone-email" class="text-wrapper-4">Телефон/Почта</label>
+                <label for="username" class="text-wrapper-4"></label>
                 <input
                         type="text"
-                        id="phone-email"
-                        name="phone-email"
+                        id="username"
+                        name="username"
                         class="div-2"
                         required
                         aria-required="true"
                         autocomplete="username"
+                        placeholder="Телефон/Почта"
                 />
             </div>
             <div class="view-5">
-                <label for="password" class="text-wrapper-3">Пароль</label>
+                <label for="password" class="text-wrapper-3"></label>
                 <input
                         type="password"
                         id="password"
@@ -47,6 +50,7 @@
                         required
                         aria-required="true"
                         autocomplete="current-password"
+                        placeholder="Пароль"
                 />
             </div>
             <div class="view-3">

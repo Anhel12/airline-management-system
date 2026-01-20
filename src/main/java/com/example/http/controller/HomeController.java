@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
     @GetMapping("/home")
     public String home(){
-        return "home/home.html";
+        return "home/home";
+    }
+
+    @GetMapping("/home_registration")
+    public String home1(){
+        return "home/home_registration";
     }
 }
