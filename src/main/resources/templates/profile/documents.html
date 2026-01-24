@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
     <title>Aviro Airlines - Документы</title>
-    <link rel="stylesheet" href="styles/documents.css" />
+    <link rel="stylesheet" th:href="@{/styles/documents.css}" />
 </head>
 <body>
 <div class="element">
@@ -16,16 +16,16 @@
             </h1>
         </div>
         <nav class="div-wrapper">
-            <a href="#" class="text-wrapper-2">Нормы багажа</a>
+            <a th:href="@{/baggage}" class="text-wrapper-2">Нормы багажа</a>
         </nav>
     </header>
     <nav class="view-2" role="navigation" aria-label="Основная навигация">
-        <a href="#" class="div-2">
-            <img class="tickets" th:src="@{img/tickets.svg}" alt="" role="presentation" />
+        <a th:href="@{/profile/orders}" class="div-2">
+            <img class="tickets" th:src="@{/img/tickets.svg}" alt="" role="presentation" />
             <span class="text-wrapper-3">Мои заказы</span>
         </a>
-        <a href="#" class="div-3" aria-current="page">
-            <img class="documents" th:src="@{img/documents.svg}" alt="" role="presentation" />
+        <a th:href="@{/profile/documents}" class="div-3" aria-current="page">
+            <img class="documents" th:src="@{/img/documents.svg}" alt="" role="presentation" />
             <span class="text-wrapper-4">Документы</span>
         </a>
     </nav>
@@ -49,14 +49,14 @@
                     <legend class="visually-hidden">Пол</legend>
                     <div class="view-wrapper">
                         <label class="view-7">
-                            <img class="male"  th:src="@{img/male.svg}">
+                            <img class="male"  th:src="@{/img/male.svg}">
                             <label for="gender-male" class="text-wrapper-10">М</label>
                             <input type="radio" id="gender-male" name="gender" value="male" class="male" />
                         </label>
                     </div>
                     <div class="view-wrapper">
                         <label class="view-8">
-                            <img class="female" th:src="@{img/female.svg}">
+                            <img class="female" th:src="@{/img/female.svg}">
                             <label for="gender-female" class="text-wrapper-11">Ж</label>
                             <input type="radio" id="gender-female" name="gender" value="female" class="female" />
                         </label>
@@ -154,11 +154,11 @@
             </div>
             <div class="view-19">
                 <span class="text-wrapper-38" aria-label="Открыть чат">Чат</span>
-                <img class="chat" th:src="@{img/chat.svg}" alt="Иконка чата" />
+                <img class="chat" th:src="@{/img/chat.svg}" alt="Иконка чата" />
             </div>
             <div class="view-20">
                 <span class="text-wrapper-39" aria-label="Звонок онлайн">Звонок онлайн</span>
-                <img class="phone" th:src="@{img/phone.svg}" alt="Иконка телефона" />
+                <img class="phone" th:src="@{/img/phone.svg}" alt="Иконка телефона" />
             </div>
         </section>
     </div>

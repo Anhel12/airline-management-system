@@ -15,7 +15,7 @@ import java.util.List;
 @Builder
 public record BookingCreateEditDto(
 
-        @UniqueElements
+
         @NotBlank
         String bookingNumber,
 

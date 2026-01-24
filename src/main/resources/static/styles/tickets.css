@@ -23,8 +23,7 @@ a {
 }
 
 :root {
-    --variable-collection: rgba(178, 189, 141, 0.2);
-    --variable-collection-brand: rgba(0, 170, 255, 1);
+    --variable-collection-brand: #00AAFF;
 }
 
 .screen {
@@ -320,7 +319,14 @@ a {
     display: flex;
 }
 
+.aviro-airlines .account {
+    position: absolute;
+    width: 40px;
+    top: -1px;
+}
+
 .screen .text-wrapper-9 {
+    position: absolute;
     flex: 1;
     width: 45px;
     font-family: "Red Hat Display-SemiBold", Helvetica;

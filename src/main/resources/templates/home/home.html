@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
     <title>Aviro Airlines - Покупка авиабилета</title>
-    <link rel="stylesheet" href="styles/home.css" />
+    <link rel="stylesheet" th:href="@{/styles/home.css}" />
 </head>
 <body>
 <main class="aviro-airlines">
@@ -13,19 +15,22 @@
         <p class="div">- НАШ ПРИОРИТЕТ</p>
     </section>
     <nav class="text-wrapper-2" aria-label="Дополнительная навигация">
-        <a href="#ticket-management">Управление билетом</a>
+        <a>Управление билетом</a>
     </nav>
     <header class="view-2">
         <div class="aviro-airlines-wrapper">
-            <a href="/home" class="p" aria-label="Aviro Airlines - Главная страница">
+            <a th:href="@{/home}" class="p" aria-label="Aviro Airlines - Главная страница">
                 <span class="brand-title"><b>Aviro</b> Airlines</span>
             </a>
         </div>
         <nav class="div-wrapper" aria-label="Основная навигация">
-            <a href="/baggage" class="text-wrapper-4">Нормы багажа</a>
+            <a th:href="@{/baggage}" class="text-wrapper-4">Нормы багажа</a>
         </nav>
         <div class="view-3">
-            <a href="/login" class="text-wrapper-5">Вход</a>
+            <a sec:authorize="isAnonymous()" th:href="@{/login}" class="text-wrapper-5">Вход</a>
+            <a sec:authorize="isAuthenticated()" th:href="@{/profile/orders}">
+                <img th:src="@{/img/account.svg}" alt="account-photo" class="account">
+            </a>
         </div>
     </header>
     <section class="view-4" aria-label="Форма поиска билетов">
@@ -79,7 +84,7 @@
             </div>
             <img
                     class="swap"
-                    th:src="@{img/swap2.png}"
+                    th:src="@{/img/swap2.png}"
                     alt="Иконка обмена направлений"
                     role="button"
                     tabindex="0"
@@ -88,7 +93,7 @@
         </form>
     </section>
     <nav class="text-wrapper-12" aria-label="Регистрация на рейс">
-        <a href="/home_registration">Регистрация на рейс</a>
+        <a th:href="@{/home_registration}">Регистрация на рейс</a>
     </nav>
     <nav class="text-wrapper-13" aria-label="Статус рейса">
         <span>Статус рейса</span>
@@ -148,11 +153,11 @@
             </div>
             <div class="view-19">
                 <span class="text-wrapper-38" aria-label="Открыть чат">Чат</span>
-                <img class="chat" th:src="@{img/chat.svg}" alt="Иконка чата" />
+                <img class="chat" th:src="@{/img/chat.svg}" alt="Иконка чата" />
             </div>
             <div class="view-20">
                 <span class="text-wrapper-39" aria-label="Звонок онлайн">Звонок онлайн</span>
-                <img class="phone" th:src="@{img/phone.svg}" alt="Иконка телефона" />
+                <img class="phone" th:src="@{/img/phone.svg}" alt="Иконка телефона" />
             </div>
         </section>
     </div>

@@ -10,16 +10,20 @@ import com.example.mapper.BookingCreateEditMapper;
 import com.example.mapper.PassengerCreateEditMapper;
 import com.example.mapper.PassengerReadMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class PassengerService {
+public class PassengerService implements UserDetailsService {
     private final PassengerRepository passengerRepository;
     private final PassengerReadMapper passengerReadMapper;
     private final PassengerCreateEditMapper passengerCreateEditMapper;
@@ -70,4 +74,22 @@ public class PassengerService {
                 .orElse(false);
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return passengerRepository.findByEmail(email)
+                .map(passenger -> new org.springframework.security.core.userdetails.User(
+                        passenger.getEmail(),
+                        passenger.getPassword(),
+                        Collections.singleton(passenger.getRole())
+                ))
+                .orElseThrow(() -> new UsernameNotFoundException("failed to retrive user .." + email));
+    }
+
+    public boolean existByEmail(String email){
+        return passengerRepository.findByEmail(email)
+                .map(entity -> {
+                     return true;
+                })
+                .orElse(false);
+    }
 }

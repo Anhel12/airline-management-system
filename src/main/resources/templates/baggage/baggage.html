@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
     <title>Aviro Airlines - Норма провоза багажа</title>
-    <link rel="stylesheet" href="styles/baggage.css" />
+    <link rel="stylesheet" th:href="@{/styles/baggage.css}" />
 </head>
 <body>
 <main class="aviro-airlines">
     <header class="view">
         <div class="aviro-airlines-wrapper">
-            <a href="/home">
+            <a th:href="@{/home}">
                 <h1 class="div"><b>Aviro</b> Airlines</h1>
             </a>
         </div>
-        <nav class="div-wrapper">
-            <a href="/login" class="text-wrapper-2">Вход</a>
-        </nav>
+        <div class="div-wrapper">
+            <a sec:authorize="isAnonymous()" th:href="@{/login}" class="text-wrapper-2">Вход</a>
+            <a sec:authorize="isAuthenticated()" th:href="@{/profile/orders}">
+                <img th:src="@{/img/account.svg}" alt="account-photo" class="account">
+            </a>
+        </div>
     </header>
     <section class="view-2">
-        <img class="photo-title" th:src="@{img/photo-title.png}" />
+        <img class="photo-title" th:src="@{/img/photo-title.png}" />
     </section>
     <section class="p">Параметры, определяющие норму<br />бесплатного провоза багажа</section>
     <section class="element-2">
@@ -31,11 +36,11 @@
         <details class="baggage-details">
             <summary class="group">
                 <h3 class="text-wrapper-6">Ручная кладь</h3>
-                <img class="add" th:src="@{img/add.png}" alt="Развернуть" />
+                <img class="add" th:src="@{/img/add.png}" alt="Развернуть" />
             </summary>
             <div class="rectangle">
                 <div class="view-4">
-                    <img class="img" th:src="@{img/baggage.png}" alt="Ручная кладь" />
+                    <img class="img" th:src="@{/img/baggage.png}" alt="Ручная кладь" />
                 </div>
                 <p class="text-wrapper-5">
                     Бывает 2 видов: 5 и 10 кг. В тарифах «Минимум» и «Оптимум» предусмотрено 1 место ручной клади до 5 кг
@@ -48,11 +53,11 @@
         <details class="baggage-details">
             <summary class="group-2">
                 <h3 class="text-wrapper-7">Ручная кладь +</h3>
-                <img class="add" th:src="@{img/add.png}" alt="Развернуть" />
+                <img class="add" th:src="@{/img/add.png}" alt="Развернуть" />
             </summary>
             <div class="rectangle">
                 <div class="view-4">
-                    <img class="element-3" th:src="@{img/baggage2.png}" alt="Ручная кладь плюс" />
+                    <img class="element-3" th:src="@{/img/baggage2.png}" alt="Ручная кладь плюс" />
                 </div>
                 <p class="text-wrapper-5">
                     В услугу «Ручная кладь+» входит одно место весом до 10 кг и габаритами 85×40×25 см.
@@ -64,11 +69,11 @@
         <details class="baggage-details">
             <summary class="group-3">
                 <h3 class="text-wrapper-9">Багаж сверх нормы</h3>
-                <img class="add" th:src="@{img/add.png}" alt="Развернуть" />
+                <img class="add" th:src="@{/img/add.png}" alt="Развернуть" />
             </summary>
             <div class="rectangle-2">
                 <div class="view-5">
-                    <img class="element-4" th:src="@{img/baggage3.png}" alt="Багаж сверх нормы изображение 1" />
+                    <img class="element-4" th:src="@{/img/baggage3.png}" alt="Багаж сверх нормы изображение 1" />
                 </div>
                 <div class="view-6">
                     <img class="element-5" th:src="@{img/baggage4.png}" alt="Багаж сверх нормы изображение 2" />
@@ -85,11 +90,11 @@
         <details class="baggage-details">
             <summary class="group-4">
                 <h3 class="text-wrapper-10">Спортинвентарь</h3>
-                <img class="add" th:src="@{img/add.png}" alt="Развернуть" />
+                <img class="add" th:src="@{/img/add.png}" alt="Развернуть" />
             </summary>
             <div class="rectangle">
                 <div class="view-4">
-                    <img class="image" th:src="@{img/baggage5.png}" alt="Спортинвентарь" />
+                    <img class="image" th:src="@{/img/baggage5.png}" alt="Спортинвентарь" />
                 </div>
                 <p class="text-wrapper-5">
                     Комплект спортивного снаряжения общим весом не более 20 кг потребуется оплатить при путешествии с тарифом
@@ -102,14 +107,14 @@
         <details class="baggage-details">
             <summary class="group">
                 <h3 class="text-wrapper-6">Питомцы</h3>
-                <img class="add" th:src="@{img/add.png}" alt="Развернуть" />
+                <img class="add" th:src="@{/img/add.png}" alt="Развернуть" />
             </summary>
             <div class="rectangle-3">
                 <div class="view-7">
-                    <img class="image-2" th:src="@{img/baggage6.png}" alt="Питомцы изображение 1" />
+                    <img class="image-2" th:src="@{/img/baggage6.png}" alt="Питомцы изображение 1" />
                 </div>
                 <div class="view-8">
-                    <img class="image-3" th:src="@{img/baggage7.png}" alt="Питомцы изображение 2" />
+                    <img class="image-3" th:src="@{/img/baggage7.png}" alt="Питомцы изображение 2" />
                 </div>
                 <p class="element-6">
                     Бывает 2 видов: 5 и 10 кг. В тарифах «Минимум» и «Оптимум» предусмотрено 1 место ручной клади до 5 кг
@@ -169,11 +174,11 @@
             </div>
             <div class="view-19">
                 <span class="text-wrapper-38" aria-label="Открыть чат">Чат</span>
-                <img class="chat" th:src="@{img/chat.svg}" alt="Иконка чата" />
+                <img class="chat" th:src="@{/img/chat.svg}" alt="Иконка чата" />
             </div>
             <div class="view-20">
                 <span class="text-wrapper-39" aria-label="Звонок онлайн">Звонок онлайн</span>
-                <img class="phone" th:src="@{img/phone.svg}" alt="Иконка телефона" />
+                <img class="phone" th:src="@{/img/phone.svg}" alt="Иконка телефона" />
             </div>
         </section>
     </div>

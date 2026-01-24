@@ -104,15 +104,15 @@ a {
     height: 48px;
 }
 
-.screen .registration {
+.screen .login {
     position: absolute;
     top: 290px;
-    left: 14px;
+    left: 40px;
     width: 322px;
     height: 48px;
 }
 
-.screen .text-wrapper-reg {
+.screen .text-wrapper-log {
     width: 13.04%;
     height: 43.75%;
     top: 27.08%;
@@ -129,6 +129,22 @@ a {
     text-underline-position: under;
 }
 
+.screen .error {
+    width: 82.51%;
+    height: 25.30%;
+    top: 90%;
+    left: 0;
+    font-family: "Red Hat Display-Regular", Helvetica;
+    font-weight: 500;
+    color: red;
+    font-size: 13px;
+    position: absolute;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+
+}
+
 .screen .view-4 {
     position: absolute;
     top: 0;
@@ -143,7 +159,7 @@ a {
     width: 13.04%;
     height: 43.75%;
     top: 27.08%;
-    left: 43.17%;
+    left: 32%;
     font-family: "Red Hat Display-Black", Helvetica;
     font-weight: 900;
     color: #ffffff;
@@ -217,22 +233,6 @@ a {
     left: 10.00%;
 }
 
-.screen .error {
-    width: 82.51%;
-    height: 25.30%;
-    top: 90%;
-    left: 0;
-    font-family: "Red Hat Display-Regular", Helvetica;
-    font-weight: 500;
-    color: red;
-    font-size: 13px;
-    position: absolute;
-    letter-spacing: 0;
-    line-height: normal;
-    white-space: nowrap;
-
-}
-
 .screen .text-wrapper-5 {
     width: 82.51%;
     height: 25.30%;
@@ -260,6 +260,7 @@ a {
     position: absolute;
     letter-spacing: 0;
     line-height: normal;
+    white-space: nowrap;
 }
 /* Original CSS code should be injected here */
 

@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
     <title>Aviro Airlines - Вход в профиль</title>
-    <link rel="stylesheet" th:href="@{/styles/login.css}" />
+    <link rel="stylesheet" th:href="@{/styles/signup.css}" />
 </head>
 <body>
 <main class="screen">
@@ -12,9 +12,9 @@
     <header class="view">
         <div class="aviro-airlines">
             <h1 class="div">
-               <a th:href="@{/home}" class="div">
-                   <span class="brand-bold">Aviro</span> Airlines
-               </a>
+                <a th:href="@{/home}" class="div">
+                    <span class="brand-bold">Aviro</span> Airlines
+                </a>
             </h1>
         </div>
         <a th:href="@{/home}" class="close" aria-label="Закрыть">
@@ -23,13 +23,16 @@
     </header>
     <section class="view-2">
         <div class="view-6">
-            <h2 class="text-wrapper-6">Вход в профиль</h2>
-            <p class="text-wrapper-5">Для входа введите почту и пароль</p>
-            <div class="error" th:if="${param.error}">
-                <p style="color: red" >Не правильный логин или пароль</p>
+            <h2 class="text-wrapper-6">Регистрация профиля</h2>
+            <p class="text-wrapper-5">Для регистрации введите почту и пароль</p>
+            <div class="error" th:if="${errors}">
+                <p style="color: red" th:each="error: ${errors}" th:text="${error.defaultMessage}">Error Message</p>
+            </div>
+            <div class="error" th:if="${email}">
+                <p style="color: red" th:text="${email}">Error Message</p>
             </div>
         </div>
-        <form class="login-form" th:action="@{/login}" method="POST">
+        <form class="login-form" th:action="@{/signup}" method="POST" th:object="${passenger}">
             <div class="div-3">
                 <label for="email" class="text-wrapper-4"></label>
                 <input
@@ -41,6 +44,7 @@
                         aria-required="true"
                         autocomplete="email"
                         placeholder="Почта"
+                        th:value="*{email}"
                 />
             </div>
             <div class="view-5">
@@ -54,15 +58,16 @@
                         aria-required="true"
                         autocomplete="password"
                         placeholder="Пароль"
+                        th:value="*{password}"
                 />
             </div>
             <div class="view-3">
                 <button type="submit" class="view-4">
-                    <span class="text-wrapper-2">Вход</span>
+                    <span class="text-wrapper-2">Регистрация</span>
                 </button>
             </div>
-            <div class="registration">
-                    <a th:href="@{/signup}" class="text-wrapper-reg">Регистрация</a>
+            <div class="login">
+                <a th:href="@{/login}" class="text-wrapper-log">Вход</a>
             </div>
         </form>
     </section>

@@ -5,6 +5,7 @@ import com.example.database.entity.BookingSeat;
 import com.example.database.entity.Passenger;
 import com.example.dto.PassengerCreateEditDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -13,6 +14,8 @@ import java.util.Optional;
 @Component
 @RequiredArgsConstructor
 public class PassengerCreateEditMapper implements Mapper<PassengerCreateEditDto, Passenger> {
+    private final PasswordEncoder passwordEncoder;
+
     @Override
     public Passenger map(PassengerCreateEditDto object) {
         Passenger passenger = new Passenger();
@@ -27,14 +30,15 @@ public class PassengerCreateEditMapper implements Mapper<PassengerCreateEditDto,
     }
 
     private void copy(PassengerCreateEditDto fromObject, Passenger toObject) {
-        toObject.setEmail(fromObject.email());
-        toObject.setPhoneNumber(fromObject.phoneNumber());
-        toObject.setPassportNumber(fromObject.passportNumber());
-        toObject.setBirthDate(fromObject.birthDate());
-        toObject.setFirstName(fromObject.firstName());
-        toObject.setMiddleName(fromObject.middleName());
-        toObject.setLastName(fromObject.lastName());
-        toObject.setSex(fromObject.sex());
-        toObject.setRole(fromObject.role());
+        toObject.setEmail(fromObject.getEmail());
+        toObject.setPhoneNumber(fromObject.getPhoneNumber());
+        toObject.setPassportNumber(fromObject.getPassportNumber());
+        toObject.setBirthDate(fromObject.getBirthDate());
+        toObject.setFirstName(fromObject.getFirstName());
+        toObject.setMiddleName(fromObject.getMiddleName());
+        toObject.setLastName(fromObject.getLastName());
+        toObject.setSex(fromObject.getSex());
+        toObject.setRole(fromObject.getRole());
+        toObject.setPassword(passwordEncoder.encode(fromObject.getPassword()));
     }
 }

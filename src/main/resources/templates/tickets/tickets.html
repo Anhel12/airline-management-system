@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
     <title>Aviro Airlines - Поиск авиабилетов</title>
-    <link rel="stylesheet" href="styles/tickets.css" />
+    <link rel="stylesheet" th:href="@{/styles/tickets.css}" />
 </head>
 <body>
 <div class="screen">
@@ -72,28 +74,35 @@
 
                 <img
                         class="image"
-                        th:src="@{img/swap2.png}"
+                        th:src="@{/img/swap2.png}"
                         alt="Поменять направления"
                 />
             </form>
         </nav>
         <div class="view-8">
             <div class="aviro-airlines">
-                <h1 class="p"><span class="brand-bold">Aviro </span>Airlines</h1>
+                <h1 class="p">
+                    <a th:href="@{/home}">
+                    <span class="brand-bold">Aviro </span>Airlines
+                    </a>
+                </h1>
             </div>
             <nav class="div-wrapper" aria-label="Дополнительная навигация">
-                <a href="#" class="text-wrapper-8">Нормы багажа</a>
+                <a th:href="@{/baggage}" class="text-wrapper-8">Нормы багажа</a>
             </nav>
             <div class="view-9">
-                <a href="#" class="text-wrapper-9">Вход</a>
+                <a sec:authorize="isAnonymous()" th:href="@{/login}" class="text-wrapper-9">Вход</a>
+                <a sec:authorize="isAuthenticated()" th:href="@{/profile/orders}">
+                    <img th:src="@{/img/account.svg}" alt="account-photo" class="account">
+                </a>
             </div>
         </div>
         <section class="view-10" aria-label="Информация о поиске">
             <span class="text-wrapper-10">07 Нояб</span>
             <span class="text-wrapper-11">Сургут - Москва</span>
             <span class="text-wrapper-12">1 пассажир</span>
-            <img class="free-icon-full-stop" th:src="@{img/dot.svg}" alt="" aria-hidden="true" />
-            <img class="img" th:src="@{img/dot.svg}" alt="" aria-hidden="true" />
+            <img class="free-icon-full-stop" th:src="@{/img/dot.svg}" alt="" aria-hidden="true" />
+            <img class="img" th:src="@{/img/dot.svg}" alt="" aria-hidden="true" />
         </section>
     </header>
     <main class="view-11">
@@ -108,10 +117,10 @@
         <nav class="navbar" aria-label="Выбор даты">
             <div class="view-15"></div>
             <button type="button" class="free-icon-right" aria-label="Следующая неделя">
-                <img th:src="@{img/right-arrow-line.svg}" alt="" />
+                <img th:src="@{/img/right-arrow-line.svg}" alt="" />
             </button>
             <button type="button" class="free-icon-left-arrow" aria-label="Предыдущая неделя">
-                <img th:src="@{img/left-arrow-line.svg}" alt="" />
+                <img th:src="@{/img/left-arrow-line.svg}" alt="" />
             </button>
             <button type="button" class="text-wrapper-15">Чт 06 Нояб</button>
             <button type="button" class="text-wrapper-16">Вт 04 Нояб</button>

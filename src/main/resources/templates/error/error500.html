@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
     <title>Aviro Airlines - Поиск авиабилетов</title>
-    <link rel="stylesheet" href="styles/error500.css" />
+    <link rel="stylesheet" th:href="@{/styles/error500.css}" />
 </head>
 <body>
 <div class="div">
-    <img class="img" alt="error500.png" th:src="@{img/error-500.png}">
+    <img class="img" alt="error500.png" th:src="@{/img/error-500.png}">
 </div>
 </body>
 </html>

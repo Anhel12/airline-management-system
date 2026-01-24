@@ -26,19 +26,19 @@ public class Passenger {
     @Column(name = "phone_number",unique = true)
     private String phoneNumber;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(name = "passport_number", nullable = false, unique = true)
+    @Column(name = "passport_number", unique = true)
     private String passportNumber;
 
-    @Column(name = "date_of_birth", nullable = false)
+    @Column(name = "date_of_birth")
     private LocalDate birthDate;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "middle_name", nullable = false)
+    @Column(name = "middle_name")
     private String middleName;
 
     @Column(name = "last_name")
@@ -51,6 +51,8 @@ public class Passenger {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
+
+    private String password;
 
     @ToString.Exclude
     @Builder.Default
