@@ -10,11 +10,11 @@ body {
 }
 
 body {
-    background-color: #8F8F8F;
+    background-color: #EDEDED;
     display: flex;
     flex-direction: column;
 }
-/* a blue color as a generic focus style */
+
 button:focus-visible {
     outline: 2px solid #4a90e2 !important;
     outline: -webkit-focus-ring-color auto 5px !important;
@@ -254,11 +254,6 @@ a {
     background-color: #00a3e6;
 }
 
-.screen .view-4:focus {
-    outline: 2px solid #ffffff;
-    border-radius: 10px;
-}
-
 .screen .rectangle-3 {
     position: absolute;
     top: 0;
@@ -297,11 +292,6 @@ a {
 
 .screen .view-5:hover .rectangle-4 {
     background-color: #6a6a6a;
-}
-
-.screen .view-5:focus {
-    outline: 2px solid var(--variable-collection-brand);
-    border-radius: 10px;
 }
 
 .screen .rectangle-4 {
@@ -353,7 +343,7 @@ a {
     left: 0;
     font-family: "Red Hat Display-Bold", Helvetica;
     font-weight: 700;
-    color: #ffffffe6;
+    color: #313131;
     font-size: 16px;
     text-align: center;
     letter-spacing: 0;
@@ -369,11 +359,73 @@ a {
     left: 19.19%;
     font-family: "Red Hat Display-Bold", Helvetica;
     font-weight: 700;
-    color: #ffffff;
+    color: #313131;
     font-size: 24px;
     letter-spacing: 0;
     line-height: normal;
     margin: 0;
+}
+
+.order-card {
+    position: absolute;
+    top: 286px;
+    left: 400px;
+    width: 930px;
+    height: 90px;
+
+    background-color: #767676;
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 20px;
+    box-sizing: border-box;
+
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+}
+
+/* Левая часть */
+.order-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.order-route {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.order-info {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Правая часть */
+.order-right {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.order-badge,
+.order-price {
+    height: 30px;
+    width: 140px;
+    background-color: var(--variable-collection-brand);
+    color: #ffffff;
+
+    padding: 6px 14px;
+    border-radius: 14px;
+
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .screen .text-wrapper-8 {
@@ -384,7 +436,7 @@ a {
     left: 27.03%;
     font-family: "Red Hat Display-Bold", Helvetica;
     font-weight: 700;
-    color: #ffffff;
+    color: #313131;
     font-size: 32px;
     letter-spacing: 0;
     line-height: normal;
@@ -405,7 +457,7 @@ footer {
     height: 327px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-color: #8F8F8F;
+    background-color: #EDEDED;
 }
 
 .view-12 {

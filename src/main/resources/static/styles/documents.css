@@ -10,7 +10,7 @@ body {
 }
 
 body {
-    background-color: #8F8F8F;
+    background-color: #EDEDED;
     display: flex;
     flex-direction: column;
 }
@@ -462,7 +462,7 @@ a {
     left: 0;
     font-family: "Red Hat Display-Bold", Helvetica;
     font-weight: 700;
-    color: #ffffff;
+    color: #313131;
     font-size: 32px;
     position: absolute;
     letter-spacing: 0;
@@ -668,7 +668,7 @@ footer {
     height: 327px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-color: #8F8F8F;
+    background-color: #EDEDED;
 }
 
 .view-12 {

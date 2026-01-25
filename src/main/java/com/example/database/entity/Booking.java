@@ -38,6 +38,9 @@ public class Booking {
     @Column(nullable = false)
     private Status status;
 
+    @Column(name = "number_of_passenger", nullable = false)
+    private Integer numberOfPassenger;
+
     @ToString.Exclude
     @Builder.Default
     @OneToMany(mappedBy = "booking", cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, orphanRemoval = true, fetch = FetchType.LAZY)

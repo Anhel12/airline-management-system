@@ -12,25 +12,4 @@ import java.util.Optional;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long> {
-
-    @Query("SELECT DISTINCT b FROM Booking b " +
-            "LEFT JOIN FETCH b.flight f " +
-            "LEFT JOIN FETCH f.departureAirport " +
-            "LEFT JOIN FETCH f.arrivalAirport " +
-            "LEFT JOIN FETCH b.bookingSeatList bs " +
-            "LEFT JOIN FETCH bs.seat s " +
-            "LEFT JOIN FETCH s.seatClass " +
-            "LEFT JOIN FETCH s.aircraft")
-    List<Booking> findAll();
-
-    @Query("SELECT DISTINCT b FROM Booking b " +
-            "LEFT JOIN FETCH b.flight f " +
-            "LEFT JOIN FETCH f.departureAirport " +
-            "LEFT JOIN FETCH f.arrivalAirport " +
-            "LEFT JOIN FETCH b.bookingSeatList bs " +
-            "LEFT JOIN FETCH bs.seat s " +
-            "LEFT JOIN FETCH s.seatClass " +
-            "LEFT JOIN FETCH s.aircraft " +
-            "WHERE b.id = :id")
-    Optional<Booking> findById(Long id);
 }
