@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
 }
-/* a blue color as a generic focus style */
+
 button:focus-visible {
     outline: 2px solid #4a90e2 !important;
     outline: -webkit-focus-ring-color auto 5px !important;
@@ -27,13 +27,23 @@ a {
     --variable-collection-brand: #00AAFF;
 }
 
-.screen {
-    min-width: 1480px;
-    min-height: 1200px;
+.page-content {
     flex: 1;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.screen {
+    width: 1480px;
+    min-height: 100%;
+
     position: relative;
     margin: 0 auto;
-    justify-content: center;
+
+    flex: 1;
+
 }
 
 .screen .span {
@@ -371,11 +381,14 @@ a {
     line-height: normal;
     margin: 0;
 }
-
+.order {
+    margin-top: 286px;
+    margin-left: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .order-card {
-    position: absolute;
-    top: 286px;
-    left: 400px;
     width: 930px;
     height: 90px;
 
@@ -438,7 +451,7 @@ a {
     position: absolute;
     width: 13.58%;
     height: 3.50%;
-    top: 11.33%;
+    top: 1.8%;
     left: 27.03%;
     font-family: "Red Hat Display-Bold", Helvetica;
     font-weight: 700;
@@ -464,6 +477,8 @@ footer {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: #EDEDED;
+
+    margin-top: 20px;
 }
 
 .view-12 {

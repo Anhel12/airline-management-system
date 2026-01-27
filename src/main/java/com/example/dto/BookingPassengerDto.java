@@ -14,8 +14,8 @@ public record BookingPassengerDto (
         Integer totalAmount,
         Status status,
         Integer numberOfPassengers,
-        LocalDateTime departureDateTime,
-        LocalDateTime arrivalDateTime,
+        String departureDateTime,
+        String arrivalDateTime,
         String departureCity,
         String arrivalCity
 ){}

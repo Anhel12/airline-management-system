@@ -38,7 +38,7 @@ public class Booking {
     @Column(nullable = false)
     private Status status;
 
-    @Column(name = "number_of_passenger", nullable = false)
+    @Column(name = "number_of_passengers", nullable = false)
     private Integer numberOfPassenger;
 
     @ToString.Exclude

@@ -12,18 +12,18 @@ import java.util.List;
 public interface BookingPassengerRepository extends JpaRepository<BookingPassenger, Long> {
 
     @Query("SELECT DISTINCT b FROM BookingPassenger bp " +
-            "LEFT JOIN FETCH bp.booking b " +
+            "JOIN bp.booking b " +
             "LEFT JOIN FETCH b.flight f " +
             "LEFT JOIN FETCH f.departureAirport " +
             "LEFT JOIN FETCH f.arrivalAirport " +
-            "WHERE b.status = 'CONFIRMED' AND bp.passenger.email = :email")
+            "WHERE bp.passenger.email = :email AND b.status = 'CONFIRMED'")
     List<Booking> findFullActiveBookingByPassengerEmail(String email);
 
     @Query("SELECT DISTINCT b FROM BookingPassenger bp " +
-            "LEFT JOIN FETCH bp.booking b " +
+            "JOIN bp.booking b " +
             "LEFT JOIN FETCH b.flight f " +
             "LEFT JOIN FETCH f.departureAirport " +
             "LEFT JOIN FETCH f.arrivalAirport " +
-            "WHERE b.status = 'COMPLETED' OR b.status = 'CANCELED' AND bp.passenger.email = :email")
+            "WHERE bp.passenger.email = :email AND b.status IN ('COMPLETED', 'CANCELED')")
     List<Booking> findFullArchiveBookingByPassengerEmail(String email);
 }

@@ -7,62 +7,82 @@
     <link rel="stylesheet" th:href="@{/styles/archive_orders.css}" />
 </head>
 <body>
-<div class="screen">
-    <header class="view">
-        <div class="aviro-airlines">
-            <h1 class="div">
-                <span class="brand-bold">Aviro</span> Airlines
-            </h1>
-        </div>
-        <nav class="div-wrapper">
-            <a th:href="@{/baggage}" class="text-wrapper-2">Нормы багажа</a>
+<main class="page-content">
+    <div class="screen">
+        <header class="view">
+            <div class="aviro-airlines">
+                <h1 class="div">
+                    <span class="brand-bold">Aviro</span> Airlines
+                </h1>
+            </div>
+            <nav class="div-wrapper">
+                <a th:href="@{/baggage}" class="text-wrapper-2">Нормы багажа</a>
+            </nav>
+        </header>
+        <nav class="view-2" role="navigation" aria-label="Основная навигация">
+            <a th:href="@{/profile/orders}" class="element" aria-current="page">
+                <img class="tickets" th:src="@{/img/tickets.svg}" alt="" role="presentation" />
+                <span class="text-wrapper-3">Мои заказы</span>
+            </a>
+            <a th:href="@{/profile/documents}" class="element-2">
+                <img class="documents" th:src="@{/img/documents.svg}" alt="" role="presentation" />
+                <span class="text-wrapper-4">Документы</span>
+            </a>
         </nav>
-    </header>
-    <nav class="view-2" role="navigation" aria-label="Основная навигация">
-        <a th:href="@{/profile/orders}" class="element" aria-current="page">
-            <img class="tickets" th:src="@{/img/tickets.svg}" alt="" role="presentation" />
-            <span class="text-wrapper-3">Мои заказы</span>
-        </a>
-        <a th:href="@{/profile/documents}" class="element-2">
-            <img class="documents" th:src="@{/img/documents.svg}" alt="" role="presentation" />
-            <span class="text-wrapper-4">Документы</span>
-        </a>
-    </nav>
-    <div class="view-3" role="tablist" aria-label="Фильтр заказов">
-        <button class="view-4" role="tab" aria-controls="active-orders">
-            <a th:href="@{/profile/orders}">
-                <div class="rectangle-3"></div>
-                <span class="text-wrapper-5">Активные</span>
-            </a>
-        </button>
-        <button class="view-5" role="tab" aria-controls="archive-orders">
-            <a th:href="@{/profile/archive}">
-                <div class="rectangle-4"></div>
-                <span class="text-wrapper-6">Архив</span>
-            </a>
-        </button>
-    </div>
-    <div class="order-card">
-        <div class="order-left">
-            <div class="order-route">Сургут – Тюмень</div>
-            <div class="order-info">25 февраля 2026 · 1 пассажир</div>
+        <div class="view-3" role="tablist" aria-label="Фильтр заказов">
+            <button class="view-4" role="tab" aria-controls="active-orders">
+                <a th:href="@{/profile/orders}">
+                    <div class="rectangle-3"></div>
+                    <span class="text-wrapper-5">Активные</span>
+                </a>
+            </button>
+            <button class="view-5" role="tab" aria-controls="archive-orders">
+                <a th:href="@{/profile/archive}">
+                    <div class="rectangle-4"></div>
+                    <span class="text-wrapper-6">Архив</span>
+                </a>
+            </button>
         </div>
+        <div th:if="${!archiveBookings.isEmpty()}" class="order">
+            <div th:each="archiveBooking: ${archiveBookings}" class="order-card">
+                <div class="order-left">
+                    <div class="order-route">
+                        <span th:text="${archiveBooking.departureCity()}">departureCity</span> – <span th:text="${archiveBooking.arrivalCity()}">arrivalCity</span>
+                    </div>
+                    <div class="order-info">
+                        <span th:text="${archiveBooking.departureDateTime()}">departureDateTime</span> ·
+                        <span th:text="${archiveBooking.numberOfPassengers()}">numberOfPassenger</span>
+                        <span th:switch="${archiveBooking.numberOfPassengers()}">
+                            <span th:case="1" th:text="пассажир"></span>
+                            <span th:case="1 < ${archiveBooking.numberOfPassengers()} < 5" th:text="пассажира"></span>
+                            <span th:case="4 < ${archiveBooking.numberOfPassengers()} < 10" th:text="пассажиров"></span>
+                        </span>
+                    </div>
+                </div>
 
-        <div class="order-right">
-            <div class="order-badge">Завершен</div>
+                <div class="order-right">
+                    <div class="order-badge">
+                        <span th:if="${archiveBooking.status.name() == 'COMPLETED'}">Завершено</span>
+                        <span th:if="${archiveBooking.status.name() == 'CANCELED'}">Отменено</span>
+                    </div>
 
-            <div class="order-price">11000 рублей</div>
+                    <div class="order-price">
+                        <span th:text="${archiveBooking.totalAmount()}">totalAmount</span>
+                        <span> рублей</span>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div th:if="${archiveBookings.isEmpty()}" class="view-6" role="main" id="active-orders" aria-labelledby="page-title">
+            <img class="eyes" th:src="@{/img/eyes.svg}" alt="" role="presentation" />
+            <p class="element-3">
+                Здесь будут все завершенные и отменённые заказы
+            </p>
+            <h2 class="text-wrapper-7">Архивных заказов пока нет</h2>
+        </div>
+        <h1 class="text-wrapper-8" id="page-title">Мои заказы</h1>
     </div>
-    <main class="view-6" role="main" id="active-orders" aria-labelledby="page-title">
-        <img class="eyes" th:src="@{/img/eyes.svg}" alt="" role="presentation" />
-        <p class="element-3">
-            Здесь будут все завершенные и отменённые заказы
-        </p>
-        <h2 class="text-wrapper-7">Архивных заказов пока нет</h2>
-    </main>
-    <h1 class="text-wrapper-8" id="page-title">Мои заказы</h1>
-</div>
+</main>
 <footer class="footer">
     <div class="footer-rectangle">
         <div class="view-12">
