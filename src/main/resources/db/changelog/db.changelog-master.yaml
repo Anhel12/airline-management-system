@@ -27,3 +27,5 @@ databaseChangeLog:
         file: db/changelog/db.changelog-4.7.sql
     - include:
         file: db/changelog/db.changelog-4.8.sql
+    - include:
+        file: db/changelog/db.changelog-4.9.sql

@@ -125,6 +125,10 @@ a {
     border-radius: 10px;
 }
 
+.element .div-2:hover {
+    background-color: #6a6a6a;
+}
+
 .element .tickets {
     position: absolute;
     width: 15.00%;
@@ -248,16 +252,16 @@ a {
     left: 0;
     background-color: #757575;
     border-radius: 10px;
-    border: 1px solid;
-    border-color: #a4a4a4;
+    border: 1px solid #a4a4a4;
 }
 
 .element .text-wrapper-13 {
     position: absolute;
-    width: 48.65%;
-    height: 42.00%;
-    top: 27.00%;
-    left: 9.93%;
+    width: 99%;
+    height: 99%;
+    border-radius: 10px;
+    padding: 0 25px;
+
     font-family: "Red Hat Display-SemiBold", Helvetica;
     font-weight: 500;
     font-size: 16px;
@@ -641,13 +645,6 @@ a {
 
 .view a:hover {
     opacity: 0.8;
-}
-
-input:focus,
-select:focus,
-button:focus {
-    outline: 2px solid #4a90e2;
-    outline-offset: 2px;
 }
 
 .element .text-wrapper-13::-webkit-input-placeholder {
@@ -1147,4 +1144,13 @@ footer ul{
 
 footer li{
     margin-bottom: 16px;
+}
+
+.view-9:has(input:focus) .rectangle-5,
+.view-10:has(input:focus) .rectangle-5,
+.view-11:has(input:focus) .rectangle-5,
+.view-121:has(input:focus) .rectangle-5,
+.view-131:has(input:focus) .rectangle-5 {
+    border-color: var(--variable-collection-brand);
+    border-width: 2px;
 }

@@ -5,6 +5,7 @@ import com.example.dto.PassengerCreateEditDto;
 import com.example.dto.PassengerReadDto;
 import com.example.service.PassengerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,6 +23,7 @@ import java.util.Optional;
 @RequestMapping("/signup")
 public class RegistrationController {
     private final PassengerService passengerService;
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping
     public String registration(Model model, @ModelAttribute("passenger") PassengerCreateEditDto passengerCreateEditDto){
@@ -42,7 +44,8 @@ public class RegistrationController {
 
         passengerCreateEditDto.setRole(Role.USER);
 
-        if(!passengerService.existByEmail(passengerCreateEditDto.getEmail())){
+        if(!passengerService.existByEmail(passengerCreateEditDto.getEmail().toLowerCase())){
+            passengerCreateEditDto.setPassword(passwordEncoder.encode(passengerCreateEditDto.getPassword()));
             passengerService.create(passengerCreateEditDto);
             return "redirect:/login";
         }

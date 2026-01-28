@@ -12,7 +12,9 @@
     <header class="view">
         <div class="aviro-airlines">
             <h1 class="div">
+                <a th:href="@{/home}">
                 <span class="brand-bold">Aviro</span> Airlines
+                </a>
             </h1>
         </div>
         <nav class="div-wrapper">
@@ -33,8 +35,8 @@
         <div class="rectangle-3"></div>
         <h2 class="text-wrapper-5">Документы</h2>
         <section aria-labelledby="new-document-heading">
-            <h3 id="new-document-heading" class="text-wrapper-6">Новый документ</h3>
-            <form>
+            <h3 id="new-document-heading" class="text-wrapper-6">Мой документ</h3>
+            <form class="documents-form" th:action="@{/profile/documents}" method="POST" th:object="${document}">
                 <div class="view-4">
                     <div class="rectangle-6"></div>
                     <label for="citizenship" class="text-wrapper-7">Гражданство</label>
@@ -51,49 +53,53 @@
                         <label class="view-7">
                             <img class="male"  th:src="@{/img/male.svg}">
                             <label for="gender-male" class="text-wrapper-10">М</label>
-                            <input type="radio" id="gender-male" name="gender" value="male" class="male" />
+                            <input th:field="*{sex}" type="radio" id="gender-male" name="sex" value="MALE" class="male" />
                         </label>
                     </div>
                     <div class="view-wrapper">
                         <label class="view-8">
                             <img class="female" th:src="@{/img/female.svg}">
                             <label for="gender-female" class="text-wrapper-11">Ж</label>
-                            <input type="radio" id="gender-female" name="gender" value="female" class="female" />
+                            <input th:field="*{sex}" type="radio" id="gender-female" name="sex" value="FEMALE" class="female" />
                         </label>
                     </div>
                 </fieldset>
                 <h4 class="text-wrapper-12">Данные паспорта РФ</h4>
                 <div class="view-9">
-                    <div class="rectangle-5"></div>
-                    <input type="text" id="last-name" name="last-name" placeholder="Фамилия" class="text-wrapper-13" />
+                    <label for="lastName" class="rectangle-5"></label>
+                    <input th:field="*{lastName}" type="text" id="lastName" name="lastName" placeholder="Фамилия" class="text-wrapper-13" />
                 </div>
                 <div class="view-10">
-                    <div class="rectangle-5"></div>
-                    <input type="text" id="first-name" name="first-name" placeholder="Имя" class="text-wrapper-13" />
+                    <label for="firstName" class="rectangle-5"></label>
+                    <input th:field="*{firstName}" type="text" id="firstName" name="firstName" placeholder="Имя" class="text-wrapper-13" />
                 </div>
                 <div class="view-11">
-                    <div class="rectangle-5"></div>
-                    <input type="text" id="middle-name" name="middle-name" placeholder="Отчество" class="text-wrapper-13" />
+                    <label for="middleName" class="rectangle-5"></label>
+                    <input th:field="*{middleName}" type="text" id="middleName" name="middleName" placeholder="Отчество" class="text-wrapper-13" />
                 </div>
                 <div class="view-121">
-                    <div class="rectangle-5"></div>
+                    <label for="birthDate" class="rectangle-5"></label>
                     <input
                             type="text"
-                            id="birth-date"
-                            name="birth-date"
+                            id="birthDate"
+                            name="birthDate"
                             placeholder="Дата рождения"
                             class="text-wrapper-13"
+                            onblur="this.type='text'"
+                            onfocus="this.type='date'"
+                            th:value="*{birthDate}"
                     />
                 </div>
                 <div class="view-131">
-                    <div class="rectangle-5"></div>
+                    <label for="passportNumber" class="rectangle-5"></label>
                     <input
                             type="text"
-                            id="document-number"
-                            name="document-number"
+                            id="passportNumber"
+                            name="passportNumber"
                             placeholder="№ Документа"
                             class="text-wrapper-13"
-                            maxlength="8"
+                            maxlength="10"
+                            th:value="*{passportNumber}"
                     />
                 </div>
                 <button type="submit" class="view-141">

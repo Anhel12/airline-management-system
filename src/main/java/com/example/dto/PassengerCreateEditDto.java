@@ -16,6 +16,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@Builder
 public class PassengerCreateEditDto {
 
     String phoneNumber;
@@ -23,10 +24,9 @@ public class PassengerCreateEditDto {
     @NotBlank(message = "Почта обязательна!")
     @Email(message = "Некорректный формат почты!")
     String email;
-
+    @Size(min = 10, max = 10)
     String passportNumber;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     LocalDate birthDate;
 
     String firstName;

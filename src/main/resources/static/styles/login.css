@@ -161,18 +161,6 @@ a {
     height: 48px;
 }
 
-.screen .div-2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 320px;
-    height: 48px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    border: 1px solid;
-    border-color: #00000080;
-}
-
 .screen .text-wrapper-3 {
     width: 18.39%;
     height: 43.33%;
@@ -294,8 +282,7 @@ a {
     height: 48px;
     background-color: #ffffff;
     border-radius: 10px;
-    border: 1px solid;
-    border-color: #00000080;
+    border: 1px solid #00000080;
     padding: 0 24px;
     font-family: "Red Hat Display-Regular", Helvetica;
     font-weight: 400;
@@ -354,9 +341,4 @@ a {
 
 .screen .view-4:active {
     background-color: #0088cc;
-}
-
-.screen .view-4:focus {
-    outline: 2px solid #4a90e2;
-    outline-offset: 2px;
 }

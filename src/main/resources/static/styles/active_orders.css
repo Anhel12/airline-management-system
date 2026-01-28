@@ -232,11 +232,6 @@ a {
     background-color: #6a6a6a;
 }
 
-.screen .element-2:focus {
-    outline: 2px solid var(--variable-collection-brand);
-    outline-offset: 2px;
-}
-
 .screen .documents {
     position: absolute;
     width: 11.00%;
@@ -329,7 +324,7 @@ a {
 .screen .view-6 {
     position: absolute;
     width: 38.38%;
-    top: calc(50.00% - 205px);
+    top: 65%;
     left: 39.39%;
     height: 181px;
 }
@@ -374,7 +369,7 @@ a {
     margin: 0;
 }
 .order {
-    margin-top: 286px;
+    margin-top: 135px;
     margin-left: 400px;
     display: flex;
     flex-direction: column;
@@ -440,19 +435,17 @@ a {
     text-align: center;
 }
 
-.screen .text-wrapper-8 {
-    position: absolute;
+.text-wrapper-8 {
     width: 13.58%;
-    height: 3.50%;
-    top: 14%;
-    left: 27.03%;
+    height: 1%;
+    margin-top: 9.2%;
+    margin-left: 27.03%;
     font-family: "Red Hat Display-Bold", Helvetica;
     font-weight: 700;
     color: #313131;
     font-size: 32px;
     letter-spacing: 0;
     line-height: normal;
-    margin: 0;
 }
 
 .footer-rectangle {
@@ -471,7 +464,7 @@ footer {
     border-top-right-radius: 10px;
     background-color: #EDEDED;
 
-    margin-top: 20px;
+    margin-top: 100px;
 }
 
 .view-12 {

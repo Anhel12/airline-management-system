@@ -2,12 +2,10 @@ package com.example.service;
 
 
 import com.example.database.Repository.PassengerRepository;
-import com.example.dto.BookingCreateEditDto;
-import com.example.dto.BookingReadDto;
-import com.example.dto.PassengerCreateEditDto;
-import com.example.dto.PassengerReadDto;
+import com.example.dto.*;
 import com.example.mapper.BookingCreateEditMapper;
 import com.example.mapper.PassengerCreateEditMapper;
+import com.example.mapper.PassengerDocumentMapper;
 import com.example.mapper.PassengerReadMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,6 +25,7 @@ public class PassengerService implements UserDetailsService {
     private final PassengerRepository passengerRepository;
     private final PassengerReadMapper passengerReadMapper;
     private final PassengerCreateEditMapper passengerCreateEditMapper;
+    private final PassengerDocumentMapper passengerDocumentMapper;
     
     
     public List<PassengerReadDto> findAll(){
@@ -64,6 +63,14 @@ public class PassengerService implements UserDetailsService {
     }
 
     @Transactional
+    public Optional<PassengerReadDto> update(String email, PassengerCreateEditDto passengerDto){
+        return passengerRepository.findByEmail(email)
+                .map(entity -> passengerCreateEditMapper.map(passengerDto, entity))
+                .map(passengerRepository::saveAndFlush)
+                .map(passengerReadMapper::map);
+    }
+
+    @Transactional
     public boolean delete(Long id){
         return passengerRepository.findById(id)
                 .map(entity -> {
@@ -91,5 +98,15 @@ public class PassengerService implements UserDetailsService {
                      return true;
                 })
                 .orElse(false);
+    }
+
+    public Optional<PassengerDocumentDto> getForPassengerDocument(String email){
+        return passengerRepository.findByEmail(email)
+                .map(passengerDocumentMapper::map);
+    }
+
+    public Optional<PassengerCreateEditDto> getForEdit(String email){
+        return passengerRepository.findByEmail(email)
+                .map(passengerCreateEditMapper::map);
     }
 }
