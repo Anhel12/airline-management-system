@@ -26,8 +26,7 @@ public class RegistrationController {
     private final PasswordEncoder passwordEncoder;
 
     @GetMapping
-    public String registration(Model model, @ModelAttribute("passenger") PassengerCreateEditDto passengerCreateEditDto){
-        model.addAttribute("passenger", passengerCreateEditDto);
+    public String registration(@ModelAttribute("passenger") PassengerCreateEditDto passengerCreateEditDto){
         return "registration/signup";
     }
 

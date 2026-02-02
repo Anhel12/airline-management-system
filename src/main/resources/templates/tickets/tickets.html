@@ -13,7 +13,7 @@
     <div class="rectangle"></div>
     <header class="view">
         <nav class="div" aria-label="Форма поиска билетов">
-            <form class="search-form" role="search">
+            <form class="search-form" role="search" th:action="@{/tickets}">
                 <div class="view-2">
                     <input
                             type="text"
@@ -21,48 +21,56 @@
                             placeholder="Откуда"
                             aria-label="Город отправления"
                             required
+                            th:field="${filter.departureCity}"
                     />
                 </div>
 
                 <div class="view-3">
                     <input
                             type="text"
-                            class="rectangle-input"
+                            class="rectangle-input-2"
                             placeholder="Куда"
                             aria-label="Город назначения"
                             required
+                            th:field="${filter.arrivalCity}"
                     />
                 </div>
 
                 <div class="view-5">
                     <input
                             type="text"
-                            class="rectangle-input"
+                            class="rectangle-input-3"
                             placeholder="Туда"
                             onfocus="this.type='date'"
                             onblur="this.type='text'"
-                            required
+                            th:field="${filter.departureDate}"
+
                     />
                 </div>
 
                 <div class="view-6">
                     <input
                             type="text"
-                            class="rectangle-input"
+                            class="rectangle-input-4"
                             placeholder="Обратно"
                             onfocus="this.type='date'"
                             onblur="this.type='text'"
+                            th:field="${filter.returnDate}"
                     />
                 </div>
 
                 <div class="view-4">
                     <input
-                            type="number"
-                            class="rectangle-input"
-                            placeholder="Пассажиры"
+                            type="text"
+                            class="rectangle-input-5"
+                            placeholder="Кол-во Пассажиров"
                             min="1"
                             max="9"
+                            value="1"
                             required
+                            onfocus="this.type='number'"
+                            onblur="this.type='text'"
+                            th:field="${filter.numberOfPassenger}"
                     />
                 </div>
 
@@ -82,8 +90,8 @@
         <div class="view-8">
             <div class="aviro-airlines">
                 <h1 class="p">
-                    <a th:href="@{/home}">
-                    <span class="brand-bold">Aviro </span>Airlines
+                    <a th:href="@{/home}" class="brand-title">
+                        <span class="brand-bold">Aviro</span> Airlines
                     </a>
                 </h1>
             </div>
@@ -107,56 +115,44 @@
     </header>
     <main class="view-11">
         <div class="main-inner">
-        <section class="view-12" aria-label="Фильтры поиска">
-            <h2 class="text-wrapper-13">Туда</h2>
+        <div class="view-12" aria-label="Фильтры поиска">
             <div class="view-13">
                 <label for="direct-flights-toggle" class="text-wrapper-14">Прямые рейсы</label>
                 <input type="checkbox" id="direct-flights-toggle" class="view-14" aria-label="Только прямые рейсы" />
             </div>
-        </section>
-        <nav class="navbar" aria-label="Выбор даты">
-            <div class="view-15"></div>
-            <button type="button" class="free-icon-right" aria-label="Следующая неделя">
-                <img th:src="@{/img/right-arrow-line.svg}" alt="" />
-            </button>
-            <button type="button" class="free-icon-left-arrow" aria-label="Предыдущая неделя">
-                <img th:src="@{/img/left-arrow-line.svg}" alt="" />
-            </button>
-            <button type="button" class="text-wrapper-15">Чт 06 Нояб</button>
-            <button type="button" class="text-wrapper-16">Вт 04 Нояб</button>
-            <button type="button" class="text-wrapper-17">Ср 05 Нояб</button>
-            <button type="button" class="text-wrapper-18" aria-current="date">Пт 07 Нояб</button>
-            <button type="button" class="text-wrapper-19">Сб 08 Нояб</button>
-            <button type="button" class="text-wrapper-20">Вс 09 Нояб</button>
-            <button type="button" class="text-wrapper-21">Пн 10 Нояб</button>
-            <div class="rectangle-5" aria-hidden="true"></div>
-        </nav>
-        <article class="view-16" aria-label="Рейс UT296">
-            <div class="view-17">
-                <div class="rectangle-6"></div>
-                <button type="button" class="text-wrapper-22">Выбрать</button>
-            </div>
-            <div class="element">
-                <div class="frame">
-                    <time class="text-wrapper-23" datetime="19:35">19:35</time>
-                    <span class="text-wrapper-24">VKO</span>
+        </div>
+        <article class="view-16" aria-label="Рейсы">
+            <div class="ticket" th:each="ticket: ${tickets.content}">
+                <div class="element">
+                    <time class="text-wrapper-23" th:text="${ticket.arrivalDateTime.toLocalTime()}">arrivalTime</time>
+                    <span class="text-wrapper-24" th:text="${ticket.arrivalAirportCode}">arrivalAirportCode</span>
+                </div>
+                <div class="view-18">
+                    <time class="text-wrapper-25" th:text="${ticket.departureDateTime.toLocalTime()}">departureTime</time>
+                    <span class="text-wrapper-26" th:text="${ticket.departureAirportCode}">departureAirportCode</span>
+                </div>
+                <div class="div-3">
+                    <div class="text-wrapper-28">
+                        <span th:text="${ticket.timeInAir}">timeInAir</span>
+                        <span>, прямой</span>
+                    </div>
+                    <div class="view-19" aria-hidden="true">
+                        <span class="text-wrapper-29">------------------------------------></span>
+                    </div>
+                    <span class="text-wrapper-27" th:text="${ticket.flightNumber}">flightNumber</span>
+                </div>
+                <div class="view-20">
+                    <span class="text-wrapper-31" th:text="${ticket.price}">price</span>
+                    <span class="text-wrapper-31"> руб</span>
+                </div>
+                <div class="view-17">
+                    <button type="button" class="text-wrapper-22">Выбрать</button>
                 </div>
             </div>
-            <div class="view-18">
-                <time class="text-wrapper-25" datetime="18:00">18:00</time>
-                <span class="text-wrapper-26">SGC</span>
-            </div>
-            <div class="div-3">
-                <span class="text-wrapper-27">UT296</span>
-                <span class="text-wrapper-28">3ч 35м, прямой</span>
-                <div class="view-19" aria-hidden="true">
-                    <span class="text-wrapper-29">------------------------------------</span>
-                    <span class="text-wrapper-30">&gt;</span>
-                </div>
-            </div>
-            <div class="view-20">
-                <div class="rectangle-7"></div>
-                <span class="text-wrapper-31">8000 руб</span>
+            <div class="page-count">
+                <label for="page">Page:
+                    <input id="page" type="number" name="page" th:field="${tickets.metaData.page}">
+                </label>
             </div>
         </article>
         <aside class="view-30" aria-label="Итоговая стоимость">

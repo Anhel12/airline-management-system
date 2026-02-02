@@ -66,6 +66,10 @@ a {
     box-shadow: 0 4px 4px #00000033;
 }
 
+.brand-title {
+    color: var(--variable-collection-brand);
+}
+
 .screen .view-2 {
     position: absolute;
     top: 0;
@@ -105,8 +109,8 @@ a {
 .screen .view-3 {
     position: absolute;
     top: 0;
-    left: 340px;
-    width: 302px;
+    left: 320px;
+    width: 322px;
     height: 70px;
     border-right: 1px solid;
     border-color: #00000033;
@@ -140,7 +144,7 @@ a {
 .screen .view-4 {
     position: absolute;
     top: 0;
-    left: 960px;
+    left: 962px;
     width: 162px;
     height: 70px;
     border-right: 1px solid;
@@ -319,7 +323,7 @@ a {
     display: flex;
 }
 
-.aviro-airlines .account {
+.screen .account {
     position: absolute;
     width: 40px;
     top: -1px;
@@ -414,34 +418,22 @@ a {
     width: 100%;
     min-height: 898px;
     background-color: #ececec;
+    display: flex;
+    justify-content: center;
 }
 
 .screen .main-inner {
     width: 1480px;
     margin: 0 auto;
-    position: relative;
+    position: absolute;
 }
 
 .screen .view-12 {
     position: absolute;
     width: 64.32%;
     height: 4.45%;
-    top: 2.12%;
+    top: 35px;
     left: 6.76%;
-}
-
-.screen .text-wrapper-13 {
-    position: absolute;
-    width: 5.99%;
-    height: 80.00%;
-    top: 0;
-    left: 0;
-    font-family: "Red Hat Display-Bold", Helvetica;
-    font-weight: 700;
-    color: #313131;
-    font-size: 24px;
-    letter-spacing: 0;
-    line-height: normal;
 }
 
 .screen .view-13 {
@@ -449,31 +441,36 @@ a {
     width: 17.96%;
     height: 100%;
     top: 0;
-    left: 82.04%;
+    left: 86.5%;
 }
 
 .screen .text-wrapper-14 {
     position: absolute;
     width: 69.59%;
     height: 52.50%;
-    top: 22.50%;
+    top: 0;
     left: 0;
     font-family: "Red Hat Display-Medium", Helvetica;
-    font-weight: 500;
+    font-weight: 600;
     color: #3d3a3a;
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 0;
     line-height: normal;
+    white-space: nowrap;
+    cursor: pointer;
 }
 
 .screen .view-14 {
     position: absolute;
     top: 0;
-    left: 129px;
-    width: 40px;
-    height: 40px;
+    left: 110px;
+    width: 10px;
+    height: 10px;
     background-size: cover;
     background-position: 50% 50%;
+    border-radius: 10px;
+    outline: 1px solid #000000;
+    outline-offset: 1px;
 }
 
 .screen .navbar {
@@ -627,233 +624,140 @@ a {
 
 
 .screen .view-17 {
-    position: absolute;
-    top: 28px;
-    left: 780px;
-    width: 152px;
-    height: 43px;
-    aspect-ratio: 3.5;
-}
+    order: 5;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
 
-.screen .rectangle-6 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 150px;
-    height: 43px;
-    background-color: var(--variable-collection-brand);
-    border-radius: 10px;
 }
 
 .screen .text-wrapper-22 {
-    position: absolute;
-    width: 40.13%;
-    height: 44.33%;
-    top: 25.67%;
-    left: 28.95%;
-    font-family: "Red Hat Display-Medium", Helvetica;
-    font-weight: 500;
-    color: #ffffff;
-    font-size: 14px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.screen .element {
-    position: absolute;
-    top: 27px;
-    left: 407px;
-    width: 56px;
-    height: 45px;
-    display: flex;
-}
-
-.screen .frame {
-    display: flex;
-    width: 56px;
-    height: 45px;
-    position: relative;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.screen .text-wrapper-23 {
-    position: relative;
-    width: fit-content;
-    margin-top: -1.00px;
-    font-family: "Red Hat Display-Bold", Helvetica;
-    font-weight: 700;
-    color: #313131;
-    font-size: 20px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.screen .text-wrapper-24 {
-    position: relative;
-    align-self: stretch;
-    font-family: "Red Hat Display-SemiBold", Helvetica;
-    font-weight: 600;
-    color: #bababa;
-    font-size: 14px;
-    text-align: right;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.screen .view-18 {
-    position: absolute;
-    width: 6.00%;
-    height: 45.00%;
-    top: 27.00%;
-    left: 3.16%;
-}
-
-.screen .text-wrapper-25 {
-    position: absolute;
-    width: 92.98%;
-    height: 57.78%;
-    top: 0;
-    left: 0;
-    font-family: "Red Hat Display-Bold", Helvetica;
-    font-weight: 700;
-    color: #313131;
-    font-size: 20px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.screen .text-wrapper-26 {
-    position: absolute;
-    width: 52.63%;
-    height: 42.22%;
-    top: 57.78%;
-    left: 0;
-    font-family: "Red Hat Display-SemiBold", Helvetica;
-    font-weight: 600;
-    color: #bababa;
-    font-size: 14px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.screen .div-3 {
-    position: absolute;
-    width: 21.89%;
-    height: 42.00%;
-    top: 29.00%;
-    left: 15.05%;
-}
-
-.screen .text-wrapper-27 {
-    position: absolute;
-    width: 24.66%;
-    height: 45.24%;
-    top: 54.76%;
-    left: 36.99%;
-    font-family: "Red Hat Display-SemiBold", Helvetica;
-    font-weight: 600;
-    color: #d1d1d1;
-    font-size: 14px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.screen .text-wrapper-28 {
-    position: absolute;
-    width: 52.12%;
-    height: 45.24%;
-    top: 0;
-    left: 22.98%;
-    font-family: "Red Hat Display-Medium", Helvetica;
-    font-weight: 500;
-    color: var(--variable-collection-brand);
-    font-size: 14px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.screen .view-19 {
-    position: absolute;
-    width: 100%;
-    height: 38.10%;
-    top: 30.95%;
-    left: 0;
-}
-
-.screen .text-wrapper-29 {
-    position: absolute;
-    width: 93.59%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    font-family: "Red Hat Display-Regular", Helvetica;
-    font-weight: 400;
-    color: #bababa;
-    font-size: 12px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.screen .text-wrapper-30 {
-    position: absolute;
-    width: 4.48%;
-    height: 100%;
-    top: 0;
-    left: 93.59%;
-    font-family: "Red Hat Display-Medium", Helvetica;
-    font-weight: 500;
-    color: #bababa;
-    font-size: 12px;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.screen .view-20 {
-    position: absolute;
-    top: 33px;
-    left: 631px;
-    width: 121px;
-    height: 34px;
-}
-
-.screen .rectangle-7 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 119px;
-    height: 34px;
-    background-color: #d9d9d9;
+    padding: 10px 20px;
     border-radius: 10px;
+    background: var(--variable-collection-brand);
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: "Red Hat Display-Regular", Helvetica;
+    font-weight: 500;
 }
 
-.screen .text-wrapper-31 {
-    position: absolute;
-    width: 53.72%;
-    height: 55.88%;
-    top: 20.59%;
-    left: 22.31%;
-    font-family: "Red Hat Display-Medium", Helvetica;
+.text-wrapper-22:hover {
+    background: #1558c0;
+}
+
+.element {
+    order: 3;
+    display: flex;
+    min-width: 80px;
+    flex-direction: column;
+}
+
+.text-wrapper-23 {
+    font-size: 22px;
     font-weight: 500;
-    color: var(--variable-collection-brand);
+    font-family: "Red Hat Display-Regular", Helvetica;
+}
+
+.text-wrapper-24 {
+    font-size: 12px;
+    color: #BABABA;
+    font-family: "Red Hat Display-Regular", Helvetica;
+}
+
+.view-18 {
+    order:1;
+    display: flex;
+    flex-direction: column;
+    min-width: 80px;
+}
+
+.text-wrapper-25 {
+    font-size: 22px;
+    font-weight: 500;
+    font-family: "Red Hat Display-Regular", Helvetica;
+}
+
+.text-wrapper-26 {
+    font-size: 12px;
+    color: #BABABA;
+    font-family: "Red Hat Display-Regular", Helvetica;
+}
+
+.div-3 {
+    order: 2;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-wrapper-27 {
+    font-weight: 400;
     font-size: 14px;
-    letter-spacing: 0;
-    line-height: normal;
+    color: #BABABA;
+    text-align: center;
+    font-family: "Red Hat Display-Regular", Helvetica;
+
+}
+
+.text-wrapper-28 {
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--variable-collection-brand);
+    text-align: center;
+    font-family: "Red Hat Display-Regular", Helvetica;
+}
+
+.view-19 {
+    display: flex;
+    align-items: center;
+}
+
+.text-wrapper-29 {
+    flex: 1;
+    letter-spacing: 2px;
+    color: #c4c7cc;
+    white-space: nowrap;
+}
+
+.view-20 {
+    order: 4;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin-left: 216px;
+    gap: 3px;
+    background: #D9D9D9;
+    border-radius: 8px;
+}
+
+.text-wrapper-31 {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Red Hat Display-Regular", Helvetica;
 }
 
 .screen .view-16 {
-    position: absolute;
-    top: 148px;
-    left: 100px;
+    margin-top: 60px;
+    margin-left: 100px;
     width: 950px;
-    height: 100px;
-    background-color: #ffffff;
-    border-radius: 10px;
 }
+.screen .ticket {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: #fff;
+    margin-bottom: 10px;
+}
+
 
 .screen .view-30 {
     position: absolute;
-    top: 68px;
+    top: 30px;
     left: 1070px;
     width: 310px;
     height: 193px;
@@ -975,6 +879,10 @@ a {
     letter-spacing: -1.08px;
     line-height: normal;
 }
+.screen .page-count {
+    display: flex;
+    : ;
+}
 /* Original CSS code should be injected here */
 
 .input-field {
@@ -994,11 +902,6 @@ a {
     line-height: normal;
     outline: none;
     z-index: 1;
-}
-
-.input-field:focus {
-    outline: 2px solid var(--variable-collection-brand);
-    outline-offset: -2px;
 }
 
 .view-2 label,
@@ -1028,26 +931,6 @@ a {
 }
 
 .view-7 button:active {
-    opacity: 0.8;
-}
-
-.view-17 button {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.view-17 button:hover {
-    opacity: 0.9;
-}
-
-.view-17 button:active {
     opacity: 0.8;
 }
 
@@ -1088,12 +971,8 @@ a {
 }
 
 .view-14:checked {
-    background-color: var(--variable-collection-brand);
-}
+    background-color: #000000;
 
-.view-14:focus {
-    outline: 2px solid var(--variable-collection-brand);
-    outline-offset: 2px;
 }
 
 .navbar button {
@@ -1142,12 +1021,6 @@ a {
     opacity: 0.8;
 }
 
-.text-wrapper-8:focus,
-.text-wrapper-9:focus {
-    outline: 2px solid var(--variable-collection-brand);
-    outline-offset: 2px;
-}
-
 .search-form {
     display: contents;
 }
@@ -1155,19 +1028,79 @@ a {
 .rectangle-input {
     position: absolute;
     width: 322px;
-    height: 72px;
-    top: -10px;
-    left: -2px;
+    height: 69px;
+    top: 0;
+    left: 0;
     background: transparent;
     border: none;
     outline: none;
-    padding: 24px 30px 0;
+    padding: 24px 30px 24px;
+    font-family: "Red Hat Display-Regular", Helvetica;
+    font-size: 16px;
+    color: #000;
+}
+.rectangle-input-2 {
+    position: absolute;
+    width: 322px;
+    height: 69px;
+    top: 0;
+    left: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 24px 30px 24px;
+    font-family: "Red Hat Display-Regular", Helvetica;
+    font-size: 16px;
+    color: #000;
+}
+.rectangle-input-3 {
+    position: absolute;
+    width: 163px;
+    height: 69px;
+    top: 0;
+    left: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 24px 29px 24px;
+    font-family: "Red Hat Display-Regular", Helvetica;
+    font-size: 16px;
+    color: #000;
+}
+.rectangle-input-4 {
+    position: absolute;
+    width: 163px;
+    height: 69px;
+    top: 0;
+    left: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 24px 29px 24px;
+    font-family: "Red Hat Display-Regular", Helvetica;
+    font-size: 16px;
+    color: #000;
+}
+.rectangle-input-5 {
+    position: absolute;
+    width: 167px;
+    height: 69px;
+    top: 0;
+    left: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 24px 27px 24px;
     font-family: "Red Hat Display-Regular", Helvetica;
     font-size: 16px;
     color: #000;
 }
 
-.rectangle-input::placeholder {
+.rectangle-input::placeholder,
+.rectangle-input-2::placeholder,
+.rectangle-input-3::placeholder,
+.rectangle-input-4::placeholder,
+.rectangle-input-5::placeholder {
     color: #00000066;
 }
 

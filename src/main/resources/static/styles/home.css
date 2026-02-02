@@ -174,14 +174,15 @@ body, html {
 
 .aviro-airlines .rectangle {
     position: absolute;
-    top: -22px;
-    left: -1px;
-    width: 322px;
-    height: 72px;
+    top: 0;
+    left: 0;
+    width: 263px;
+    height: 22px;
     background-color: #ffffff;
     border-radius: 10px 0 0 10px;
     border: 1px solid;
     border-color: #00000033;
+
 
 }
 
@@ -197,10 +198,10 @@ body, html {
 
 .aviro-airlines .rectangle-2 {
     position: absolute;
-    top: -22px;
-    left: -1px;
-    width: 322px;
-    height: 72px;
+    top: 0;
+    left: 0;
+    width: 263px;
+    height: 22px;
     background-color: #ffffff;
     border: 1px solid;
     border-color: #00000033;
@@ -230,12 +231,12 @@ body, html {
     border-color: #00000033;
 }
 
-.aviro-airlines .return, .departure, .passenger {
+.aviro-airlines .return, .departure, .passengers {
     position: absolute;
-    top: -22px;
-    left: -1px;
-    width: 162px;
-    height: 72px;
+    top: 0;
+    left: 0;
+    width: 122px;
+    height: 22px;
     background-color: #ffffff;
     border: 1px solid;
     border-color: #00000033;
@@ -369,7 +370,7 @@ body, html {
     background: transparent;
     border: none;
     outline: none;
-    padding: 24px 30px 0;
+    padding: 24px 30px 24px;
     font-family: "Red Hat Display-Regular", Helvetica;
     font-weight: 400;
     color: #000000;
@@ -384,7 +385,7 @@ body, html {
     background: transparent;
     border: none;
     outline: none;
-    padding: 24px 50px 0;
+    padding: 24px 30px 24px;
     font-family: "Red Hat Display-Regular", Helvetica;
     font-weight: 400;
     color: #000000;
@@ -398,16 +399,15 @@ body, html {
 
 .aviro-airlines .return,
 .aviro-airlines .departure,
-.aviro-airlines .passenger {
+.aviro-airlines .passengers {
     background: transparent;
     border: none;
     outline: none;
-    padding: 24px 10px 0 30px;
+    padding: 24px 10px 24px 30px;
     font-family: "Red Hat Display-Regular", Helvetica;
     font-weight: 400;
     color: #000000;
     font-size: 16px;
-    width: 100%;
 }
 
 .aviro-airlines .return:not(:placeholder-shown),
@@ -417,7 +417,7 @@ body, html {
 
 .aviro-airlines .return::placeholder,
 .aviro-airlines .departure::placeholder,
-.aviro-airlines .passenger::placeholder {
+.aviro-airlines .passengers::placeholder {
     color: #00000066;
 }
 
@@ -427,11 +427,6 @@ body, html {
     cursor: pointer;
     margin-right: 45px;
     position: relative;
-}
-
-.aviro-airlines input[type="number"]::-webkit-inner-spin-button,
-.aviro-airlines input[type="number"]::-webkit-outer-spin-button {
-    opacity: 0.6;
 }
 
 .aviro-airlines .rectangle-3 {

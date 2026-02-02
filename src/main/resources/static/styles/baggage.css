@@ -935,11 +935,6 @@ footer {
     opacity: 0.8;
 }
 
-.aviro-airlines a:focus {
-    outline: 2px solid var(--variable-collection-brand);
-    outline-offset: 2px;
-}
-
 .aviro-airlines .baggage-details {
     width: 500px;
     display: block;
