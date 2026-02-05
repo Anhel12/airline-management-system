@@ -56,11 +56,11 @@
                     <div class="order-info">
                         <span th:text="${activeBooking.departureDateTime()}">departureDateTime</span> ·
                         <span th:text="${activeBooking.numberOfPassengers()}">numberOfPassenger</span>
-                        <span th:switch="${activeBooking.numberOfPassengers()}">
-                            <span th:case="1" th:text="пассажир"></span>
-                            <span th:case="1 < ${activeBooking.numberOfPassengers()} < 5" th:text="пассажира"></span>
-                            <span th:case="4 < ${activeBooking.numberOfPassengers()} < 10" th:text="пассажиров"></span>
-                        </span>
+                        <span th:if="${activeBooking.numberOfPassengers()} == 1" th:text="пассажир"></span>
+                        <span th:if="${activeBooking.numberOfPassengers()} < 5" th:text="пассажира"></span>
+                        <span th:if="4 < ${activeBooking.numberOfPassengers()}" th:text="пассажиров"></span>
+
+
                     </div>
                 </div>
 

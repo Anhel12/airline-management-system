@@ -6,7 +6,5 @@ import com.example.dto.FlightFilter;
 import java.util.List;
 
 public interface FilterFlightRepository {
-    List<Flight> findAllByFilterStartTicket(FlightFilter filter);
-
-    List<Flight> findAllByFilterReturnTicket(FlightFilter filter);
+    List<Flight> findAllByFilter(FlightFilter filter);
 }

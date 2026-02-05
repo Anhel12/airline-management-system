@@ -20,7 +20,7 @@
                             class="rectangle-input"
                             placeholder="Откуда"
                             aria-label="Город отправления"
-                            required
+
                             th:field="${filter.departureCity}"
                     />
                 </div>
@@ -31,7 +31,7 @@
                             class="rectangle-input-2"
                             placeholder="Куда"
                             aria-label="Город назначения"
-                            required
+
                             th:field="${filter.arrivalCity}"
                     />
                 </div>
@@ -106,11 +106,35 @@
             </div>
         </div>
         <section class="view-10" aria-label="Информация о поиске">
-            <span class="text-wrapper-10">07 Нояб</span>
-            <span class="text-wrapper-11">Сургут - Москва</span>
-            <span class="text-wrapper-12">1 пассажир</span>
-            <img class="free-icon-full-stop" th:src="@{/img/dot.svg}" alt="" aria-hidden="true" />
+            <div class="text-wrapper-11">
+                <div th:if="${filter.departureCity != null}">
+                    <span th:text="${filter.departureCity}">departureCity</span>
+                </div>
+                <span th:if="${filter.arrivalCity != null && filter.departureCity != null}">-</span>
+                <div th:if="${filter.arrivalCity != null}">
+                    <span th:text="${filter.arrivalCity}">arrivalCity</span>
+                </div>
+                <span th:if="${filter.arrivalCity == null && filter.departureCity == null}">Все города</span>
+            </div>
             <img class="img" th:src="@{/img/dot.svg}" alt="" aria-hidden="true" />
+            <div class="text-wrapper-10">
+                <div th:if="${filter.departureDate != null}">
+                    <span th:text="${#temporals.format(filter.departureDate, 'dd MMM')}">departureDate</span>
+                </div>
+                <span th:if="${filter.returnDate != null && filter.departureDate != null}">-</span>
+                <div th:if="${filter.returnDate != null}">
+                    <span th:text="${#temporals.format(filter.returnDate, 'dd MMM')}">returnDate</span>
+                </div>
+                <span th:if="${filter.departureDate == null && filter.returnDate == null}">Все даты</span>
+            </div>
+            <img class="img" th:src="@{/img/dot.svg}" alt="" aria-hidden="true" />
+            <div class="text-wrapper-12">
+                <span th:text="${filter.numberOfPassenger}">numberOfPassenger</span>
+                <span th:if="${filter.numberOfPassenger} == 1" th:text="пассажир">пассажир</span>
+                <span th:if="${filter.numberOfPassenger} < 5" th:text="пассажира">пассажира</span>
+                <span th:if="${filter.numberOfPassenger} > 4" th:text="пассажиров">пассажиров</span>
+
+            </div>
         </section>
     </header>
     <main class="view-11">
@@ -121,7 +145,7 @@
                 <input type="checkbox" id="direct-flights-toggle" class="view-14" aria-label="Только прямые рейсы" />
             </div>
         </div>
-        <article class="view-16" aria-label="Рейсы">
+        <article id="tickets" class="view-16" aria-label="Рейсы">
             <div class="ticket" th:each="ticket: ${tickets.content}">
                 <div class="element">
                     <time class="text-wrapper-23" th:text="${ticket.arrivalDateTime.toLocalTime()}">arrivalTime</time>
@@ -149,10 +173,32 @@
                     <button type="button" class="text-wrapper-22">Выбрать</button>
                 </div>
             </div>
-            <div class="page-count">
-                <label for="page">Page:
-                    <input id="page" type="number" name="page" th:field="${tickets.metaData.page}">
-                </label>
+            <div th:if="${tickets.totalPages > 1}" class="pagination">
+
+                <a th:href="${url + '&page=0'} + '#tickets'"
+                   th:class="${tickets.first} ? 'disabled' : ''">
+                    Первая
+                </a>
+
+                <a th:href="${url + '&page=' + (tickets.getNumber() - 1)} + '#tickets'"
+                   th:class="${tickets.hasPrevious()} ? '' : 'disabled'">
+                    ←
+                </a>
+
+                <span class="current">
+        [[${tickets.number + 1}]] / [[${tickets.totalPages}]]
+    </span>
+
+                <a th:href="${url + '&page=' + (tickets.getNumber() + 1)} + '#tickets'"
+                   th:class="${tickets.hasNext()} ? '' : 'disabled'">
+                    →
+                </a>
+
+                <a th:href="${url + '&page=' + (tickets.getTotalPages() - 1)} + '#tickets'"
+                   th:class="${tickets.last} ? 'disabled' : ''">
+                    Последняя
+                </a>
+
             </div>
         </article>
         <aside class="view-30" aria-label="Итоговая стоимость">

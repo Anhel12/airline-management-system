@@ -340,71 +340,54 @@ a {
     letter-spacing: 0;
     line-height: normal;
 }
-
+/*Информация о поиске*/
 .screen .view-10 {
     position: absolute;
-    width: 24.90%;
-    height: 12.50%;
     top: 50.00%;
     left: 0;
+    display: flex;
+    flex-direction: row;
 }
-
-.screen .text-wrapper-10 {
-    position: absolute;
-    width: 20.06%;
-    height: 80.00%;
-    top: 10.00%;
-    left: 45.14%;
-    font-family: "Red Hat Display-Regular", Helvetica;
-    font-weight: 400;
-    color: #313131;
-    font-size: 18px;
-    letter-spacing: -1.08px;
-    line-height: normal;
-}
-
+/*Города*/
 .screen .text-wrapper-11 {
-    position: absolute;
-    width: 38.87%;
-    height: 80.00%;
-    top: 10.00%;
-    left: 0;
+    display: flex;
     font-family: "Red Hat Display-Regular", Helvetica;
     font-weight: 400;
     color: #313131;
     font-size: 18px;
     letter-spacing: -1.08px;
     line-height: normal;
+    white-space: nowrap;
+    gap: 6px;
 }
-
+/*Даты*/
+.screen .text-wrapper-10 {
+    display: flex;
+    font-family: "Red Hat Display-Regular", Helvetica;
+    font-weight: 400;
+    color: #313131;
+    font-size: 18px;
+    letter-spacing: -1.08px;
+    line-height: normal;
+    white-space: nowrap;
+    gap: 6px;
+}
+/*Пассажиры*/
 .screen .text-wrapper-12 {
-    position: absolute;
-    width: 26.65%;
-    height: 80.00%;
-    top: 10.00%;
-    left: 71.47%;
+    display: flex;
+    width: 200px;
     font-family: "Red Hat Display-Regular", Helvetica;
     font-weight: 400;
     color: #313131;
     font-size: 18px;
     letter-spacing: -1.08px;
     line-height: normal;
-}
-
-.screen .free-icon-full-stop {
-    position: absolute;
-    top: 0;
-    left: 203px;
-    width: 30px;
-    height: 30px;
-    aspect-ratio: 1;
-    object-fit: cover;
+    white-space: nowrap;
+    gap: 6px;
 }
 
 .screen .img {
-    position: absolute;
-    top: 0;
-    left: 119px;
+    padding-bottom: 10px;
     width: 30px;
     height: 30px;
     aspect-ratio: 1;
