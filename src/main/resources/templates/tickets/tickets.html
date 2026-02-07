@@ -7,6 +7,7 @@
     <meta charset="utf-8" />
     <title>Aviro Airlines - Поиск авиабилетов</title>
     <link rel="stylesheet" th:href="@{/styles/tickets.css}" />
+    <script th:src="@{/js/tickets.js}"></script>
 </head>
 <body>
 <div class="screen">
@@ -20,7 +21,7 @@
                             class="rectangle-input"
                             placeholder="Откуда"
                             aria-label="Город отправления"
-
+                            required
                             th:field="${filter.departureCity}"
                     />
                 </div>
@@ -31,7 +32,7 @@
                             class="rectangle-input-2"
                             placeholder="Куда"
                             aria-label="Город назначения"
-
+                            required
                             th:field="${filter.arrivalCity}"
                     />
                 </div>
@@ -129,7 +130,7 @@
             </div>
             <img class="img" th:src="@{/img/dot.svg}" alt="" aria-hidden="true" />
             <div class="text-wrapper-12">
-                <span th:text="${filter.numberOfPassenger}">numberOfPassenger</span>
+                <span id="passengers" th:text="${filter.numberOfPassenger}">numberOfPassenger</span>
                 <span th:if="${filter.numberOfPassenger} == 1" th:text="пассажир">пассажир</span>
                 <span th:if="${filter.numberOfPassenger} < 5" th:text="пассажира">пассажира</span>
                 <span th:if="${filter.numberOfPassenger} > 4" th:text="пассажиров">пассажиров</span>
@@ -140,9 +141,9 @@
     <main class="view-11">
         <div class="main-inner">
         <div class="view-12" aria-label="Фильтры поиска">
-            <div class="view-13">
+            <div th:if="${tickets.getTotalElements() != 0}" class="view-13">
                 <label for="direct-flights-toggle" class="text-wrapper-14">Прямые рейсы</label>
-                <input type="checkbox" id="direct-flights-toggle" class="view-14" aria-label="Только прямые рейсы" />
+                <input disabled checked="checked" type="checkbox" id="direct-flights-toggle" class="view-14" aria-label="Только прямые рейсы" />
             </div>
         </div>
         <article id="tickets" class="view-16" aria-label="Рейсы">
@@ -170,18 +171,26 @@
                     <span class="text-wrapper-31"> руб</span>
                 </div>
                 <div class="view-17">
-                    <button type="button" class="text-wrapper-22">Выбрать</button>
+                    <label th:for="'ticket-' + ${ticket.flightNumber}" class="ticket-radio-label">
+                        <span class="ticket-radio-text">Выбрать</span>
+                        <input th:id="'ticket-' + ${ticket.flightNumber}"
+                               class="ticket-radio-input"
+                               name="ticket"
+                               type="radio"
+                               th:data-price="${ticket.price}"
+                        />
+                    </label>
                 </div>
             </div>
             <div th:if="${tickets.totalPages > 1}" class="pagination">
 
-                <a th:href="${url + '&page=0'} + '#tickets'"
-                   th:class="${tickets.first} ? 'disabled' : ''">
+                <a class="pagination-href" th:hidden="${tickets.isFirst()}"
+                   th:href="${url + '&page=0'} + '#tickets'">
                     Первая
                 </a>
 
-                <a th:href="${url + '&page=' + (tickets.getNumber() - 1)} + '#tickets'"
-                   th:class="${tickets.hasPrevious()} ? '' : 'disabled'">
+                <a class="pagination-href" th:hidden="${!tickets.hasPrevious()}"
+                   th:href="${url + '&page=' + (tickets.getNumber() - 1)} + '#tickets'">
                     ←
                 </a>
 
@@ -189,13 +198,13 @@
         [[${tickets.number + 1}]] / [[${tickets.totalPages}]]
     </span>
 
-                <a th:href="${url + '&page=' + (tickets.getNumber() + 1)} + '#tickets'"
-                   th:class="${tickets.hasNext()} ? '' : 'disabled'">
+                <a class="pagination-href" th:hidden="${!tickets.hasNext()}"
+                   th:href="${url + '&page=' + (tickets.getNumber() + 1)} + '#tickets'">
                     →
                 </a>
 
-                <a th:href="${url + '&page=' + (tickets.getTotalPages() - 1)} + '#tickets'"
-                   th:class="${tickets.last} ? 'disabled' : ''">
+                <a class="pagination-href" th:hidden="${tickets.isLast()}"
+                   th:href="${url + '&page=' + (tickets.getTotalPages() - 1)} + '#tickets'">
                     Последняя
                 </a>
 
@@ -207,12 +216,12 @@
                 <button type="button" class="text-wrapper-59">Продолжить</button>
             </div>
             <div class="view-32">
-                <span class="text-wrapper-60">8000 руб</span>
+                <span id="totalPrice" class="text-wrapper-60">8000 руб</span>
                 <span class="text-wrapper-61">Взрослые:</span>
                 <div class="rectangle-9" aria-hidden="true"></div>
                 <div class="rectangle-10" aria-hidden="true"></div>
                 <span class="text-wrapper-62">Авиабилеты</span>
-                <span class="text-wrapper-63">8000 руб</span>
+                <span  id="totalPrice2" class="text-wrapper-63">8000 руб</span>
             </div>
         </aside>
         </div>

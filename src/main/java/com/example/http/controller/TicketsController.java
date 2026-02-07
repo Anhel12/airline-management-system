@@ -1,5 +1,6 @@
 package com.example.http.controller;
 
+import com.example.Utils.StringUtils;
 import com.example.dto.FlightFilter;
 import com.example.dto.FlightTicketDto;
 import com.example.service.FlightService;
@@ -11,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -25,13 +27,15 @@ public class TicketsController {
 
     @GetMapping
     public String findAll(Model model,
-                          @ModelAttribute("filter") FlightFilter filter,
+                          @ModelAttribute("filter")@Validated FlightFilter filter,
                           @PageableDefault(value = 7) Pageable pageable){
 
         if(filter.getNumberOfPassenger() == null){
             filter.setNumberOfPassenger(1);
         }
 
+        filter.setDepartureCity(filter.getDepartureCity().trim());
+        filter.setArrivalCity(filter.getArrivalCity().trim());
 
         Page<FlightTicketDto> page = flightService.findAllForTicket(filter, pageable);
 

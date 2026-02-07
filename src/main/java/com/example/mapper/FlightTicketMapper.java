@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class FlightTicketMapper implements Mapper<Flight, FlightTicketDto>{
-    private final TimeUtils timeUtils;
 
     @Override
     public FlightTicketDto map(Flight object) {
@@ -19,10 +18,10 @@ public class FlightTicketMapper implements Mapper<Flight, FlightTicketDto>{
                 .departureAirportCode(object.getDepartureAirport().getCode())
                 .arrivalAirportCode(object.getArrivalAirport().getCode())
                 .flightNumber(object.getFlightNumber())
-                .timeInAir(timeUtils.durationFormat(
-                        timeUtils.getDurationBetween(object.getDepartureDateTime(),
+                .timeInAir(TimeUtils.durationFormat(
+                        TimeUtils.getDurationBetween(object.getDepartureDateTime(),
                             object.getArrivalDateTime())))
-                .price(timeUtils.getDurationBetween(object.getDepartureDateTime(),
+                .price(TimeUtils.getDurationBetween(object.getDepartureDateTime(),
                         object.getArrivalDateTime()).toMinutes() * 100)
                 .build();
     }

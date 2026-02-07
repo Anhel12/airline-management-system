@@ -608,27 +608,42 @@ a {
 
 .screen .view-17 {
     order: 5;
-    display: flex;
     align-items: center;
     margin-left: 20px;
 
 }
 
-.screen .text-wrapper-22 {
+.screen .ticket-radio-label {
+    position: relative;
+    display: inline-flex;
     padding: 10px 20px;
     border-radius: 10px;
-    background: var(--variable-collection-brand);
-    color: #fff;
-    border: none;
-    font-size: 14px;
+    background: #D9D9D9;
     cursor: pointer;
-    font-family: "Red Hat Display-Regular", Helvetica;
-    font-weight: 500;
+
 }
 
-.text-wrapper-22:hover {
-    background: #1558c0;
+.screen .ticket-radio-text {
+    font-family: "Red Hat Display-Regular", Helvetica;
+    font-weight: 500;
+    font-size: 14px;
+
 }
+
+.screen .ticket-radio-input {
+    position: absolute;
+    opacity: 0;
+}
+
+.ticket-radio-label:hover {
+    background: #8F8F8F;
+}
+
+.ticket-radio-label:has(.ticket-radio-input:checked) {
+    background: var(--variable-collection-brand);
+    color: #ffffff;
+}
+
 
 .element {
     order: 3;
@@ -789,8 +804,7 @@ a {
 }
 
 .screen .text-wrapper-60 {
-    width: 20.79%;
-    height: 23.75%;
+    display: flex;
     top: 62.50%;
     left: 68.82%;
     font-family: "Red Hat Display-Regular", Helvetica;
@@ -800,6 +814,7 @@ a {
     position: absolute;
     font-size: 14px;
     line-height: normal;
+    white-space: nowrap;
 }
 
 .screen .text-wrapper-61 {
@@ -851,8 +866,7 @@ a {
 
 .screen .text-wrapper-63 {
     position: absolute;
-    width: 26.52%;
-    height: 30.00%;
+    display: flex;
     top: 10.00%;
     left: 63.44%;
     font-family: "Red Hat Display-Regular", Helvetica;
@@ -861,6 +875,7 @@ a {
     font-size: 18px;
     letter-spacing: -1.08px;
     line-height: normal;
+    white-space: nowrap;
 }
 .screen .page-count {
     display: flex;
@@ -952,6 +967,18 @@ a {
     -moz-appearance: none;
     cursor: pointer;
 }
+
+.pagination {
+    color: #000000;
+    font-family: "Red Hat Display-Regular", Helvetica;
+    font-weight: 400;
+    font-size: 14px;
+    gap: 6px;
+}
+.pagination-href {
+    color: var(--variable-collection-brand);
+}
+
 
 .view-14:checked {
     background-color: #000000;
