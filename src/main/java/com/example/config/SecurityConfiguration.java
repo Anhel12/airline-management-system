@@ -1,7 +1,9 @@
 package com.example.config;
 
+import com.example.database.entity.Role;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,7 +17,9 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(auth -> auth
+        http
+                .csrf(Customizer.withDefaults())
+                .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/",
                                 "/home",
@@ -28,7 +32,7 @@ public class SecurityConfiguration {
                                 "/js/**",
                                 "/img/**"
                         ).permitAll()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/admin/**").hasRole(Role.ADMIN.getAuthority())
                         .requestMatchers("/profile/**").authenticated()
                         .anyRequest().permitAll())
                 .formLogin(login -> login
@@ -40,7 +44,8 @@ public class SecurityConfiguration {
                         .permitAll())
                 .logout(logout -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/home"));
+                        .logoutSuccessUrl("/home")
+                        .invalidateHttpSession(true));
         return http.build();
     }
 

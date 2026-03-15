@@ -7,6 +7,7 @@ html,
 body {
     margin: 0;
     height: 100%;
+    overflow: scroll;
 }
 
 body {
@@ -100,6 +101,24 @@ a {
     font-size: 18px;
     letter-spacing: 0;
     line-height: normal;
+}
+
+.logout-bottom {
+    position: absolute;
+    top: 23.5%;
+    left: 10.15%;
+    width: 14.85%;
+    height: 4.2%;
+    border-radius: 10px;
+    background-color: #BF1D1D;
+    text-align: center;
+    padding: 17px 10px;
+    font-family: "Red Hat Display-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
 }
 
 .element .view-2 {

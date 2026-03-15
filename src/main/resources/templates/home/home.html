@@ -73,19 +73,6 @@
                        th:field="${filter.departureDate}"
                 />
             </div>
-            <div class="view-9">
-                <input type="text"
-                       id="return-date"
-                       class="return"
-                       name="return"
-                       aria-label="Дата возвращения"
-                       placeholder="Обратно"
-                       onblur="this.type='text'"
-                       onfocus="this.type='date'"
-                       min="2025-12-20"
-                       th:field="${filter.returnDate}"
-                />
-            </div>
             <div class="view-7">
                 <input
                         type="text"
@@ -98,6 +85,19 @@
                         onfocus="this.type='number'"
                         onblur="this.type='text'"
                         th:field="${filter.numberOfPassenger}"
+                />
+            </div>
+            <div class="view-9">
+                <input type="text"
+                       id="return-date"
+                       class="return"
+                       name="return"
+                       aria-label="Дата возвращения"
+                       placeholder="Обратно"
+                       onblur="this.type='text'"
+                       onfocus="this.type='date'"
+                       min="2025-12-20"
+                       th:field="${filter.returnDate}"
                 />
             </div>
             <div class="view-10">

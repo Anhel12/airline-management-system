@@ -1,11 +1,8 @@
 package com.example.Utils;
 
-import org.springframework.stereotype.Component;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-@Component
 public class TimeUtils {
 
     private TimeUtils() {}

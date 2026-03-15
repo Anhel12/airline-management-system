@@ -33,6 +33,9 @@
                 <span class="text-wrapper-4">Документы</span>
             </a>
         </nav>
+        <form th:action="@{/logout}" method="POST">
+            <button type="submit" class="logout-bottom">Выйти из аккаунта</button>
+        </form>
         <div class="view-3" role="tablist" aria-label="Фильтр заказов">
             <button class="view-4" role="tab" aria-controls="active-orders">
                 <a th:href="@{/profile/orders}">

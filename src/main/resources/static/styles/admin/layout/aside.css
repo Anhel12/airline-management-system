@@ -1,0 +1,51 @@
+/* ============================================= ASIDE ============================================== */
+.aside {
+    height: 100%;
+    background: #ededed;
+    max-width: 300px;
+}
+.aside-inner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    padding: 15px 0;
+
+
+}
+.aside__logo {
+    font-family: "Ranga", sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #0af;
+    padding-top: 3px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+}
+
+.aside__logo span {
+    font-weight: 400;
+}
+.aside__nav {
+    
+    margin: auto 0;
+    padding-bottom: 70px;
+    max-height: 460px;
+    height: 100%;
+}
+.aside__nav-btn-box {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+    gap: 10px;
+}
+
+.aside__nav-item {
+    width: 200px;
+    border-radius: 10px;
+}
+.aside__nav-item:first-child {
+    margin-bottom: 100px;
+}
+

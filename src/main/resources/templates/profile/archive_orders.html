@@ -46,6 +46,9 @@
                 </a>
             </button>
         </div>
+        <form th:action="@{/logout}" method="POST">
+            <button type="submit" class="logout-bottom">Выйти из аккаунта</button>
+        </form>
         <div th:if="${!archiveBookings.isEmpty()}" class="order">
             <div th:each="archiveBooking: ${archiveBookings}" class="order-card">
                 <div class="order-left">

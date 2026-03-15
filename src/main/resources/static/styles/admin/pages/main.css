@@ -1,0 +1,120 @@
+html, body {
+    font-family: "Finlandica", sans-serif;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: max(300px) auto;
+    grid-template-rows: min-content max-content auto;
+    grid-template-areas:
+        "sp sp"
+        "sb hd"
+        "sb mn";
+
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+    
+}
+.container {
+    height: 100%;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
+.button {
+    display: flex;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #000;
+    opacity: .8;
+    padding: 10px 12px;
+    background: #d9d9d9;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.button:hover {
+    background: #c9c9c9;
+}
+
+.spec-panel {
+    grid-area: sp;
+}
+
+.header {
+    grid-area: hd;
+}
+
+.aside {
+    grid-area: sb;
+}
+
+.main {
+    grid-area: mn;
+}
+
+/* ============================================= ASIDE ============================================= */
+.aside__nav-item:first-child {
+    border: 2px solid #0af;
+}
+/* ============================================= MAIN ============================================== */
+.main-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 100px;
+}
+.main__stats {
+    display: grid;
+    grid-template: auto auto auto / auto auto auto;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.main__stats-item {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 20px;
+    background: #ededed;
+    border-radius: 10px;
+    min-width: 270px;
+    gap: 10px;
+}
+.main__stats-content-title {
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #000;
+}
+.main__stats-content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+
+.main__stats-content-img {
+    height: 80px;
+    width: 80px;
+}
+.main__stats-content svg{
+    height: 80px;
+    width: 80px;
+}
+
+.main__item-value {
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #000;
+    white-space: nowrap;
+}
+
+.main__item-value svg {
+    transform: translateY(20%);
+}

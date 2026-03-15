@@ -1,12 +1,9 @@
 package com.example.http.controller;
 
-import com.example.Utils.StringUtils;
 import com.example.dto.FlightFilter;
 import com.example.dto.FlightTicketDto;
 import com.example.service.FlightService;
-import lombok.Builder;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.BeanWrapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -15,9 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import java.nio.charset.StandardCharsets;
-
 
 @Controller
 @RequestMapping("/tickets")
@@ -29,10 +23,6 @@ public class TicketsController {
     public String findAll(Model model,
                           @ModelAttribute("filter")@Validated FlightFilter filter,
                           @PageableDefault(value = 7) Pageable pageable){
-
-        if(filter.getNumberOfPassenger() == null){
-            filter.setNumberOfPassenger(1);
-        }
 
         filter.setDepartureCity(filter.getDepartureCity().trim());
         filter.setArrivalCity(filter.getArrivalCity().trim());

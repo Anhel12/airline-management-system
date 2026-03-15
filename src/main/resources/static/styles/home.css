@@ -8,9 +8,15 @@ body, html {
     min-width: 1480px;
 }
 
+body {
+    background-image: url("/img/background-sky.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 .aviro-airlines {
     display: flex;
-    background-color: #ffffff;
     width: 1480px;
     min-height: 1200px;
     position: relative;

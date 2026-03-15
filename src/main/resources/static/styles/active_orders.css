@@ -93,6 +93,24 @@ a {
     line-height: normal;
 }
 
+.logout-bottom {
+    position: absolute;
+    top: 28.3%;
+    left: 10.15%;
+    width: 14.85%;
+    height: 5%;
+    border-radius: 10px;
+    background-color: #BF1D1D;
+    text-align: center;
+    padding: 17px 10px;
+    font-family: "Red Hat Display-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
 .screen .view-3 {
     position: absolute;
     top: 194px;
