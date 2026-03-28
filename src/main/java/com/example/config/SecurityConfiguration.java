@@ -32,7 +32,7 @@ public class SecurityConfiguration {
                                 "/js/**",
                                 "/img/**"
                         ).permitAll()
-                        .requestMatchers("/admin/**").hasRole(Role.ADMIN.getAuthority())
+                        .requestMatchers("/admin/**").hasAuthority("ADMIN")
                         .requestMatchers("/profile/**").authenticated()
                         .anyRequest().permitAll())
                 .formLogin(login -> login

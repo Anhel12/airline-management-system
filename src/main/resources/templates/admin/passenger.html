@@ -118,25 +118,25 @@
         <aside class="aside second">
             <div class="container">
                 <div class="aside-inner">
-                    <a href="#" class="aside__logo">
+                    <a th:href="@{/home}" class="aside__logo">
                         Aviro <span>Airlines</span>
                     </a>
                     <nav class="aside__nav">
                         <ul class="aside__nav-btn-box">
                             <li class="aside__nav-item third">
-                                <a class="aside__nav-btn button" href="#">Дашборд</a>
+                                <a class="aside__nav-btn button" th:href="@{/admin/dashboard}">Дашборд</a>
                             </li>
                             <li class="aside__nav-item third">
-                                <a class="aside__nav-btn button" href="#">Аэропорты</a>
+                                <a class="aside__nav-btn button" th:href="@{/admin/airport}">Аэропорты</a>
                             </li>
                             <li class="aside__nav-item third">
-                                <a class="aside__nav-btn button" href="#">Бронирования</a>
+                                <a class="aside__nav-btn button" th:href="@{/admin/booking}">Бронирования</a>
                             </li>
                             <li class="aside__nav-item third">
-                                <a class="aside__nav-btn button" href="#">Рейсы</a>
+                                <a class="aside__nav-btn button" th:href="@{/admin/flight}">Рейсы</a>
                             </li>
                             <li class="aside__nav-item third">
-                                <a class="aside__nav-btn button" href="#">Пассажиры</a>
+                                <a class="aside__nav-btn button" th:href="@{/admin/passenger}">Пассажиры</a>
                             </li>
                         </ul>
                     </nav>
