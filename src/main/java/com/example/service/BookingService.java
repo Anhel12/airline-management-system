@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +30,17 @@ public class BookingService {
     public Optional<BookingReadDto> findById(Long id){
         return bookingRepository.findById(id)
                 .map(bookingReadMapper::map);
+    }
+    public Integer getCountAll(){
+        return bookingRepository.countAll();
+    }
+
+    public Integer getSumByAllBookingAmount(){
+        return bookingRepository.sumByAllBookingAmount();
+    }
+
+    public Optional<Integer> getSumByAllBookingAmountBetweenTwoDates(LocalDate firstDate, LocalDate secondDate){
+        return bookingRepository.sumByAllBookingAmountBetweenTwoDates(firstDate, secondDate);
     }
 
     @Transactional
@@ -58,4 +70,5 @@ public class BookingService {
                 })
                 .orElse(false);
     }
+
 }

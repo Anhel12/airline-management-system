@@ -109,8 +109,9 @@ $(function(){
         $(".second h3, .second .main__item-value, .second").css("color", "#0af");
         $(".second .main__item-value svg path, .button.second svg path").css("fill", "#0af");
 
-        $(".third a").css("background", "#0af");
-        $(".third a").css("color", "#000");
+        $(".table__main-item").css("background", "#fff");
+        $(".third a").css("background", "#0af")
+        $(".third a, .table__main-item").css("color", "#000");
         $(".header__nav-glasses-btn svg path").css("fill", "#000");
 
         $(".header__title").css("color", "#000");

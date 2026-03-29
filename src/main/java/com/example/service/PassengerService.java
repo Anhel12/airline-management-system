@@ -2,6 +2,7 @@ package com.example.service;
 
 
 import com.example.database.Repository.PassengerRepository;
+import com.example.database.entity.Role;
 import com.example.dto.*;
 import com.example.mapper.BookingCreateEditMapper;
 import com.example.mapper.PassengerCreateEditMapper;
@@ -108,5 +109,9 @@ public class PassengerService implements UserDetailsService {
     public Optional<PassengerCreateEditDto> getForEdit(String email){
         return passengerRepository.findByEmail(email)
                 .map(passengerCreateEditMapper::map);
+    }
+
+    public Integer getCountAllByRole(Role role){
+        return passengerRepository.countAllByRoleIs(role);
     }
 }

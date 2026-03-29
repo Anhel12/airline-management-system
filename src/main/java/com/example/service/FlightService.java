@@ -72,6 +72,10 @@ public class FlightService {
                 .map(flightReadMapper::map);
     }
 
+    public Integer getCountAll(){
+        return flightRepository.countAll();
+    }
+
     @Transactional
     public FlightReadDto create(FlightCreateEditDto flightDto){
         return Optional.ofNullable(flightDto)

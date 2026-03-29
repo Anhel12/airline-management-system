@@ -12,5 +12,6 @@ import java.util.Optional;
 @Repository
 public interface FlightRepository extends JpaRepository<Flight, Long>,
         FilterFlightRepository, QuerydslPredicateExecutor<Flight> {
-
+    @Query("select count(*) from Flight ")
+    public Integer countAll();
 }
