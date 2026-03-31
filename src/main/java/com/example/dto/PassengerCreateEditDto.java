@@ -6,18 +6,19 @@ import com.example.database.entity.Sex;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
-@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Setter
+@Getter
 @Builder
 public class PassengerCreateEditDto {
+    Long id;
 
     String phoneNumber;
 

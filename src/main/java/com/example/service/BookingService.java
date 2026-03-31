@@ -27,6 +27,12 @@ public class BookingService {
                 .toList();
     }
 
+    public List<BookingCreateEditDto> findAllForCreateEdit(){
+        return bookingRepository.findAll().stream()
+                .map(bookingCreateEditMapper::map)
+                .toList();
+    }
+
     public Optional<BookingReadDto> findById(Long id){
         return bookingRepository.findById(id)
                 .map(bookingReadMapper::map);

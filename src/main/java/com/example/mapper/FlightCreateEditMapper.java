@@ -30,11 +30,11 @@ public class FlightCreateEditMapper implements Mapper<FlightCreateEditDto, Fligh
     }
 
     public void copy(FlightCreateEditDto flightDto, Flight flight){
-        flight.setFlightNumber(flightDto.flightNumber());
-        flight.setDepartureAirport(getAirport(flightDto.departureAirportId()));
-        flight.setArrivalAirport(getAirport(flightDto.arrivalAirportId()));
-        flight.setDepartureDateTime(flightDto.departureDateTime());
-        flight.setArrivalDateTime(flightDto.arrivalDateTime());
+        flight.setFlightNumber(flightDto.getFlightNumber());
+        flight.setDepartureAirport(getAirport(flightDto.getDepartureAirportId()));
+        flight.setArrivalAirport(getAirport(flightDto.getArrivalAirportId()));
+        flight.setDepartureDateTime(flightDto.getDepartureDateTime());
+        flight.setArrivalDateTime(flightDto.getArrivalDateTime());
 
     }
 
@@ -42,5 +42,18 @@ public class FlightCreateEditMapper implements Mapper<FlightCreateEditDto, Fligh
         return Optional.ofNullable(airportId)
                 .flatMap(airportRepository::findById)
                 .orElse(null);
+    }
+
+    public FlightCreateEditDto map(Flight fromObject){
+        FlightCreateEditDto flightCreateEditDto = new FlightCreateEditDto(
+                fromObject.getId(),
+                fromObject.getFlightNumber(),
+                fromObject.getDepartureAirport().getId(),
+                fromObject.getArrivalAirport().getId(),
+                fromObject.getDepartureDateTime(),
+                fromObject.getArrivalDateTime()
+        );
+
+        return flightCreateEditDto;
     }
 }

@@ -249,48 +249,32 @@
                                         </ul>
                                     </a>
                                 </li>
-                                <li class="table__top-item">
-                                    <a href="">
-                                        <div class="table__top-title">Почта пассажира</div>
-                                        <ul class="table__top-filter">
-                                            <li class="table__top-filter-svg">
-                                                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M3.94141 2.92801L2.37054 0.213867C2.33288 0.148828 2.27879 0.094833 2.21368 0.0572961C2.14857 0.0197592 2.07474 0 1.99958 0C1.92443 0 1.8506 0.0197592 1.78549 0.0572961C1.72038 0.094833 1.66629 0.148828 1.62863 0.213867L0.0577581 2.92801C0.0200099 2.99314 8.86566e-05 3.06707 2.95232e-07 3.14235C-8.80662e-05 3.21763 0.0196596 3.2916 0.0572548 3.35682C0.09485 3.42204 0.148965 3.4762 0.214152 3.51385C0.279338 3.5515 0.353294 3.57131 0.428573 3.57129H3.57059C3.64587 3.57131 3.71983 3.5515 3.78501 3.51385C3.8502 3.4762 3.90432 3.42204 3.94191 3.35682C3.97951 3.2916 3.99925 3.21763 3.99917 3.14235C3.99908 3.06707 3.97916 2.99314 3.94141 2.92801Z" fill="#D9D9D9" />
-                                                </svg>
-                                            </li>
-                                            <li class="table__top-filter-svg">
-                                                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M0.0576158 0.643276L1.62849 3.35742C1.66614 3.42246 1.72024 3.47646 1.78535 3.51399C1.85045 3.55153 1.92429 3.57129 1.99944 3.57129C2.07459 3.57129 2.14843 3.55153 2.21354 3.51399C2.27864 3.47646 2.33274 3.42246 2.37039 3.35742L3.94127 0.643276C3.97901 0.578145 3.99893 0.504219 3.99902 0.42894C3.99911 0.353662 3.97936 0.279689 3.94177 0.21447C3.90417 0.149251 3.85006 0.0950897 3.78487 0.0574386C3.71969 0.0197875 3.64573 -2.38183e-05 3.57045 -2.55531e-08H0.42843C0.353152 -2.38183e-05 0.279196 0.0197875 0.214009 0.0574386C0.148823 0.0950897 0.0947076 0.149251 0.0571125 0.21447C0.0195173 0.279689 -0.000230459 0.353662 -0.000142097 0.42894C-5.37361e-05 0.504219 0.0198676 0.578145 0.0576158 0.643276Z" fill="#D9D9D9" />
-                                                </svg>
-                                            </li>
-                                        </ul>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                         <div class="stripe"></div>
                         <div class="table__main">
-                            <form action="" class="table__main-form">
-                                <ul class="table__main-list">
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                </ul>
+                            <form th:action="@{/admin/booking}" th:method="PUT" class="table__main-form" th:object="${bookingList}">
+                                <div>
+                                    <ul class="table__main-list" th:each="booking, stat: *{bookingList}">
+                                        <input type="hidden" th:field="*{bookingList[__${stat.index}__].id}" style="display: none">
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{bookingList[__${stat.index}__].bookingNumber}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{bookingList[__${stat.index}__].bookingDate}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{bookingList[__${stat.index}__].flight_id}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{bookingList[__${stat.index}__].totalAmount}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{bookingList[__${stat.index}__].status}">
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button class="table__main-form-btn button" type="submit">Сохранить</button>
                             </form>
                         </div>
                     </div>

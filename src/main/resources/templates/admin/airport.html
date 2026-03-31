@@ -166,7 +166,7 @@
                             <ul class="table__top-list">
                                 <li class="table__top-item">
                                     <a href="">
-                                        <div class="table__top-title">Номер</div>
+                                        <div class="table__top-title">Код</div>
                                         <ul class="table__top-filter">
                                             <li class="table__top-filter-svg">
                                                 <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -253,24 +253,28 @@
                         </div>
                         <div class="stripe"></div>
                         <div class="table__main">
-                            <form action="" class="table__main-form">
-                                <ul class="table__main-list">
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                </ul>
+                            <form class="table__main-form" th:action="@{/admin/airport}" th:method="PUT" th:object="${airportList}">
+                                <div>
+                                    <ul class="table__main-list" th:each="airport, stat: *{airportList}">
+                                        <input type="hidden" th:field="*{airportList[__${stat.index}__].id}" style="display: none">
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{airportList[__${stat.index}__].code}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{airportList[__${stat.index}__].name}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{airportList[__${stat.index}__].city}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{airportList[__${stat.index}__].country}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{airportList[__${stat.index}__].timezone}">
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button class="table__main-form-btn button" type="submit">Сохранить</button>
                             </form>
                         </div>
                     </div>

@@ -338,39 +338,44 @@
                         </div>
                         <div class="stripe"></div>
                         <div class="table__main">
-                            <form action="" class="table__main-form">
-                                <ul class="table__main-list">
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                </ul>
+                            <form th:action="@{/admin/passenger}" th:method="PUT" class="table__main-form" th:object="${passengerList}">
+                                <div>
+                                    <ul class="table__main-list" th:each="passenger, stat: *{passengerList}">
+                                        <input type="hidden" th:field="*{passengerList[__${stat.index}__].id}" style="display: none">
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].phoneNumber}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].email}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].passportNumber}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].birthDate}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].firstName}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].lastName}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].middleName}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].sex}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].role}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].password}">
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <button class="table__main-form-btn button" type="submit">Сохранить</button>
                             </form>
                         </div>
                     </div>

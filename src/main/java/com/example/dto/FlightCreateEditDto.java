@@ -2,35 +2,38 @@ package com.example.dto;
 
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
+public class FlightCreateEditDto{
 
-public record FlightCreateEditDto(
-    @NotBlank
-    String flightNumber,
+        Long id;
 
-    @NotBlank
-    Long departureAirportId,
+        @NotBlank
+        String flightNumber;
 
-    @NotBlank
-    Long arrivalAirportId,
+        @NotBlank
+        Long departureAirportId;
 
-    @NotBlank
-    @Future
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    LocalDateTime departureDateTime,
+        @NotBlank
+        Long arrivalAirportId;
 
-    @NotBlank
-    @Future
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    LocalDateTime arrivalDateTime,
+        @NotBlank
+        @Future
+        @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+        LocalDateTime departureDateTime;
 
-    @NotBlank
-    Long aircraftId
-
-) {
-
-
+        @NotBlank
+        @Future
+        @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+        LocalDateTime arrivalDateTime;
 }

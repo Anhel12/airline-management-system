@@ -23,6 +23,7 @@ public class PassengerReadMapper implements Mapper<Passenger, PassengerReadDto>{
                 .lastName(object.getLastName())
                 .sex(object.getSex())
                 .role(object.getRole())
+                .password(object.getPassword())
                 .build();
     }
 }

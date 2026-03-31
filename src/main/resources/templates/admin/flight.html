@@ -253,24 +253,28 @@
                         </div>
                         <div class="stripe"></div>
                         <div class="table__main">
-                            <form action="" class="table__main-form">
-                                <ul class="table__main-list">
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                    <li class="table__main-item">
-                                        <input type="text" class="table__main-input">
-                                    </li>
-                                </ul>
+                            <form th:action="@{/admin/flight}" th:method="PUT" class="table__main-form" th:object="${flightList}">
+                                <div>
+                                    <ul class="table__main-list" th:each="flight, stat: *{flightList}">
+                                        <input type="hidden" th:field="*{flightList[__${stat.index}__].id}" style="display: none">
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{flightList[__${stat.index}__].flightNumber}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{flightList[__${stat.index}__].departureDateTime}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{flightList[__${stat.index}__].arrivalDateTime}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{flightList[__${stat.index}__].departureAirportId}">
+                                        </li>
+                                        <li class="table__main-item">
+                                            <input type="text" class="table__main-input" th:field="*{flightList[__${stat.index}__].arrivalAirportId}">
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button class="table__main-form-btn button" type="submit">Сохранить</button>
                             </form>
                         </div>
                     </div>

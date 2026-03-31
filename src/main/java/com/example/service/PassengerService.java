@@ -35,6 +35,12 @@ public class PassengerService implements UserDetailsService {
                 .toList();
     }
 
+    public List<PassengerCreateEditDto> findAllForCreatEdit(){
+        return passengerRepository.findAll().stream()
+                .map(passengerCreateEditMapper::map)
+                .toList();
+    }
+
     public Optional<PassengerReadDto> findById(Long id){
         return passengerRepository.findById(id)
                 .map(passengerReadMapper::map);

@@ -7,6 +7,7 @@ import com.example.database.entity.BookingSeat;
 import com.example.database.entity.Flight;
 import com.example.database.entity.Seat;
 import com.example.dto.BookingCreateEditDto;
+import com.example.dto.BookingReadDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -32,13 +33,26 @@ public class BookingCreateEditMapper implements Mapper<BookingCreateEditDto, Boo
         return toObject;
     }
 
+    public BookingCreateEditDto map(Booking fromObject){
+        BookingCreateEditDto bookingDto = new BookingCreateEditDto(
+                fromObject.getId(),
+                fromObject.getBookingNumber(),
+                fromObject.getBookingDate(),
+                fromObject.getFlight().getId(),
+                List.of(0L),
+                fromObject.getTotalAmount(),
+                fromObject.getStatus());
+
+        return bookingDto;
+    }
+
     public void copy(BookingCreateEditDto bookingDto, Booking booking){
-        booking.setBookingNumber(bookingDto.bookingNumber());
-        booking.setBookingDate(bookingDto.bookingDate());
-        booking.setFlight(getFlight(bookingDto.flight_id()));
-        booking.setBookingSeatList(getBookingSeat(bookingDto.seat_id()));
-        booking.setTotalAmount(bookingDto.totalAmount());
-        booking.setStatus(bookingDto.status());
+        booking.setBookingNumber(bookingDto.getBookingNumber());
+        booking.setBookingDate(bookingDto.getBookingDate());
+        booking.setFlight(getFlight(bookingDto.getFlight_id()));
+        booking.setBookingSeatList(getBookingSeat(bookingDto.getSeat_id()));
+        booking.setTotalAmount(bookingDto.getTotalAmount());
+        booking.setStatus(bookingDto.getStatus());
     }
 
     public Flight getFlight(Long flightId){

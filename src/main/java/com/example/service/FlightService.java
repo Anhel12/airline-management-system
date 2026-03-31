@@ -67,6 +67,12 @@ public class FlightService {
                 .map(flightTicketMapper::map);
     }
 
+    public List<FlightCreateEditDto> findAllForCreateEdit(){
+        return flightRepository.findAll().stream()
+                .map(flightCreateEditMapper::map)
+                .toList();
+    }
+
     public Optional<FlightReadDto> findById(Long id){
         return flightRepository.findById(id)
                 .map(flightReadMapper::map);

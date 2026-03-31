@@ -40,6 +40,7 @@ public class PassengerCreateEditMapper implements Mapper<PassengerCreateEditDto,
 
     public PassengerCreateEditDto map(Passenger object){
         return PassengerCreateEditDto.builder()
+                .id(object.getId())
                 .phoneNumber(object.getPhoneNumber())
                 .email(object.getEmail())
                 .passportNumber(object.getPassportNumber())
