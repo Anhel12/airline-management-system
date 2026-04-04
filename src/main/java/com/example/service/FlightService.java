@@ -6,15 +6,20 @@ import com.example.mapper.FlightCreateEditMapper;
 import com.example.mapper.FlightReadMapper;
 import com.example.mapper.FlightTicketMapper;
 import com.querydsl.core.types.Predicate;
+import io.micrometer.common.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
+import static com.example.database.entity.QBooking.booking;
 import static com.example.database.entity.QFlight.flight;
 
 @Service
@@ -30,6 +35,36 @@ public class FlightService {
         return flightRepository.findAll().stream()
                 .map(flightReadMapper::map)
                 .toList();
+    }
+
+    public List<FlightCreateEditDto> findAll(String search, String sort, String dir){
+        QPredicates predicates = QPredicates.builder();
+
+        if(StringUtils.isNotBlank(search)){
+            predicates.add(search, flight.flightNumber::containsIgnoreCase);
+            predicates.add(search, flight.departureDateTime.stringValue()::containsIgnoreCase);
+            predicates.add(search, flight.arrivalDateTime.stringValue()::containsIgnoreCase);
+            predicates.add(search, flight.departureAirport.code::containsIgnoreCase);
+            predicates.add(search, flight.arrivalAirport.code::containsIgnoreCase);
+            predicates.add(search, flight.departureAirport.name::containsIgnoreCase);
+            predicates.add(search, flight.arrivalAirport.name::containsIgnoreCase);
+        }
+
+        Set<String> allowed = Set.of("id", "flightNumber", "departureDateTime", "arrivalDateTime", "departureAirport.code", "arrivalAirport.code", "departureAirport.name", "arrivalAirport.name");
+
+        if(!allowed.contains(sort)){
+            sort = "id";
+        }
+
+        Sort sortQuery = dir.equals("asc") ? Sort.by(sort).ascending() : Sort.by(sort).descending();
+
+        List<FlightCreateEditDto> flightList = new ArrayList<>();
+        flightRepository.findAll(predicates.buildOr(), sortQuery).forEach(entity ->{
+            FlightCreateEditDto dto = flightCreateEditMapper.map(entity);
+            flightList.add(dto);
+        });
+
+        return flightList;
     }
 
     public List<FlightTicketDto> findAllForTicket(){

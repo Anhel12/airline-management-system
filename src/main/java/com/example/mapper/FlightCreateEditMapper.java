@@ -50,6 +50,8 @@ public class FlightCreateEditMapper implements Mapper<FlightCreateEditDto, Fligh
                 fromObject.getFlightNumber(),
                 fromObject.getDepartureAirport().getId(),
                 fromObject.getArrivalAirport().getId(),
+                fromObject.getDepartureAirport().getName(),
+                fromObject.getArrivalAirport().getName(),
                 fromObject.getDepartureDateTime(),
                 fromObject.getArrivalDateTime()
         );

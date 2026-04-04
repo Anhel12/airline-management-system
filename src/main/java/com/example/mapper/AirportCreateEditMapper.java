@@ -43,12 +43,12 @@ public class AirportCreateEditMapper implements Mapper<AirportCreateEditDto, Air
 
     public AirportCreateEditDto map(AirportReadDto fromObject) {
         AirportCreateEditDto airport = new AirportCreateEditDto();
-        airport.setId(fromObject.id());
-        airport.setCode(fromObject.code());
-        airport.setName(fromObject.name());
-        airport.setCity(fromObject.city());
-        airport.setCountry(fromObject.country());
-        airport.setTimezone(fromObject.timezone());
+        airport.setId(fromObject.getId());
+        airport.setCode(fromObject.getCode());
+        airport.setName(fromObject.getName());
+        airport.setCity(fromObject.getCity());
+        airport.setCountry(fromObject.getCountry());
+        airport.setTimezone(fromObject.getTimezone());
 
         return airport;
     }

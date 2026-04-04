@@ -26,6 +26,10 @@ public class FlightCreateEditDto{
 
         @NotBlank
         Long arrivalAirportId;
+        @NotBlank
+        String departureAirportName;
+        @NotBlank
+        String arrivalAirportName;
 
         @NotBlank
         @Future

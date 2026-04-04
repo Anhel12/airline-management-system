@@ -10,10 +10,7 @@ import com.example.service.PassengerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -52,11 +49,18 @@ public class AdminController {
     }
 
     @GetMapping("/airport")
-    public String airport(Model model){
-        AirportListWrapper airportListWrapper = new AirportListWrapper();
-        airportListWrapper.setAirportList(airportService.findAll());
+    public String airport(Model model,
+                          @RequestParam(value = "search", required = false) String search,
+                          @RequestParam(value = "sort", required = false, defaultValue = "1") String sort,
+                          @RequestParam(value = "dir", required = false, defaultValue = "asc") String dir,
+                          AirportListWrapper airportListWrapper){
+
+        airportListWrapper.setAirportList(airportService.findAll(search, sort, dir));
 
         model.addAttribute("airportList", airportListWrapper);
+        model.addAttribute("sort", sort);
+        model.addAttribute("dir", dir);
+        model.addAttribute("search", search);
 
         return "admin/airport";
     }
@@ -73,10 +77,17 @@ public class AdminController {
     }
 
     @GetMapping("/booking")
-    public String booking(Model model){
-        BookingListWrapper bookingListWrapper = new BookingListWrapper();
-        bookingListWrapper.setBookingList(bookingService.findAllForCreateEdit());
+    public String booking(Model model,
+                          BookingListWrapper bookingListWrapper,
+                          @RequestParam(value = "search", required = false) String search,
+                          @RequestParam(value = "sort", required = false, defaultValue = "1") String sort,
+                          @RequestParam(value = "dir", required = false, defaultValue = "asc") String dir){
+
+        bookingListWrapper.setBookingList(bookingService.findAll(search, sort, dir));
         model.addAttribute("bookingList", bookingListWrapper);
+        model.addAttribute("sort", sort);
+        model.addAttribute("dir", dir);
+        model.addAttribute("search", search);
 
         return "admin/booking";
     }
@@ -89,10 +100,17 @@ public class AdminController {
     }
 
     @GetMapping("/flight")
-    public String flight(Model model){
-        FlightListWrapper flightListWrapper = new FlightListWrapper();
-        flightListWrapper.setFlightList(flightService.findAllForCreateEdit());
+    public String flight(Model model,
+                         FlightListWrapper flightListWrapper,
+                         @RequestParam(value = "search", required = false) String search,
+                         @RequestParam(value = "sort", required = false, defaultValue = "1") String sort,
+                         @RequestParam(value = "dir", required = false, defaultValue = "asc") String dir){
+
+        flightListWrapper.setFlightList(flightService.findAll(search, sort, dir));
         model.addAttribute("flightList", flightListWrapper);
+        model.addAttribute("sort", sort);
+        model.addAttribute("dir", dir);
+        model.addAttribute("search", search);
 
         return "admin/flight";
     }
@@ -105,10 +123,17 @@ public class AdminController {
     }
 
     @GetMapping("/passenger")
-    public String passenger(Model model){
-        PassengerListWrapper passengerListWrapper = new PassengerListWrapper();
-        passengerListWrapper.setPassengerList(passengerService.findAllForCreatEdit());
+    public String passenger(Model model,
+                            PassengerListWrapper passengerListWrapper,
+                            @RequestParam(value = "search", required = false) String search,
+                            @RequestParam(value = "sort", required = false, defaultValue = "1") String sort,
+                            @RequestParam(value = "dir", required = false, defaultValue = "asc") String dir){
+
+        passengerListWrapper.setPassengerList(passengerService.findAll(search, sort, dir));
         model.addAttribute("passengerList", passengerListWrapper);
+        model.addAttribute("sort", sort);
+        model.addAttribute("dir", dir);
+        model.addAttribute("search", search);
 
         return "admin/passenger";
     }

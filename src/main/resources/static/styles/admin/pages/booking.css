@@ -165,6 +165,10 @@ html, body {
 .table__top-filter-svg svg{
     display: block;
 }
+
+.table__top-filter-svg.active path{
+    fill: #000;
+}
 .stripe {
     position: absolute;
     content: "";
@@ -219,9 +223,27 @@ html, body {
     grid-row: 1 / 2;
 }
 
+.table__main-item select{
+    font-family: "Finlandica", sans-serif;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 22px;
+    padding: 3px 3px;
+    border-radius: 5px;
+    width: 100%;
+}
+
 .table__main-input {
     padding: 3px 3px;
     border-radius: 5px;
+    height: 22px;
+    width: 100%;
+}
+
+.table__main-input::-webkit-outer-spin-button,
+.table__main-input::-webkit-inner-spin-button{
+    display: none;
 }
 
 .table__main-form-btn{

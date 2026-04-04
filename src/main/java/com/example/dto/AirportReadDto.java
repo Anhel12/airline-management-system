@@ -1,16 +1,19 @@
 package com.example.dto;
 
-import lombok.Builder;
+import lombok.*;
 
 import java.time.ZoneId;
 
 @Builder
-public record AirportReadDto(
-        Long id,
-        String code,
-        String name,
-        String city,
-        String country,
-        ZoneId timezone
-) {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class AirportReadDto{
+    Long id;
+    String code;
+    String name;
+    String city;
+    String country;
+    ZoneId timezone;
 }

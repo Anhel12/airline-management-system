@@ -28,6 +28,7 @@ public class PassengerCreateEditDto {
     @Size(min = 10, max = 10)
     String passportNumber;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     LocalDate birthDate;
 
     String firstName;

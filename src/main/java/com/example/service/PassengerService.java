@@ -8,16 +8,19 @@ import com.example.mapper.BookingCreateEditMapper;
 import com.example.mapper.PassengerCreateEditMapper;
 import com.example.mapper.PassengerDocumentMapper;
 import com.example.mapper.PassengerReadMapper;
+import io.micrometer.common.util.StringUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+
+import static com.example.database.entity.QFlight.flight;
+import static com.example.database.entity.QPassenger.passenger;
 
 @Service
 @RequiredArgsConstructor
@@ -33,6 +36,39 @@ public class PassengerService implements UserDetailsService {
         return passengerRepository.findAll().stream()
                 .map(passengerReadMapper::map)
                 .toList();
+    }
+
+    public List<PassengerCreateEditDto> findAll(String search, String sort, String dir){
+        QPredicates predicates = QPredicates.builder();
+
+        if(StringUtils.isNotBlank(search)){
+            predicates.add(search, passenger.phoneNumber::containsIgnoreCase);
+            predicates.add(search, passenger.email::containsIgnoreCase);
+            predicates.add(search, passenger.passportNumber::containsIgnoreCase);
+            predicates.add(search, passenger.birthDate.stringValue()::containsIgnoreCase);
+            predicates.add(search, passenger.firstName::containsIgnoreCase);
+            predicates.add(search, passenger.middleName::containsIgnoreCase);
+            predicates.add(search, passenger.lastName::containsIgnoreCase);
+            predicates.add(search, passenger.sex.stringValue()::containsIgnoreCase);
+            predicates.add(search, passenger.role.stringValue()::containsIgnoreCase);
+            predicates.add(search, passenger.password::containsIgnoreCase);
+        }
+
+        Set<String> allowed = Set.of("id", "phoneNumber", "email", "passportNumber", "birthDate", "firstName", "middleName", "lastName", "sex", "role", "password");
+
+        if(!allowed.contains(sort)){
+            sort = "id";
+        }
+
+        Sort sortQuery = dir.equals("asc") ? Sort.by(sort).ascending() : Sort.by(sort).descending();
+
+        List<PassengerCreateEditDto> passengerList = new ArrayList<>();
+        passengerRepository.findAll(predicates.buildOr(), sortQuery).forEach(entity ->{
+            PassengerCreateEditDto dto = passengerCreateEditMapper.map(entity);
+            passengerList.add(dto);
+        });
+
+        return passengerList;
     }
 
     public List<PassengerCreateEditDto> findAllForCreatEdit(){
