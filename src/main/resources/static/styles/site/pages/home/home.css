@@ -1,0 +1,182 @@
+html, body {
+    font-family: "Finlandica", sans-serif;
+    background-image: url("../../../../img/background-sky.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.349);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.overlay--show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container {
+    max-width: 1280px;
+    padding: 0 30px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.button {
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: #3d3a3a;
+}
+
+.button.button:hover {
+    color: #747070;
+}
+
+.header {
+    margin-bottom: 140px;
+}
+
+.main {
+}
+
+.main__search {
+}
+
+.main__slogan {
+}
+
+.footer {
+
+}
+/* =================================================== MAIN ============================================================================= */
+/* =================================================== SEARCH ============================================================================================ */
+
+.search {
+    margin-bottom: 100px;
+}
+.main__search-inner {
+    display: flex;
+    flex-direction: column;
+}
+.search__nav {
+    padding: 0 10px;
+}
+.search__nav-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 50%;
+}
+.search__nav-item {
+}
+.search__nav-item:first-child {
+    text-decoration: underline #0af;
+}
+.search__nav-item-link {
+    font-size: 1rem;
+    white-space: nowrap;
+    padding: 5px;
+}
+.search__form {
+}
+.search__form-list {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.search__form-list a {
+    position: absolute;
+    left: 23%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.search__form-list a svg:hover {
+    transform: scale(1.1);
+}
+.search__form-item {
+    padding: 20px 10px;
+    border-right: 0.5px solid rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #000;
+}
+.search__form-item::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+.search__form-item:first-child{
+    border-radius: 10px 0 0 10px;
+    width: 320px;
+}
+.search__form-item:nth-child(3){
+    width: 320px;
+}
+.search__form-item:nth-child(4){
+    width: 160px;
+}
+.search__form-item:nth-child(5){
+    width: 160px;
+}
+.search__form-item:nth-child(6){
+    width: 160px;
+}
+.search__form-item:last-child{
+    border-radius: 0 10px 10px 0;
+    border: 0;
+    padding: 0;
+    width: 160px;
+}
+.search__form-input {
+    font-weight: 400;
+    font-size: 1rem;
+    width: 100%;
+}
+.search__from-btn {
+    padding: 20px 10px;
+    background-color: #0af;
+    font-weight: 400;
+    font-size: 1rem;
+    width: 100%;
+    height: 100%;
+}
+
+/* =========================================================== SLOGAN ======================================================== */
+
+.slogan {
+    margin-bottom: 355px;
+}
+.main__slogan-inner {
+}
+.slogan__first-line {
+    font-weight: 900;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    color: #3d3a3a;
+    margin-bottom: 10px;
+}
+.slogan__second-line {
+    font-weight: 400;
+    font-size: 3rem;
+    letter-spacing: -0.02em;
+    color: #3d3a3a;
+}

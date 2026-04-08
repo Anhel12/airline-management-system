@@ -38,3 +38,12 @@
         url(../../fonts/Finlandica-Medium.woff) format('woff'),
         url(../../fonts/Finlandica-Medium.ttf) format('ttf');
 }
+@font-face {
+    font-family: "Finlandica";
+    font-weight: 600;
+    font-style: normal;
+    src: local("Finlandica SemiBold"),
+        local("Finlandica-SemiBold"),
+        url(../../fonts/Finlandica-SemiBold.woff) format('woff'),
+        url(../../fonts/Finlandica-SemiBold.ttf) format('ttf');
+}

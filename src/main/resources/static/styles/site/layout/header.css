@@ -1,0 +1,222 @@
+
+/* ==================================== AUTH-PANEL =========================================*/
+.auth-panel {
+    position: absolute;
+    left: 50%;
+    bottom: auto;
+    transform: translate(-50%, -450%);
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 20px;
+    background: #fff;
+    z-index: 150;
+    transition: all 0.6s;
+
+}
+.auth-panel--show {
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+.auth-panel-inner {
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.auth-panel__login {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.auth-panel__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 320px;
+
+}
+
+.auth-panel__title {
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: #313131;
+    margin: 0 auto 16px 0;
+}
+
+.auth-panel__top svg {
+    cursor: pointer;
+
+}
+.auth-panel__par {
+    margin: 0 auto 24px 0;
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: #8f8f8f;
+}
+.auth-panel__form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form__box-input {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.auth-panel__form-input {
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+.auth-panel__form-input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+.auth-panel__form-btn {
+    width: 320px;
+    border-radius: 10px;
+    padding: 10px;
+    background: #0af;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 4px;
+    margin-bottom: 10px;
+}
+.auth-panel__form-btn:hover {
+    background: #0090d8;
+}
+.auth-panel__btn {
+}
+.auth-panel__btn:hover {
+    text-decoration: underline;
+}
+.auth-panel__signup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.hidden {
+    display: none;
+}
+
+/* ========================================= SETTINGS MENU ============================================================== */
+.settings-menu {
+    display: none;
+    position: absolute;
+    left: 74%;
+    top: 6%;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);;
+    max-width: 182px;
+    z-index: 50;
+
+}
+.settings-menu--show {
+    display: block;
+}
+.settings-menu-inner {
+    padding: 10px;
+}
+.settings-menu__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.settings-menu__item {
+    width: 100%;
+    
+}
+.settings-menu__item:last-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+}
+.settings-menu__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 8px;
+    border-radius: 10px;
+    width: 100%;
+    gap: 12px;
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: #3d3a3a;
+    height: 100%;
+}
+.settings-menu__link:hover {
+    background-color: #ededed;
+}
+.settings-menu__link div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ededed;
+    width: 38px;
+    height: 33px;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+.settings-menu__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 8px;
+    border-radius: 10px;
+    background-color: #ededed;
+    height: 100%;
+    width: 100%;
+}
+
+.settings-menu__btn:hover {
+    background-color: #d9d9d9;
+    color: #3d3a3a;
+}
+/* ====================================== HEADER ========================================= */
+.header {
+    width: 100%;
+    margin: 10px 0;
+}
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+}
+.header__title {
+    font-family: "Ranga", sans-serif;
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: #0af;
+}
+.header__title span {
+    font-weight: 700;
+}
+
+.header__btn-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 300px;
+    width: 100%;
+    margin-left: 20px;
+}
+
+.header__btn {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

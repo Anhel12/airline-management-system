@@ -1,0 +1,113 @@
+/* ======================================================== FOOTER =================================================================== */
+.footer {
+    margin-top: auto;
+    background-color: #8f8f8f;
+    border-radius: 10px 10px 0 0;
+}
+/* ======================================================== FOOTER BODY =================================================================*/
+
+.footer__body {
+}
+.footer__body-inner {
+    padding: 30px 0 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.footer__body-cols {
+    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.footer__body-col {
+    display: flex;
+    justify-content: space-between;
+    align-items: left ;
+    flex-direction: column;
+}
+.footer__body-title {
+    height: 24px;
+    display: block;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: #313131;
+    margin-bottom: 20px;
+    white-space: nowrap;
+}
+.footer__body-list {
+    display: flex;
+    align-items: left ;
+    flex-direction: column;
+}
+.footer__body-item {
+    margin-bottom: 16px;
+}
+.footer__body-item:last-child {
+    margin-bottom: 0;
+}
+.footer__body-link {
+    white-space: nowrap;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: #2c2b2b;
+}
+
+/* =================================================== FOOTER BOTTOM ======================================================== */
+
+.footer__bottom {
+}
+
+.footer__bottom-inner {
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.bottom__media-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.media-item {
+    margin-right: 100px;
+}
+.media-item:last-child {
+    margin: 0;
+}
+.media-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #313131;
+}
+.media-link svg {
+    margin-right: 20px;
+}
+.bottom__phone-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.phone-item {
+    margin-right: 100px;
+}
+.phone-item:last-child {
+    margin: 0;
+}
+.phone__first-line {
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: #313131;
+}
+.phone__second-line {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #313131;
+}
+.phone__phone-number {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #313131;
+}
