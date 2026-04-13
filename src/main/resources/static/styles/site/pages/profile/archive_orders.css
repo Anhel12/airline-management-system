@@ -44,12 +44,6 @@ html, body {
     margin-bottom: 50px;
 
 }
-div.header__btn-box {
-    justify-content: right;
-}
-.header__btn.button.login {
-    display: none;
-}
 
 .aside {
     grid-area: sd;
@@ -191,8 +185,27 @@ div.header__btn-box {
 
 .main__orders {
     width: 100%;
+    margin-bottom: 100px;
+    overflow: auto;
+    max-height: 400px;
+}
+.main__orders::-webkit-scrollbar{
+    display: none;
 }
 .main__orders-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+}
+.orders__list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+.orders__item {
     display: flex;
     justify-content: space-between;
     align-items: center;

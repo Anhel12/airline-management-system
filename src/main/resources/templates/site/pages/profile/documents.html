@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="../../../../static/styles/fonts/fonts.css">
     <link rel="stylesheet" href="../../../../static/styles/site/layout/header.css">
     <link rel="stylesheet" href="../../../../static/styles/site/layout/footer.css">
-    <link rel="stylesheet" href="../../../../static/styles/site/pages/profile/active_orders.css">
+    <link rel="stylesheet" href="../../../../static/styles/site/pages/profile/documents.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title>Активные заказы</title>
 </head>
 <body>
@@ -132,7 +133,7 @@
                             </a>
                         </li>
                         <li class="menu__item">
-                            <a href="#" class="menu__link">
+                            <a href="#" class="menu__link documents">
                                     <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M16.5 15.1667C16.5 15.454 16.3841 15.7295 16.1778 15.9327C15.9715 16.1359 15.6917 16.25 15.4 16.25H6.59999C6.30825 16.25 6.02847 16.1359 5.82218 15.9327C5.61589 15.7295 5.49999 15.454 5.49999 15.1667C5.49999 14.8794 5.61589 14.6038 5.82218 14.4006C6.02847 14.1975 6.30825 14.0833 6.59999 14.0833H15.4C15.6917 14.0833 15.9715 14.1975 16.1778 14.4006C16.3841 14.6038 16.5 14.8794 16.5 15.1667ZM12.1 18.4167H6.59999C6.30825 18.4167 6.02847 18.5308 5.82218 18.734C5.61589 18.9371 5.49999 19.2127 5.49999 19.5C5.49999 19.7873 5.61589 20.0629 5.82218 20.266C6.02847 20.4692 6.30825 20.5833 6.59999 20.5833H12.1C12.3917 20.5833 12.6715 20.4692 12.8778 20.266C13.0841 20.0629 13.2 19.7873 13.2 19.5C13.2 19.2127 13.0841 18.9371 12.8778 18.734C12.6715 18.5308 12.3917 18.4167 12.1 18.4167ZM22 11.3588V20.5833C21.9982 22.0194 21.4182 23.3962 20.3871 24.4116C19.3561 25.427 17.9581 25.9983 16.5 26H5.49999C4.04184 25.9983 2.64391 25.427 1.61284 24.4116C0.581769 23.3962 0.00174664 22.0194 0 20.5833V5.41669C0.00174664 3.98063 0.581769 2.60388 1.61284 1.58843C2.64391 0.57298 4.04184 0.00174515 5.49999 2.49694e-05H10.4665C11.4781 -0.0025392 12.4801 0.192412 13.4147 0.573605C14.3493 0.954799 15.1979 1.51467 15.9115 2.22086L19.7439 5.99735C20.4613 6.69961 21.0302 7.5351 21.4174 8.45541C21.8047 9.37572 22.0027 10.3626 22 11.3588ZM14.3561 3.75269C14.0099 3.42245 13.6212 3.13836 13.2 2.90769V7.58335C13.2 7.87067 13.3159 8.14622 13.5222 8.34938C13.7285 8.55255 14.0082 8.66668 14.3 8.66668H19.0476C18.8132 8.25197 18.5244 7.86951 18.1885 7.52918L14.3561 3.75269ZM19.8 11.3588C19.8 11.18 19.7648 11.0088 19.7483 10.8333H14.3C13.4248 10.8333 12.5854 10.4909 11.9665 9.88145C11.3477 9.27195 11 8.4453 11 7.58335V2.21761C10.8218 2.20136 10.6469 2.16669 10.4665 2.16669H5.49999C4.62478 2.16669 3.78541 2.5091 3.16654 3.11859C2.54767 3.72808 2.2 4.55473 2.2 5.41669V20.5833C2.2 21.4453 2.54767 22.2719 3.16654 22.8814C3.78541 23.4909 4.62478 23.8333 5.49999 23.8333H16.5C17.3752 23.8333 18.2146 23.4909 18.8334 22.8814C19.4523 22.2719 19.8 21.4453 19.8 20.5833V11.3588Z" fill="white" />
                                     </svg>
@@ -145,54 +146,59 @@
             
         </aside>
         <main class="main">
-            <div class="main__top">
+            <section class="main__document">
                 <div class="container">
-                    <div class="main__top-inner">
-                        <h2 class="main__top-title">Мои заказы</h2>
-                        <ul class="main__top-list">
-                            <li class="main__top-item">
-                                <a href="#" class="main__top-link">Активные</a>
-                            </li>
-                            <li class="main__top-item">
-                                <a href="#" class="main__top-link">Архив</a>
-                            </li>
-                        </ul>
+                    <div class="main__document-inner">
+                        <h2 class="document-title">Документы</h2>
+                        <form action="" class="document-form">
+                            <h2 class="document-form__title">Новый документ</h2>
+                            <ul class="document-form__row">
+                                <li class="document-form__item">
+                                    <p class="document-form__item-title">Гражданство</p>
+                                    <div class="document-form__input no-input">Россия</div>
+                                </li>
+                                <li class="document-form__item">
+                                    <p class="document-form__item-title">Документ</p>
+                                    <div class="document-form__input no-input">Паспорт РФ</div>
+                                </li>
+                                <li class="document-form__item document-form__item--radio">
+                                    <label class="document-form__label male-label">
+                                        <svg width="8" height="21" viewBox="0 0 8 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4 4.375C5.22578 4.375 6.22222 3.39325 6.22222 2.1875C6.22222 0.98175 5.22578 0 4 0C2.77422 0 1.77778 0.98175 1.77778 2.1875C1.77778 3.39325 2.77422 4.375 4 4.375ZM4 0.875C4.73511 0.875 5.33333 1.46387 5.33333 2.1875C5.33333 2.91112 4.73511 3.5 4 3.5C3.26489 3.5 2.66667 2.91112 2.66667 2.1875C2.66667 1.46387 3.26489 0.875 4 0.875ZM8 7.4375C8 6.23175 7.00356 5.25 5.77778 5.25H2.22222C0.996445 5.25 0 6.23175 0 7.4375V14.875H1.77778V21H2.66667V14.875H5.33333V21H6.22222V14.875H8V7.4375ZM7.11111 14H0.888889V7.4375C0.888889 6.71387 1.48711 6.125 2.22222 6.125H5.77778C6.51289 6.125 7.11111 6.71387 7.11111 7.4375V14Z" fill="#A4A4A4" />
+                                        </svg>
+                                        М
+                                        <input class="document-form__input gender document-form__input--male" type="radio" name="gender">
+                                    </label>
+                                    <label class="document-form__label female-label">
+                                        <svg width="8" height="18" viewBox="0 0 8 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4 3.27258C5.07614 3.27258 5.59902 2.73751 5.59902 1.63629C5.59902 0.535067 5.07614 0 4 0C2.92386 0 2.40098 0.535067 2.40098 1.63629C2.40098 2.73751 2.92386 3.27258 4 3.27258ZM4 0.818145C4.63481 0.818145 4.79951 0.986682 4.79951 1.63629C4.79951 2.2859 4.63481 2.45443 4 2.45443C3.36519 2.45443 3.20049 2.2859 3.20049 1.63629C3.20049 0.986682 3.36519 0.818145 4 0.818145ZM7.99756 13.8487C8.05113 11.247 7.21564 7.04341 6.28021 5.20095C5.78771 4.20526 4.74355 4.09072 4 4.09072C3.25645 4.09072 2.21229 4.20608 1.72219 5.19767C0.784365 7.04341 -0.0511247 11.2479 0.0024426 13.8496C0.0152348 14.509 0.0136358 14.5262 0.0024426 14.7471C0.0112372 14.927 0.133562 15.0809 0.304658 15.1242C0.352628 15.1365 1.19132 15.3443 2.40018 15.4638V17.5909C2.40018 17.8167 2.57927 18 2.79993 18C3.0206 18 3.19969 17.8167 3.19969 17.5909V15.5243C3.45713 15.5374 3.72337 15.5456 3.9992 15.5456C4.27503 15.5456 4.54127 15.5374 4.79871 15.5243V17.5909C4.79871 17.8167 4.9778 18 5.19847 18C5.41913 18 5.59822 17.8167 5.59822 17.5909V15.4638C6.80708 15.3451 7.64577 15.1365 7.69374 15.1242C7.86484 15.0809 7.98796 14.927 7.99596 14.7471C7.98477 14.527 7.98397 14.509 7.99596 13.8496L7.99756 13.8487ZM7.18845 14.3993C6.63759 14.5131 5.41594 14.7266 4 14.7266C2.58407 14.7266 1.36241 14.5131 0.811548 14.3993C0.811548 14.2496 0.806751 14.0639 0.801954 13.8316C0.751585 11.3837 1.55829 7.29376 2.43376 5.57075C2.58566 5.26312 2.90147 4.90887 4 4.90887C5.09853 4.90887 5.41434 5.26231 5.56784 5.57402C6.44091 7.29294 7.24842 11.3828 7.19805 13.8307C7.19325 14.0631 7.18925 14.2496 7.18845 14.3993Z" fill="#A4A4A4" />
+                                        </svg>
+                                        Ж
+                                        <input class="document-form__input gender document-form__input--female" type="radio" name="gender">
+                                    </label>
+                                </li>
+                            </ul>
+                            <h2 class="document-form__second-title">Данные паспорта РФ</h2>
+                            <ul class="document-form__row">
+                                <li class="document-form__item">
+                                    <input type="text" class="document-form__input" placeholder="Фамилия">
+                                <li class="document-form__item">
+                                    <input type="text" class="document-form__input" placeholder="Имя">
+                                </li>
+                                <li class="document-form__item">
+                                    <input type="text" class="document-form__input" placeholder="Отчество">
+                                </li>
+                            </ul>
+                            <ul class="document-form__row">
+                                <li class="document-form__item">
+                                    <input type="text" class="document-form__input date" placeholder="Дата рождения">
+                                <li class="document-form__item">
+                                    <input type="number" class="document-form__input" placeholder="№ Документа">
+                                </li>
+                            </ul>
+                            <button class="document-form__btn">Добавить</button>
+                        </form>
                     </div>                                
-                </div>
-            </div>
-            <section class="main__no-orders" style="display: none;">
-                <div class="container">
-                    <div class="main__no-orders-inner">
-                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M43.125 0C37.71 0 33.045 4.0875 30 10.71C26.955 4.0875 22.29 0 16.875 0C7.255 0 0 12.8975 0 30C0 47.1025 7.255 60 16.875 60C22.29 60 26.955 55.9125 30 49.29C33.045 55.9125 37.71 60 43.125 60C52.745 60 60 47.1025 60 30C60 12.8975 52.745 0 43.125 0ZM16.875 52.5C14.2775 52.5 10.9975 48.7275 9.085 42.115C9.76 42.365 10.4875 42.5 11.25 42.5C14.7025 42.5 17.5 39.7025 17.5 36.25C17.5 32.7975 14.7025 30 11.25 30C9.85 30 8.5575 30.46 7.515 31.2375C7.505 30.83 7.5 30.4175 7.5 30C7.5 16.06 12.96 7.5 16.875 7.5C20.79 7.5 26.25 16.06 26.25 30C26.25 43.94 20.79 52.5 16.875 52.5ZM43.125 52.5C40.425 52.5 36.9925 48.4325 35.12 41.3375C36.1425 42.07 37.395 42.5 38.75 42.5C42.2025 42.5 45 39.7025 45 36.25C45 32.7975 42.2025 30 38.75 30C36.7375 30 34.95 30.95 33.8075 32.4275C33.77 31.6375 33.75 30.8275 33.75 30C33.75 16.06 39.21 7.5 43.125 7.5C47.04 7.5 52.5 16.06 52.5 30C52.5 43.94 47.04 52.5 43.125 52.5Z" fill="#313131" />
-                        </svg>
-                        <h2 class="no-orders__title">Пока нет активных заказов</h2>
-                        <p class="no-orders__info">
-                            Но скоро наверняка появятся! Если вы уже сделали заказ, а его здесь нет, подождите немного - он сам загрузится в течение 2 дней после покупки
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <section class="main__orders">
-                <div class="container">
-                    <div class="main__orders-inner">
-                        <ul class="orders__list">
-                            <li class="orders__item">
-                                <div class="orders__left">
-                                    <h2 class="orders__cities">Сургут - Тюмень</h2>
-                                    <div class="orders__info">
-                                        <p class="orders__info-date">25 февраля 2026 12:30 </p>
-                                        <div></div>
-                                        <p class="orders__info-passenger">1 пассажир</p>
-                                    </div>
-                                </div>
-                                <div class="orders__right">
-                                    <div class="orders__num right-info">BK-000003</div>
-                                    <div class="orders__price right-info">11000 рублей</div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </section>
         </main>
@@ -321,5 +327,8 @@
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
 <script src="/src/main/resources/static/js/site/layout/header.js"></script>
+<script src="/src/main/resources/static/js/site/pages/documents.js"></script>
 </html>

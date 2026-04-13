@@ -148,7 +148,7 @@
             <div class="main__top">
                 <div class="container">
                     <div class="main__top-inner">
-                        <div class="main__top-title">Мои заказы</div>
+                        <h2 class="main__top-title">Мои заказы</h2>
                         <ul class="main__top-list">
                             <li class="main__top-item">
                                 <a href="#" class="main__top-link">Активные</a>
@@ -176,18 +176,22 @@
             <section class="main__orders">
                 <div class="container">
                     <div class="main__orders-inner">
-                        <div class="orders__left">
-                            <h2 class="orders__cities">Сургут - Тюмень</h2>
-                            <div class="orders__info">
-                                <p class="orders__info-date">25 февраля 2026 12:30 </p>
-                                <div></div>
-                                <p class="orders__info-passenger">1 пассажир</p>
-                            </div>
-                        </div>
-                        <div class="orders__right">
-                            <div class="orders__num right-info">BK-000003</div>
-                            <div class="orders__price right-info">11000 рублей</div>
-                        </div>
+                        <ul class="orders__list">
+                            <li class="orders__item">
+                                <div class="orders__left">
+                                    <h2 class="orders__cities">Сургут - Тюмень</h2>
+                                    <div class="orders__info">
+                                        <p class="orders__info-date">25 февраля 2026 12:30 </p>
+                                        <div></div>
+                                        <p class="orders__info-passenger">1 пассажир</p>
+                                    </div>
+                                </div>
+                                <div class="orders__right">
+                                    <div class="orders__num right-info">BK-000003</div>
+                                    <div class="orders__price right-info">11000 рублей</div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -316,4 +320,6 @@
         </footer>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/src/main/resources/static/js/site/layout/header.js"></script>
 </html>

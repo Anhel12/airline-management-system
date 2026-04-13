@@ -1,0 +1,196 @@
+html, body {
+    font-family: "Finlandica", sans-serif;
+    background-color: #EDEDED;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: min-content auto auto;
+    grid-template-areas:
+        "hd hd"
+        "sd mn"
+        "ft ft";
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.349);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.overlay--show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container {
+    max-width: 1280px;
+    padding: 0 30px;
+    margin: 0 auto;
+    height: 100%;
+}
+.header {
+    grid-area: hd;
+    margin-bottom: 50px;
+
+}
+
+.aside {
+    grid-area: sd;
+    justify-self: right;
+}
+.main {
+    grid-area: mn;
+    justify-self: left;
+}
+.footer {
+    grid-area: ft;
+    background-color: #ededed;
+}
+
+/* ========================================= ASIDE =============================================== */
+
+.aside__menu {
+    background: #767676;
+    border-radius: 10px;
+    max-width: 220px;
+    z-index: 50;
+    width: 200px;
+}
+.aside__menu-inner {
+    padding: 10px;
+}
+.menu__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.menu__item {
+    width: 100%;
+    
+}
+.menu__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 28px 12px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+}
+.menu__link:hover {
+    background-color: #6b6b6b;
+}
+
+.settings {
+    background-color: #0af;
+}
+.settings:hover {
+    background-color: #0af
+}
+
+/* =================================================== MAIN =========================================================================== */
+/* ==================================================== SETTINGS ========================================================================= */
+.settings__title {
+    font-weight: 700;
+    font-size: 2rem;
+    color: #313131;
+    margin:12px 0;
+    margin-left: 30px;
+}
+.main__settings {
+    margin-bottom: 20px;
+}
+.main__setting-inner {
+    position: relative;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    width: 100%;
+}
+.settings__self-info-form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    flex-direction: column;
+    background: #767676;
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+.setting__form-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.settings__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    gap: 0 10px;
+    margin-bottom: 10px;
+}
+.settings__item {
+    border: 1px solid #a4a4a4;
+    border-radius: 10px;
+    width: 282px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 20px;
+}
+.settings__input {
+    font-weight: 600;
+    font-size: 1rem;
+    background: #767676;
+    color: #fff;
+    width: 100%;
+}
+.settings__input::placeholder {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #aaa;
+}
+.settings__info {
+    top: 82%;
+    left: 5%;
+    position: absolute;
+    font-weight: 500;
+    font-size: 0.75rem;
+    text-align: center;
+    color: #aaa;
+}
+
+/* ========================================================== LOGOUT ================================================================== */
+.main__logout {
+}
+.logout__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 8px;
+    border-radius: 10px;
+    background-color: #d30000;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+}
+.logout__btn:hover {
+    background-color: #940000;
+}

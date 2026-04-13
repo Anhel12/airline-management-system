@@ -1,0 +1,245 @@
+html, body {
+    font-family: "Finlandica", sans-serif;
+    background-color: #EDEDED;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: min-content auto auto;
+    grid-template-areas:
+        "hd hd"
+        "sd mn"
+        "ft ft";
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.349);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.overlay--show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container {
+    max-width: 1280px;
+    padding: 0 30px;
+    margin: 0 auto;
+    height: 100%;
+}
+.header {
+    grid-area: hd;
+    margin-bottom: 50px;
+
+}
+
+.aside {
+    grid-area: sd;
+    justify-self: right;
+}
+.main {
+    grid-area: mn;
+    justify-self: left;
+}
+.footer {
+    grid-area: ft;
+    background-color: #ededed;
+}
+
+/* ========================================= ASIDE =============================================== */
+
+.aside__menu {
+    background: #767676;
+    border-radius: 10px;
+    max-width: 220px;
+    z-index: 50;
+    width: 200px;
+}
+.aside__menu-inner {
+    padding: 10px;
+}
+.menu__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.menu__item {
+    width: 100%;
+    
+}
+.menu__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 28px 12px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+}
+.menu__link:hover {
+    background-color: #6b6b6b;
+}
+
+.documents {
+    background-color: #0af;
+}
+.documents:hover {
+    background-color: #0af
+}
+
+/* ========================================== DOCUMENT =============================================== */
+.main__document {
+    margin-bottom: 30px;
+}
+.main__document-inner {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    width: 100%;
+}
+.document-title {
+    font-weight: 700;
+    font-size: 2rem;
+    color: #313131;
+    margin:12px 0;
+}
+.document-form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    flex-direction: column;
+    background: #767676;
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+.document-form__title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.document-form__row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0 12px;
+    margin-bottom: 10px;
+}
+.document-form__item {
+    position: relative;
+    border: 1px solid #a4a4a4;
+    border-radius: 10px;
+    width: 282px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 20px;
+}
+.document-form__item--radio {
+    border: 0;
+}
+.document-form__item--radio svg {
+    height: 21px;
+}
+.document-form__input {
+    font-weight: 600;
+    font-size: 1rem;
+    background: #767676;
+    color: #fff;
+    width: 100%;
+}
+.no-input {
+    margin-top: 4px;
+}
+.document-form__input::placeholder {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #aaa;
+}
+
+.gender{
+    padding: 0;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+}
+.document-form__item-title {
+    position: absolute;
+    top: 2px;
+    left: 20px;
+    font-weight: 500;
+    font-size: 0.6875rem;
+    color: #aaa;
+}
+.document-form__label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 50px;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #a4a4a4;
+    border: 1px solid #a4a4a4;
+    cursor: pointer;
+    gap: 5px;
+}
+.male-label {
+    border-right: 0.5px solid #a4a4a4;
+    border-radius: 10px 0 0 10px;
+}
+.female-label {
+    border-left: 0.5px solid #a4a4a4;
+    border-radius: 0 10px 10px 0;
+}
+
+.male-label:has(.document-form__input--male:checked),
+.male-label:has(.document-form__input--male:checked) path {
+    color: #0af;
+    border: 1px solid #0af;
+    border-right: 0.5px solid #0af;
+    fill: #0af;
+}
+.female-label:has(.document-form__input--female:checked),
+.female-label:has(.document-form__input--female:checked) path {
+    color: #ff00dd;
+    border: 1px solid #ff00dd;
+    border-right: 0.5px solid #ff00dd;
+    fill: #ff00dd;
+}
+
+.document-form__second-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.document-form__btn {
+    margin-top: 15px;
+    max-width: 432px;
+    padding: 14px 175px;
+    border-radius: 10px;
+    background: #0af;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+}

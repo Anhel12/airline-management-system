@@ -29,6 +29,7 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+    gap: 10px;
 }
 .auth-panel__top {
     display: flex;
@@ -42,7 +43,7 @@
     font-weight: 500;
     font-size: 1.5rem;
     color: #313131;
-    margin: 0 auto 16px 0;
+    margin-right: auto;
 }
 
 .auth-panel__top svg {
@@ -50,10 +51,13 @@
 
 }
 .auth-panel__par {
-    margin: 0 auto 24px 0;
+    margin-right: auto;
     font-weight: 400;
     font-size: 0.75rem;
     color: #8f8f8f;
+}
+.error {
+    color: red;
 }
 .auth-panel__form {
     display: flex;
@@ -212,6 +216,10 @@
     max-width: 300px;
     width: 100%;
     margin-left: 20px;
+}
+
+.header__btn-box a {
+    cursor: pointer;
 }
 
 .header__btn {

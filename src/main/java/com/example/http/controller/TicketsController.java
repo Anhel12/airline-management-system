@@ -36,7 +36,7 @@ public class TicketsController {
 
         model.addAttribute("tickets", page);
         model.addAttribute("url", url);
-        return "tickets/tickets";
+        return "site/pages/tickets/tickets";
     }
 
 }

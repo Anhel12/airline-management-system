@@ -1,0 +1,416 @@
+html, body {
+    font-family: "Finlandica", sans-serif;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: min-content auto;
+    grid-template-areas:
+        "hd hd"
+        "mn sd";
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.349);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.overlay--show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    height: 100%;
+}
+.header {
+    grid-area: hd;
+    margin-bottom: 30px;
+
+}
+
+.aside {
+    grid-area: sd;
+    background: #ededed;
+}
+.main {
+    grid-area: mn;
+    background: #ededed;
+
+}
+
+/* ============================================== HEADER ==================================================================== */
+.header__top {
+    margin-bottom: 73px;
+}
+.header__search {
+}
+.header__search-inner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.search__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 400;
+    font-size: 1.125rem;
+    letter-spacing: -0.06em;
+    color: #313131;
+    gap: 5px;
+    max-width: 320px;
+    margin-bottom: 20px;
+
+}
+.search__info .div {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #000;
+}
+.search__ingo-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+.search__info-cities {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+.search__info-dates {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+.search__info-dates a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+.search__info-passenger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+.search__form {
+}
+.search__form-list {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.search__form-list div {
+    position: absolute;
+    left: 23%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.search__form-list div svg:hover {
+    transform: scale(1.1);
+}
+.search__form-item {
+    padding: 20px 10px;
+    border-right: 0.5px solid rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #000;
+}
+.search__form-item::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+.search__form-item:first-child{
+    border-radius: 10px 0 0 10px;
+    width: 320px;
+}
+.search__form-item:nth-child(3){
+    width: 320px;
+}
+.search__form-item:nth-child(4){
+    width: 160px;
+}
+.search__form-item:nth-child(5){
+    width: 160px;
+}
+.search__form-item:nth-child(6){
+    width: 160px;
+}
+.search__form-item:last-child{
+    border-radius: 0 10px 10px 0;
+    border: 0;
+    padding: 0;
+    width: 160px;
+}
+.search__form-input {
+    font-weight: 400;
+    font-size: 1rem;
+    width: 100%;
+}
+.search__from-btn {
+    padding: 20px 10px;
+    background-color: #0af;
+    font-weight: 400;
+    font-size: 1rem;
+    width: 100%;
+    height: 100%;
+}
+
+/* =================================================== ASIDE =========================================================== */
+
+.aside__inner {
+    margin-top: 40px;
+    margin-left: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 290px;
+    gap: 13px;
+    background: #fff;
+    border-radius: 10px;
+}
+.aside__btn {
+    font-weight: 500;
+    font-size: 20px;
+    color: #fff;
+    padding: 17px 70px;
+    background-color: #0af;
+    border-radius: 10px;
+}
+.aside__info {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    
+}
+.aside__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 8px 20px;
+}
+.aside__item:first-child {
+    grid-column: span 2;
+    grid-row: 1 / span 1;
+    background: #d9d9d9;
+}
+.aside__item:last-child {
+    grid-column: span 2;
+    grid-row: 2 / span 1;
+}
+.aside__item-name {
+}
+.aside__item-price {
+}
+
+/* ========================================= MAIN ========================================== */
+/* ======================================= DATE SLIDER ======================================= */
+
+.date-slider {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.date-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    flex: 1;
+    scroll-behavior: smooth;
+}
+
+.date-list::-webkit-scrollbar {
+    display: none;
+}
+
+.date-item {
+    position: relative;
+    cursor: pointer;
+    color: #777;
+    white-space: nowrap;
+    font-size: 0.875rem;
+}
+
+.date-item.active {
+    color: #0af;
+}
+
+.date-item.active::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #0af;
+}
+
+
+/* ======================================= TICKETS ========================================= */
+
+.main__tickets {
+    margin-top: 40px;
+}
+.main__tickets-inner {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.tickets__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 900px;
+    gap: 10px;
+}
+.tickets__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+    padding: 28px 20px;
+    border-radius: 10px;
+    gap: 218px;
+}
+.tickets__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    width: 60%;
+}
+.tickets__info-left {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.tickets__info-time {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #313131;
+}
+.tickets__info-code {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #bababa;
+}
+.tickets__info-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 0.875rem;
+}
+.tickets__info-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tickets__info-period {
+    font-weight: 500;
+    color: #0af;
+}
+.tickets__info-arrow {
+    font-weight: 400;
+    color: #bababa;
+}
+.tickets__info-flight {
+    font-weight: 600;
+    color: #d2d2d2;
+}
+.tickets__info-right {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.tickets__box-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    gap: 30px;
+}
+.tickets__price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    color: #0af;
+    padding: 7px 27px;
+    background: #d9d9d9;
+    border-radius: 10px;
+}
+.tickets__box-btn label {
+    color: #000;
+    padding: 11px 44px;
+    background: #d9d9d9;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.tickets__box-btn label:has(.tickets__input:checked) {
+    background: #0af;
+    color: #fff;
+}
+.tickets__input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* ======================================== PAGINATION ====================================== */
+
+.main__pagination {
+}
+
+.main__pagination-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-weight: 400;
+    font-size: 0.875rem;
+    gap: 10px;
+    margin-left: -110px;
+    padding: 17px 0;
+}
+
+.pagination__href {
+    color: #0af;
+}
