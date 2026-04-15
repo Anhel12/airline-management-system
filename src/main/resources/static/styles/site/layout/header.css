@@ -58,6 +58,9 @@
 }
 .error {
     color: red;
+    margin-right: auto;
+    font-weight: 400;
+    font-size: 0.75rem;
 }
 .auth-panel__form {
     display: flex;
@@ -104,6 +107,7 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+    gap: 10px;
 }
 .hidden {
     display: none;
@@ -145,6 +149,9 @@
     justify-content: space-between;
     align-items: center;
     justify-content: center;
+}
+.settings-menu__item form {
+    width: 100%;
 }
 .settings-menu__link {
     display: flex;

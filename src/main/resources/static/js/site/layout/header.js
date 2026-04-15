@@ -27,4 +27,66 @@ $(function(){
         $('.settings-menu').toggleClass('settings-menu--show');
     })
 
+    $('.login-form').on('submit', function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: '/login',
+            type: 'POST',
+            data: $(this).serialize(),
+
+            success: function (res) {
+                location.reload();
+            },
+
+            error: function (xhr) {
+                console.log(xhr.responseJSON);
+                const error = xhr.responseJSON?.error;
+                $('.error').text(error || "Неправильный логин или пароль");
+            },
+
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("X-CSRF-TOKEN", $('input[name="_csrf"]').val());
+            }
+        })
+    })
+
+    $('.signup-form').on("submit", function (e){
+        e.preventDefault();
+
+        const form = $(this);
+
+        const data = {
+            email: form.find('[name="email"]').val(),
+            password: form.find('[name="password"]').val()
+        }
+
+        $.ajax({
+            url: '/register',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+
+            success: function (res) {
+                location.reload();
+            },
+
+            error: function (xhr) {
+                const errors = xhr.responseJSON;
+
+                const box = $('.error');
+
+                box.html("");
+                errors.forEach(err => {
+                    box.append(`<p>${err}</p>`);
+                })
+            },
+
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("X-CSRF-TOKEN", $('input[name="_csrf"]').val());
+            }
+
+        })
+    })
+
 })

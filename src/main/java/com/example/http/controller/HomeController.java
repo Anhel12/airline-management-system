@@ -23,11 +23,11 @@ public class HomeController {
     public String home(Model model, FlightFilter filter){
         filter.setNumberOfPassenger(1);
         model.addAttribute("filter", filter);
-        return "home/home";
+        return "site/pages/home/home";
     }
 
     @GetMapping("/home_registration")
     public String home1(){
-        return "home/home_registration";
+        return "site/pages/home/home_registration";
     }
 }

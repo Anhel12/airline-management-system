@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" 
+<html lang="ru"
         xmlns:th="http://www.thymeleaf.org"
-        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">>
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Покупка билета</title>
-    <link rel="stylesheet" href="../../../../static/styles/base/reset.css">
-    <link rel="stylesheet" href="../../../../static/styles/fonts/fonts.css">
-    <link rel="stylesheet" href="../../../../static/styles/site/layout/header.css">
-    <link rel="stylesheet" href="../../../../static/styles/site/layout/footer.css">
-    <link rel="stylesheet" href="../../../../static/styles/site/pages/home/home.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" th:href="@{/styles/base/reset.css}">
+    <link rel="stylesheet" th:href="@{/styles/fonts/fonts.css}">
+    <link rel="stylesheet" th:href="@{/styles/site/layout/header.css}">
+    <link rel="stylesheet" th:href="@{/styles/site/layout/footer.css}">
+    <link rel="stylesheet" th:href="@{/styles/site/pages/home/home.css}">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css}">
 </head>
 <body>
     <div class="wrapper">
@@ -26,12 +26,13 @@
                             </svg>
                         </div>
                         <p class="auth-panel__par">Для входа введите почту и пароль</p>
-                        <form action="" class="auth-panel__form">
+                        <div class="error"></div>
+                        <form th:action="@{/login}" th:method="post" class="auth-panel__form login-form">
                             <div class="form__box-input">
-                                <input type="text" class="auth-panel__form-input" placeholder="Почта">
+                                <input name="email" type="text" class="auth-panel__form-input" placeholder="Почта" required>
                             </div>
                             <div class="form__box-input">
-                                <input type="text" class="auth-panel__form-input" placeholder="Пароль">
+                                <input name="password" type="text" class="auth-panel__form-input" placeholder="Пароль" required>
                             </div>
                             <button class="auth-panel__form-btn">Вход</button>
                         </form>
@@ -45,12 +46,14 @@
                             </svg>
                         </div>
                         <p class="auth-panel__par">Для регистрации введите почту и пароль</p>
-                        <form action="" class="auth-panel__form">
+                        <div class="error"></div>
+                        <form th:action="@{/register}" th:method="post" class="auth-panel__form signup-form">
+
                             <div class="form__box-input">
-                                <input type="text" class="auth-panel__form-input" placeholder="Почта">
+                                <input name="email" type="email" class="auth-panel__form-input" placeholder="Почта" required>
                             </div>
                             <div class="form__box-input">
-                                <input type="text" class="auth-panel__form-input" placeholder="Пароль">
+                                <input name="password" type="password" class="auth-panel__form-input" placeholder="Пароль" required>
                             </div>
                             <button class="auth-panel__form-btn">Регистрация</button>
                         </form>
@@ -62,7 +65,7 @@
                 <div class="settings-menu-inner">
                     <ul class="settings-menu__list">
                         <li class="settings-menu__item">
-                            <a href="#" class="settings-menu__link">
+                            <a th:href="@{/profile/settings}" class="settings-menu__link">
                                 <div>
                                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M14.75 18.5C16.8211 18.5 18.5 16.8211 18.5 14.75C18.5 12.6789 16.8211 11 14.75 11C12.6789 11 11 12.6789 11 14.75C11 16.8211 12.6789 18.5 14.75 18.5Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -73,7 +76,7 @@
                             </a>
                         </li>
                         <li class="settings-menu__item">
-                            <a href="#" class="settings-menu__link">
+                            <a th:href="@{/profile/orders}" class="settings-menu__link">
                                 <div>
                                     <svg width="30" height="25" viewBox="0 0 30 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M29.375 7.47625H30V3.125C30 1.40125 28.5975 0 26.875 0H6.875C5.1525 0 3.75 1.40125 3.75 3.125V18.125C3.75 19.8487 5.1525 21.25 6.875 21.25H26.875C28.5975 21.25 30 19.8487 30 18.125V13.7262H29.375C27.6525 13.7262 26.25 12.325 26.25 10.6012C26.25 8.8775 27.6525 7.47625 29.375 7.47625ZM25 10.6012C25 12.8012 26.6325 14.6275 28.75 14.9325V18.125C28.75 19.1588 27.9088 20 26.875 20H6.875C5.84125 20 5 19.1588 5 18.125V3.125C5 2.09125 5.84125 1.25 6.875 1.25H26.875C27.9088 1.25 28.75 2.09125 28.75 3.125V6.27125C26.6325 6.57625 25 8.4025 25 10.6025V10.6012ZM19.0625 8.75H17.8L15.6388 6.05C15.2862 5.4025 14.6087 5 13.87 5H11.5262L13.2463 8.75H12.4213L11.4825 7.96875C10.7725 7.2575 9.4725 7.42625 8.9675 8.2975C8.67875 8.795 8.67625 9.3925 9.0275 9.9875L11.1462 12.5013H13.23L11.5312 16.2513H13.8925C14.6313 16.2513 15.3075 15.8488 15.6025 15.2887L17.8037 12.5013H21.2512V10.6263C21.2512 9.5225 20.3512 8.75125 19.0638 8.75125L19.0625 8.75ZM20 11.25H17.1975L14.5613 14.6025C14.4288 14.8475 14.1713 15 13.8912 15H13.4688L15.1675 11.25H11.7262L10.0475 9.27375C9.9575 9.115 10.0188 8.97625 10.0475 8.925C10.0925 8.84625 10.3212 8.58375 10.6388 8.89125L11.9675 10.0013H15.1925L13.4725 6.25125H13.8688C14.1488 6.25125 14.405 6.40375 14.5988 6.74L17.1975 10.0013H19.0612C19.515 10.0013 19.9987 10.1663 19.9987 10.6263V11.2513L20 11.25ZM6.875 23.75H23.75V25H6.875C3.08375 25 0 21.915 0 18.125V5H1.25V18.125C1.25 21.2262 3.77375 23.75 6.875 23.75Z" fill="black" />
@@ -83,7 +86,7 @@
                             </a>
                         </li>
                         <li class="settings-menu__item">
-                            <a href="#" class="settings-menu__link">
+                            <a th:href="@{/profile/documents}" class="settings-menu__link">
                                 <div>
                                     <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M16.5 15.1667C16.5 15.454 16.3841 15.7295 16.1778 15.9327C15.9715 16.1359 15.6917 16.25 15.4 16.25H6.59999C6.30825 16.25 6.02847 16.1359 5.82218 15.9327C5.61589 15.7295 5.49999 15.454 5.49999 15.1667C5.49999 14.8794 5.61589 14.6038 5.82218 14.4006C6.02847 14.1975 6.30825 14.0833 6.59999 14.0833H15.4C15.6917 14.0833 15.9715 14.1975 16.1778 14.4006C16.3841 14.6038 16.5 14.8794 16.5 15.1667ZM12.1 18.4167H6.59999C6.30825 18.4167 6.02847 18.5308 5.82218 18.734C5.61589 18.9371 5.49999 19.2127 5.49999 19.5C5.49999 19.7873 5.61589 20.0629 5.82218 20.266C6.02847 20.4692 6.30825 20.5833 6.59999 20.5833H12.1C12.3917 20.5833 12.6715 20.4692 12.8778 20.266C13.0841 20.0629 13.2 19.7873 13.2 19.5C13.2 19.2127 13.0841 18.9371 12.8778 18.734C12.6715 18.5308 12.3917 18.4167 12.1 18.4167ZM22 11.3588V20.5833C21.9982 22.0194 21.4182 23.3962 20.3871 24.4116C19.3561 25.427 17.9581 25.9983 16.5 26H5.49999C4.04184 25.9983 2.64391 25.427 1.61284 24.4116C0.581769 23.3962 0.00174664 22.0194 0 20.5833V5.41669C0.00174664 3.98063 0.581769 2.60388 1.61284 1.58843C2.64391 0.57298 4.04184 0.00174515 5.49999 2.49694e-05H10.4665C11.4781 -0.0025392 12.4801 0.192412 13.4147 0.573605C14.3493 0.954799 15.1979 1.51467 15.9115 2.22086L19.7439 5.99735C20.4613 6.69961 21.0302 7.5351 21.4174 8.45541C21.8047 9.37572 22.0027 10.3626 22 11.3588ZM14.3561 3.75269C14.0099 3.42245 13.6212 3.13836 13.2 2.90769V7.58335C13.2 7.87067 13.3159 8.14622 13.5222 8.34938C13.7285 8.55255 14.0082 8.66668 14.3 8.66668H19.0476C18.8132 8.25197 18.5244 7.86951 18.1885 7.52918L14.3561 3.75269ZM19.8 11.3588C19.8 11.18 19.7648 11.0088 19.7483 10.8333H14.3C13.4248 10.8333 12.5854 10.4909 11.9665 9.88145C11.3477 9.27195 11 8.4453 11 7.58335V2.21761C10.8218 2.20136 10.6469 2.16669 10.4665 2.16669H5.49999C4.62478 2.16669 3.78541 2.5091 3.16654 3.11859C2.54767 3.72808 2.2 4.55473 2.2 5.41669V20.5833C2.2 21.4453 2.54767 22.2719 3.16654 22.8814C3.78541 23.4909 4.62478 23.8333 5.49999 23.8333H16.5C17.3752 23.8333 18.2146 23.4909 18.8334 22.8814C19.4523 22.2719 19.8 21.4453 19.8 20.5833V11.3588Z" fill="black" />
@@ -93,18 +96,20 @@
                             </a>
                         </li>
                         <li class="settings-menu__item">
-                            <a href="#" class="settings-menu__btn button">Выйти</a>
+                            <form th:action="@{/logout}" th:method="post">
+                                <button type="submit" class="settings-menu__btn button">Выйти</button>
+                            </form>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="container">
                 <div class="header-inner">
-                    <a href="#" class="header__title"><span>Aviro</span> Airlines</a>
+                    <a th:href="@{/home}" class="header__title"><span>Aviro</span> Airlines</a>
                     <div class="header__btn-box">
-                        <a href="#" class="header__btn button">Нормы багажа</a>
-                        <a href="#" class="header__btn button login">Вход</a>
-                        <a href="#" class="header__btn account" style="display: none;">
+                        <a th:href="@{/baggage}" class="header__btn button baggage">Нормы багажа</a>
+                        <a class="header__btn button login" sec:authorize="isAnonymous()">Вход</a>
+                        <a href="#" class="header__btn account" sec:authorize="isAuthenticated()">
                             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12.5 0C5.59375 0 0 5.59375 0 12.5C0 19.4062 5.59375 25 12.5 25C19.4062 25 25 19.4062 25 12.5C25 5.59375 19.4062 0 12.5 0ZM12.5 3.75C14.5687 3.75 16.25 5.43125 16.25 7.5C16.25 9.575 14.5687 11.25 12.5 11.25C10.4313 11.25 8.75 9.575 8.75 7.5C8.75 5.43125 10.4313 3.75 12.5 3.75ZM12.5 21.5C9.36875 21.5 6.61875 19.9 5 17.475C5.03125 14.9937 10.0062 13.625 12.5 13.625C14.9938 13.625 19.9625 14.9937 20 17.475C18.3813 19.9 15.6313 21.5 12.5 21.5Z" fill="#3D3A3A" />
                             </svg>
@@ -120,10 +125,10 @@
                         <div class="search__nav">
                             <ul class="search__nav-list">
                                 <li class="search__nav-item">
-                                    <a href="#" class="search__nav-item-link button">Покупка авиабилета</a>
+                                    <a th:href="@{/home}" class="search__nav-item-link button">Покупка авиабилета</a>
                                 </li>
                                 <li class="search__nav-item">
-                                    <a href="#" class="search__nav-item-link button">Регистрация на рейс</a>
+                                    <a th:href="@{/home_registration}" class="search__nav-item-link button">Регистрация на рейс</a>
                                 </li>
                                 <li class="search__nav-item">
                                     <a href="#" class="search__nav-item-link button">Управление билетом</a>
@@ -133,27 +138,27 @@
                                 </li>
                             </ul>
                         </div>
-                        <form action="" class="search__form">
+                        <form th:action="@{/tickets}" class="search__form">
                             <ul class="search__form-list">
                                 <li class="search__form-item">
-                                    <input type="text" class="search__form-input inputFrom" placeholder="Откуда">
+                                    <input type="text" class="search__form-input inputFrom" placeholder="Откуда" th:field="${filter.departureCity}">
                                 </li>
-                                <a href="#">
+                                <a href="">
                                     <svg width="30" height="25" viewBox="0 0 30 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6.66667 10.7143L0 17.8571L6.66667 25V19.6429H18.3333V16.0714H6.66667V10.7143ZM30 7.14286L23.3333 0V5.35714H11.6667V8.92857H23.3333V14.2857L30 7.14286Z" fill="#008CD2" />
                                     </svg>
                                 </a>
                                 <li class="search__form-item">
-                                    <input type="text" class="search__form-input inputTo" placeholder="Куда">
+                                    <input type="text" class="search__form-input inputTo" placeholder="Куда" th:field="${filter.arrivalCity}">
                                 </li>
                                 <li class="search__form-item" for="#inputDateFrom">
-                                    <input type="text" class="search__form-input date" id="inputDateFrom" placeholder="Туда">
+                                    <input type="text" class="search__form-input date" id="inputDateFrom" placeholder="Туда" th:field="${filter.departureDate}">
                                 </li>
                                 <li class="search__form-item">
-                                    <input type="text" class="search__form-input date" placeholder="Обратно">
+                                    <input type="text" class="search__form-input date" placeholder="Обратно" th:field="${filter.returnDate}">
                                 </li>
                                 <li class="search__form-item">
-                                    <input type="number" class="search__form-input" placeholder="Пассажиры">
+                                    <input type="number" class="search__form-input" placeholder="Пассажиры" max="9" min="1" th:field="${filter.numberOfPassenger}">
                                 </li>
                                 <li class="search__form-item">
                                     <button type="submit" class="search__from-btn">Найти</button>
@@ -296,9 +301,9 @@
         </footer>
     </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
-<script src="/src/main/resources/static/js/site/layout/header.js"></script>
-<script src="/src/main/resources/static/js/site/pages/home.js"></script>
+<script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
+<script th:src="@{https://cdn.jsdelivr.net/npm/flatpickr}"></script>
+<script th:src="@{https://npmcdn.com/flatpickr/dist/l10n/ru.js}"></script>
+<script th:src="@{/js/site/layout/header.js}"></script>
+<script th:src="@{/js/site/pages/home.js}"></script>
 </html>

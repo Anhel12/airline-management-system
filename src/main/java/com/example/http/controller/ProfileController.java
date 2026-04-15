@@ -2,7 +2,9 @@ package com.example.http.controller;
 
 import com.example.dto.PassengerCreateEditDto;
 import com.example.dto.PassengerDocumentDto;
+import com.example.dto.PassengerSettingsDto;
 import com.example.mapper.PassengerDocumentMapper;
+import com.example.mapper.PassengerSettingsDtoMapper;
 import com.example.service.BookingPassengerService;
 import com.example.service.PassengerService;
 import lombok.RequiredArgsConstructor;
@@ -24,19 +26,20 @@ public class ProfileController {
     private final BookingPassengerService bookingPassengerService;
     private final PassengerService passengerService;
     private final PassengerDocumentMapper passengerDocumentMapper;
+    private final PassengerSettingsDtoMapper passengerSettingsDtoMapper;
 
     @GetMapping("/orders")
     public String activeOrders(Model model,
                                @AuthenticationPrincipal User user){
         model.addAttribute("activeBookings", bookingPassengerService.findAllActiveBookingByPassengerEmail(user.getUsername()));
-        return "profile/active_orders";
+        return "site/pages/profile/active_orders";
     }
 
     @GetMapping("/archive")
     public String archiveOrders(Model model,
                                 @AuthenticationPrincipal User user){
         model.addAttribute("archiveBookings", bookingPassengerService.findAllArchiveBookingByPassengerEmail(user.getUsername()));
-        return "profile/archive_orders";
+        return "site/pages/profile/archive_orders";
     }
 
     @GetMapping("/documents")
@@ -46,7 +49,18 @@ public class ProfileController {
             passengerService.getForPassengerDocument(user.getUsername())
                     .ifPresent(dto -> model.addAttribute("document", dto));
         }
-        return "profile/documents";
+        return "site/pages/profile/documents";
+    }
+
+    @GetMapping("/settings")
+    public String settings(Model model,
+                            @AuthenticationPrincipal User user){
+        if(!model.containsAttribute("passenger")){
+            passengerService.findByEmailForSettingsDto(user.getUsername())
+                    .ifPresent(dto -> model.addAttribute("passenger", dto));
+        }
+
+        return "site/pages/profile/settings";
     }
 
     @PatchMapping("/documents")
@@ -70,5 +84,26 @@ public class ProfileController {
                         });
 
         return "redirect:/profile/documents";
+    }
+    @PatchMapping("/settings")
+    public String updateSettings(Model model,
+            @ModelAttribute("passenger") @Validated PassengerSettingsDto passengerSettingsDto,
+                         BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes,
+                         @AuthenticationPrincipal User user){
+
+        if(bindingResult.hasErrors()){
+            redirectAttributes.addFlashAttribute("passenger", passengerSettingsDto);
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            return "redirect:/profile/settings";
+        }
+
+        passengerService.getForEdit(user.getUsername())
+                        .ifPresent(createEditDto -> {
+                            passengerSettingsDtoMapper.map(passengerSettingsDto, createEditDto);
+                            passengerService.update(user.getUsername(), createEditDto);
+                        });
+
+        return "redirect:/profile/settings";
     }
 }

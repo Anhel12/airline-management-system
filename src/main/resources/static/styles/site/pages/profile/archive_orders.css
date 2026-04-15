@@ -3,6 +3,10 @@ html, body {
     background-color: #EDEDED;
 }
 
+::-webkit-scrollbar {
+    width: 0;
+}
+
 .wrapper {
     display: grid;
     grid-template-columns: auto auto;
@@ -157,7 +161,7 @@ html, body {
     margin: 0 auto;
     max-width: 560px;
     padding: 100px 0;
-    margin-bottom: 300px;
+    margin-bottom: 100px;
 }
 .main__no-orders-inner {
     display: flex;
@@ -185,7 +189,7 @@ html, body {
 
 .main__orders {
     width: 100%;
-    margin-bottom: 100px;
+    margin-bottom: 300px;
     overflow: auto;
     max-height: 400px;
 }
@@ -221,6 +225,10 @@ html, body {
     gap: 20px;
 }
 .orders__cities {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
     font-weight: 600;
     font-size: 1.25rem;
     text-align: center;
@@ -232,7 +240,7 @@ html, body {
     align-items: center;
     gap: 5px;
 }
-.orders__info div {
+.orders__info .dot {
     height: 4px;
     width: 4px;
     border-radius: 50%;
@@ -245,6 +253,10 @@ html, body {
     color: #fff;
 }
 .orders__info-passenger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
     font-weight: 500;
     font-size: 0.75rem;
     text-align: center;
@@ -273,4 +285,8 @@ html, body {
 .orders__num {
 }
 .orders__price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }

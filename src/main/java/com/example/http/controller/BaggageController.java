@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BaggageController {
     @GetMapping("/baggage")
     public String baggage(){
-        return "baggage/baggage";
+        return "site/pages/baggage/baggage";
     }
 }

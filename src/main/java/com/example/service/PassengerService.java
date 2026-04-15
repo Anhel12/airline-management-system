@@ -4,16 +4,19 @@ package com.example.service;
 import com.example.database.Repository.PassengerRepository;
 import com.example.database.entity.Role;
 import com.example.dto.*;
-import com.example.mapper.BookingCreateEditMapper;
-import com.example.mapper.PassengerCreateEditMapper;
-import com.example.mapper.PassengerDocumentMapper;
-import com.example.mapper.PassengerReadMapper;
+import com.example.mapper.*;
 import io.micrometer.common.util.StringUtils;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +33,7 @@ public class PassengerService implements UserDetailsService {
     private final PassengerReadMapper passengerReadMapper;
     private final PassengerCreateEditMapper passengerCreateEditMapper;
     private final PassengerDocumentMapper passengerDocumentMapper;
+    private final PassengerSettingsDtoMapper passengerSettingsDtoMapper;
     
     
     public List<PassengerReadDto> findAll(){
@@ -81,6 +85,11 @@ public class PassengerService implements UserDetailsService {
         return passengerRepository.findById(id)
                 .map(passengerReadMapper::map);
     }
+    public Optional<PassengerSettingsDto> findByEmailForSettingsDto(String email){
+        return passengerRepository.findByEmail(email)
+                .map(passengerSettingsDtoMapper::map);
+    }
+
 
     public Optional<PassengerReadDto> findByEmail(String email){
         return passengerRepository.findByEmail(email)

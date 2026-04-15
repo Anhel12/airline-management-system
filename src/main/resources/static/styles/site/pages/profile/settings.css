@@ -69,6 +69,7 @@ html, body {
 }
 .aside__menu-inner {
     padding: 10px;
+
 }
 .menu__list {
     display: flex;
@@ -114,12 +115,13 @@ html, body {
 }
 .main__settings {
     margin-bottom: 20px;
+    width: 990px;
 }
 .main__setting-inner {
     position: relative;
     display: flex;
-    justify-content: left;
-    align-items: left;
+    justify-content: space-between;
+    align-items: flex-start;
     flex-direction: column;
     width: 100%;
 }
@@ -127,7 +129,7 @@ html, body {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: left;
+    align-items: flex-start;
     flex-direction: column;
     background: #767676;
     padding: 20px 30px;
@@ -140,16 +142,17 @@ html, body {
     margin-bottom: 20px;
 }
 .settings__list {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: left;
+    align-items: center;
     gap: 0 10px;
     margin-bottom: 10px;
 }
 .settings__item {
     border: 1px solid #a4a4a4;
     border-radius: 10px;
-    width: 282px;
+    width: 430px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -179,6 +182,10 @@ html, body {
 
 /* ========================================================== LOGOUT ================================================================== */
 .main__logout {
+}
+.logout__form {
+    width: 100%;
+    height: 100%;
 }
 .logout__btn {
     display: flex;
