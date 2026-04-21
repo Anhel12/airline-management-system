@@ -1,0 +1,16 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.div {
+    background-image: url("../../img/error-500.png");
+    display: flex;
+    width: 1480px;
+    min-height: 900px;
+    position: relative;
+    margin: 0 auto;
+    justify-content: center;
+
+}

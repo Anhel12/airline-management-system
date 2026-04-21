@@ -27,7 +27,8 @@
                         </div>
                         <p class="auth-panel__par">Для входа введите почту и пароль</p>
                         <div class="error"></div>
-                        <form th:action="@{/login}" th:method="post" class="auth-panel__form login-form">
+                        <form th:action="@{/api/sign-in}" th:method="post" class="auth-panel__form login-form">
+                            <input type="hidden" name="_csrf" th:value="${_csrf.token}">
                             <div class="form__box-input">
                                 <input name="email" type="text" class="auth-panel__form-input" placeholder="Почта" required>
                             </div>
@@ -47,7 +48,7 @@
                         </div>
                         <p class="auth-panel__par">Для регистрации введите почту и пароль</p>
                         <div class="error"></div>
-                        <form th:action="@{/register}" th:method="post" class="auth-panel__form signup-form">
+                        <form th:action="@{/api/sign-up}" th:method="post" class="auth-panel__form signup-form">
 
                             <div class="form__box-input">
                                 <input name="email" type="email" class="auth-panel__form-input" placeholder="Почта" required>

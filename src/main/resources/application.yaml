@@ -20,3 +20,7 @@ spring:
         format_sql: true
   liquibase:
     enabled: true
+
+token:
+  signing:
+    key: ADF9234KADF9AF96A52KJ2G4OAGF93HL5M5XDF3468LH30

@@ -18,6 +18,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HomeController {
     private final FlightService flightService;
+    @GetMapping
+    public String index(){
+        return "redirect:/home";
+    }
 
     @GetMapping("/home")
     public String home(Model model, FlightFilter filter){

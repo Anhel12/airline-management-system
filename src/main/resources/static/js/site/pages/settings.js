@@ -5,6 +5,6 @@ $(function () {
 
         timeout = setTimeout(() => {
             this.form.submit();
-        }, 2000);
+        }, 1500);
     })
 })

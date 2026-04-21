@@ -46,7 +46,7 @@
                         </div>
                         <p class="auth-panel__par">Для регистрации введите почту и пароль</p>
                         <div class="error"></div>
-                        <form th:action="@{/register}" th:method="post" class="auth-panel__form signup-form">
+                        <form th:action="@{/api/signup}" th:method="post" class="auth-panel__form signup-form">
 
                             <div class="form__box-input">
                                 <input name="email" type="email" class="auth-panel__form-input" placeholder="Почта" required>

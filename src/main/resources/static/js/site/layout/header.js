@@ -1,5 +1,6 @@
 $(function(){
 
+
     $('.login, .overlay, .auth-panel__top svg').on('click', function(e){
         e.preventDefault();
 
@@ -30,10 +31,18 @@ $(function(){
     $('.login-form').on('submit', function (e) {
         e.preventDefault();
 
+        const form = $(this);
+
+        const data = {
+            email: form.find('[name="email"]').val(),
+            password: form.find('[name="password"]').val()
+        }
+
         $.ajax({
-            url: '/login',
+            url: '/api/sign-in',
             type: 'POST',
-            data: $(this).serialize(),
+            data: JSON.stringify(data),
+            contentType: 'application/json',
 
             success: function (res) {
                 location.reload();
@@ -41,12 +50,10 @@ $(function(){
 
             error: function (xhr) {
                 console.log(xhr.responseJSON);
-                const error = xhr.responseJSON?.error;
-                $('.error').text(error || "Неправильный логин или пароль");
-            },
+                const errors = xhr.responseJSON;
+                const box = $('.error');
 
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("X-CSRF-TOKEN", $('input[name="_csrf"]').val());
+                showErrors(errors, box)
             }
         })
     })
@@ -62,7 +69,7 @@ $(function(){
         }
 
         $.ajax({
-            url: '/register',
+            url: '/api/sign-up',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
@@ -73,20 +80,24 @@ $(function(){
 
             error: function (xhr) {
                 const errors = xhr.responseJSON;
-
                 const box = $('.error');
 
-                box.html("");
-                errors.forEach(err => {
-                    box.append(`<p>${err}</p>`);
-                })
-            },
-
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("X-CSRF-TOKEN", $('input[name="_csrf"]').val());
+                showErrors(errors, box)
             }
 
         })
     })
+
+    function showErrors(errors, box){
+        box.html("");
+        if(Array.isArray(errors)){
+            errors.forEach(err => {
+                box.append(`<p>${err}</p>`)
+            });
+        } else {
+            box.append(`<p>${errors?.errors}</p>`);
+        }
+
+    }
 
 })

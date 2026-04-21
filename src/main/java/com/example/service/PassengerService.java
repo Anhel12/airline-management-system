@@ -2,6 +2,7 @@ package com.example.service;
 
 
 import com.example.database.Repository.PassengerRepository;
+import com.example.database.entity.Passenger;
 import com.example.database.entity.Role;
 import com.example.dto.*;
 import com.example.mapper.*;
@@ -16,6 +17,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -96,11 +98,24 @@ public class PassengerService implements UserDetailsService {
                 .map(passengerReadMapper::map);
     }
 
+    public Passenger getByEmail(String email){
+        return passengerRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("Пользователь не найден"));
+    }
+
 
     @Transactional
     public PassengerReadDto create(PassengerCreateEditDto passengerDto){
         return Optional.ofNullable(passengerDto)
                 .map(passengerCreateEditMapper::map)
+                .map(passengerRepository::save)
+                .map(passengerReadMapper::map)
+                .orElseThrow();
+    }
+
+    @Transactional
+    public PassengerReadDto create(Passenger passenger){
+        return Optional.ofNullable(passenger)
                 .map(passengerRepository::save)
                 .map(passengerReadMapper::map)
                 .orElseThrow();
@@ -164,5 +179,9 @@ public class PassengerService implements UserDetailsService {
 
     public Integer getCountAllByRole(Role role){
         return passengerRepository.countAllByRoleIs(role);
+    }
+
+    public UserDetailsService userDetailsService(){
+        return this::getByEmail;
     }
 }

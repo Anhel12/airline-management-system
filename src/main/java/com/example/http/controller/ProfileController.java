@@ -31,6 +31,7 @@ public class ProfileController {
     @GetMapping("/orders")
     public String activeOrders(Model model,
                                @AuthenticationPrincipal User user){
+        System.out.println(user);
         model.addAttribute("activeBookings", bookingPassengerService.findAllActiveBookingByPassengerEmail(user.getUsername()));
         return "site/pages/profile/active_orders";
     }
