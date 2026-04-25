@@ -1,10 +1,5 @@
 package com.example.http.controller;
 
-import com.example.dto.PassengerCreateEditDto;
-import com.example.dto.PassengerDocumentDto;
-import com.example.dto.PassengerSettingsDto;
-import com.example.mapper.PassengerDocumentMapper;
-import com.example.mapper.PassengerSettingsDtoMapper;
 import com.example.service.BookingPassengerService;
 import com.example.service.PassengerService;
 import lombok.RequiredArgsConstructor;
@@ -12,12 +7,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/profile")
@@ -25,8 +15,6 @@ import java.util.Optional;
 public class ProfileController {
     private final BookingPassengerService bookingPassengerService;
     private final PassengerService passengerService;
-    private final PassengerDocumentMapper passengerDocumentMapper;
-    private final PassengerSettingsDtoMapper passengerSettingsDtoMapper;
 
     @GetMapping("/orders")
     public String activeOrders(Model model,
@@ -62,49 +50,5 @@ public class ProfileController {
         }
 
         return "site/pages/profile/settings";
-    }
-
-    @PatchMapping("/documents")
-    public String update(Model model,
-            @ModelAttribute("document") @Validated PassengerDocumentDto passengerDocumentDto,
-                         BindingResult bindingResult,
-                         RedirectAttributes redirectAttributes,
-                         @AuthenticationPrincipal User user){
-
-        if(bindingResult.hasErrors()){
-            redirectAttributes.addFlashAttribute("document", passengerDocumentDto);
-            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
-            return "redirect:/profile/documents";
-        }
-
-        passengerService.getForEdit(user.getUsername())
-                        .map(createEditDto -> {
-                            passengerDocumentMapper.map(passengerDocumentDto, createEditDto);
-                            passengerService.update(user.getUsername(), createEditDto);
-                            return true;
-                        });
-
-        return "redirect:/profile/documents";
-    }
-    @PatchMapping("/settings")
-    public String updateSettings(Model model,
-            @ModelAttribute("passenger") @Validated PassengerSettingsDto passengerSettingsDto,
-                         BindingResult bindingResult,
-                         RedirectAttributes redirectAttributes,
-                         @AuthenticationPrincipal User user){
-
-        if(bindingResult.hasErrors()){
-            redirectAttributes.addFlashAttribute("passenger", passengerSettingsDto);
-            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
-            return "redirect:/profile/settings";
-        }
-
-        passengerService.getForEdit(user.getUsername())
-                        .ifPresent(createEditDto -> {
-                            passengerSettingsDtoMapper.map(passengerSettingsDto, createEditDto);
-                            passengerService.update(user.getUsername(), createEditDto);
-                        });
-
-        return "redirect:/profile/settings";
     }
 }

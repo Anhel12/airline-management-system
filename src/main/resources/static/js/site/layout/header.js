@@ -56,7 +56,7 @@ $(function(){
                 showErrors(errors, box)
             }
         })
-    })
+    });
 
     $('.signup-form').on("submit", function (e){
         e.preventDefault();
@@ -86,7 +86,35 @@ $(function(){
             }
 
         })
-    })
+    });
+
+    $('.settings-menu__form-logout').on("submit", function (e){
+        e.preventDefault();
+
+        $.ajax({
+            url: '/logout',
+            type: 'POST',
+            contentType: 'application/json',
+            headers: {
+                "X-XSRF-TOKEN": $.cookie('XSRF-TOKEN')
+            },
+
+            xhrFields: {
+                withCredentials: true
+            },
+
+            success: function (){
+                window.location.href = "/home";
+            }
+
+        })
+    });
+
+    $(document).ajaxError( function (event, xhr) {
+        if(xhr.status == 401){
+            window.location.href = "/home";
+        }
+    });
 
     function showErrors(errors, box){
         box.html("");

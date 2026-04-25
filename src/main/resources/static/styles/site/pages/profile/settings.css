@@ -170,15 +170,16 @@ html, body {
     font-size: 1rem;
     color: #aaa;
 }
-.settings__info {
-    top: 82%;
-    left: 5%;
-    position: absolute;
-    font-weight: 500;
-    font-size: 0.75rem;
-    text-align: center;
-    color: #aaa;
+.settings__form-btn {
+    margin-top: 15px;
+    padding: 14px 175px;
+    border-radius: 10px;
+    background: #0af;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
 }
+
 
 /* ========================================================== LOGOUT ================================================================== */
 .main__logout {

@@ -56,7 +56,7 @@ public class BookingServiceTest {
                 .build();
         BookingReadDto bookingReadDto = bookingService.create(bookingDto);
 
-        assertEquals(bookingDto.bookingNumber(), bookingReadDto.bookingNumber());
+        assertEquals(bookingDto.getBookingNumber(), bookingReadDto.bookingNumber());
     }
 
     @Test

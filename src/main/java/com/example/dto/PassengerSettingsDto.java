@@ -12,8 +12,8 @@ import lombok.*;
 @Getter
 @Builder
 public class PassengerSettingsDto {
-    @Max(value = 12, message = "Максимальная длина номера телефона 12 символов")
-    @Min(value = 11, message = "Минимальная длина номера телефона 11 символов")
+//    @Max(value = 11, message = "Максимальная длина номера телефона 11 символов")
+//    @Min(value = 11, message = "Минимальная длина номера телефона 11 символов")
     String phoneNumber;
 
     @NotBlank(message = "Почта обязательна!")

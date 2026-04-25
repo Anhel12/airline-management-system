@@ -36,7 +36,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         var cookie = WebUtils.getCookie(request, "jwt");
 
         if(cookie == null){
-            log.warn("jwt is " + cookie);
             filterChain.doFilter(request, response);
             return;
         }
@@ -47,12 +46,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         try {
             username = jwtService.extractUserName(jwt);
         } catch (Exception e){
-            log.error("JWT error: " + e.getMessage());
             filterChain.doFilter(request, response);
             return;
         }
         var auth = SecurityContextHolder.getContext().getAuthentication();
-        if(StringUtils.hasText(username) && (auth == null || !auth.isAuthenticated())) {
+        if(StringUtils.hasText(username) && auth == null) {
             UserDetails userDetails = passengerService
                     .loadUserByUsername(username);
 

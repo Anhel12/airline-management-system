@@ -96,7 +96,7 @@
                             </a>
                         </li>
                         <li class="settings-menu__item">
-                            <form th:action="@{/logout}" th:method="post">
+                            <form class="settings-menu__form-logout" th:action="@{/logout}" th:method="post">
                                 <button type="submit" class="settings-menu__btn button">Выйти</button>
                             </form>
                         </li>
@@ -158,16 +158,17 @@
                     <div class="main__setting-inner">
                         <form class="settings__self-info-form" th:action="@{/profile/settings}" th:method="PATCH" th:object="${passenger}">
                             <h2 class="setting__form-title">Личные данные</h2>
+                            <div class="error"></div>
                             <ul class="settings__list">
                                 <li class="settings__item">
-                                    <input type="text" class="settings__input" placeholder="Номер телефона" maxlength="12" minlength="11" th:field="*{phoneNumber}">
+                                    <input name="phoneNumber" type="text" class="settings__input" placeholder="Номер телефона" maxlength="12" minlength="11" th:field="*{phoneNumber}">
                                 </li>
                                 <li class="settings__item">
-                                    <input type="email" class="settings__input" placeholder="Почта" required th:field="*{email}">
+                                    <input name="email" type="email" class="settings__input" placeholder="Почта" required th:field="*{email}">
                                 </li>
                             </ul>
+                            <button class="settings__form-btn" type="submit">Сохранить</button>
                         </form>
-                        <div class="settings__info">Для входа в профиль</div>
                     </div>
                 </div>
             </section>
@@ -304,6 +305,7 @@
     </div>
 </body>
 <script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js}"></script>
 <script th:src="@{/js/site/layout/header.js}"></script>
 <script th:src="@{/js/site/pages/settings.js}"></script>
 </html>

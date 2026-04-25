@@ -1,6 +1,9 @@
 logging:
   level:
     root: WARN
+    org:
+      springframework:
+        security: WARN
   file:
     name: org.example.log
     path: /

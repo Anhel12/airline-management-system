@@ -37,8 +37,8 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(Map.of("errors", errors));
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> handleAll(Exception exception){
-        return ResponseEntity.badRequest().body(Map.of("errors", List.of(exception.getMessage())));
-    }
+//    @ExceptionHandler(Exception.class)
+//    public ResponseEntity<?> handleAll(Exception exception){
+//        return ResponseEntity.badRequest().body(Map.of("errors", List.of(exception.getMessage())));
+//    }
 }
