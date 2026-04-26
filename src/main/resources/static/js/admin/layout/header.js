@@ -77,7 +77,7 @@ $(function(){
         $(".second h3, .second .main__item-value, .second").css("color", "#fff");
         $(".second .main__item-value svg path, .button.second svg path").css("fill", "#fff");
 
-        $(".third a, .table__main-item").css("background", "#fff");
+        $(".third a, .table__main-item, .main__add-entity").css("background", "#fff");
         $(".third a, .table__main-item").css("color", "#000");
         $(".header__nav-glasses-btn svg path").css("fill", "#000");
 
@@ -94,7 +94,7 @@ $(function(){
         $(".second .main__item-value svg path, .button.second svg path").css("fill", "#000");
 
         $(".third a, .table__main-item").css("background", "#fff");
-        $(".third a, .table__main-item").css("color", "#000");
+        $(".third a, .table__main-item, .main__add-entity").css("color", "#000");
         $(".header__nav-glasses-btn svg path").css("fill", "#fff");
     
         $(".header__title").css("color", "#fff");
