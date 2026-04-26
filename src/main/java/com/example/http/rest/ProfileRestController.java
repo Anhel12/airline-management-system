@@ -29,14 +29,12 @@ public class ProfileRestController {
         if(bindingResult.hasErrors()){
             throw new FieldNotValidException(bindingResult);
         }
-
         passengerService.getForEdit(user.getUsername())
                 .map(createEditDto -> {
                     passengerDocumentMapper.map(dto, createEditDto);
                     passengerService.update(user.getUsername(), createEditDto);
                     return true;
                 });
-
         return ResponseEntity.ok().build();
     }
 
@@ -47,14 +45,12 @@ public class ProfileRestController {
         if(bindingResult.hasErrors()){
             throw new FieldNotValidException(bindingResult);
         }
-
         passengerService.getForEdit(user.getUsername())
                 .map(createEditDto -> {
                     passengerSettingsDtoMapper.map(dto, createEditDto);
                     passengerService.update(user.getUsername(), createEditDto);
                     return true;
                 });
-
         return ResponseEntity.ok().build();
     }
 }

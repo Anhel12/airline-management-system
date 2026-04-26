@@ -107,6 +107,7 @@
                     <a th:href="@{/home}" class="header__title"><span>Aviro</span> Airlines</a>
                     <div class="header__btn-box">
                         <a th:href="@{/baggage}" class="header__btn button baggage">Нормы багажа</a>
+                        <a th:href="@{/admin/dashboard}" class="header__btn button admin" sec:authorize="hasAuthority('ADMIN')">Админ панель</a>
                         <a class="header__btn button login" sec:authorize="isAnonymous()">Вход</a>
                         <a href="#" class="header__btn account" sec:authorize="isAuthenticated()">
                             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -303,6 +304,7 @@
 <script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
 <script th:src="@{https://cdn.jsdelivr.net/npm/flatpickr}"></script>
 <script th:src="@{https://npmcdn.com/flatpickr/dist/l10n/ru.js}"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js}"></script>
 <script th:src="@{/js/site/layout/header.js}"></script>
 <script th:src="@{/js/site/pages/home.js}"></script>
 </html>

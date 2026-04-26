@@ -44,6 +44,11 @@ dependencies {
 	implementation 'io.jsonwebtoken:jjwt-impl:0.12.6'
 	implementation 'io.jsonwebtoken:jjwt-jackson:0.12.6'
 
+//	L2 cache
+	implementation 'org.hibernate.orm:hibernate-core'
+	implementation 'org.hibernate.orm:hibernate-jcache'
+	implementation 'org.ehcache:ehcache'
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'

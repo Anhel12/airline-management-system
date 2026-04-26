@@ -3,7 +3,10 @@ package com.example.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.proxy.HibernateProxy;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +25,8 @@ import java.util.Objects;
 @Builder
 @Entity
 @Table(name = "passenger")
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Passenger implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -4,6 +4,8 @@ logging:
     org:
       springframework:
         security: WARN
+      hibernate:
+        cache: WARN
   file:
     name: org.example.log
     path: /
@@ -21,6 +23,12 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+        javax.cache:
+          provider: org.ehcache.jsr107.EhcacheCachingProvider
+        cache:
+          use_second_level_cache: true
+          use_query_cache: true
+          region.factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
   liquibase:
     enabled: true
 
