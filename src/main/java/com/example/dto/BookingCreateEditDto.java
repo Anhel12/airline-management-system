@@ -3,6 +3,7 @@ package com.example.dto;
 
 import com.example.database.entity.Status;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Positive;
 import lombok.*;
@@ -24,17 +25,15 @@ public class BookingCreateEditDto{
         @NotBlank
         String bookingNumber;
 
-        @NotBlank
-        @Past
+        @NotNull
         @DateTimeFormat(pattern = "yyyy-MM-dd")
         LocalDate bookingDate;
-
-        @NotBlank
+        @NotNull
         Long flight_id;
 
         List<Long> seat_id;
 
-        @NotBlank
+        @NotNull
         @Positive
         Integer totalAmount;
 

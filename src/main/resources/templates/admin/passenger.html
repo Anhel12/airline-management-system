@@ -8,9 +8,11 @@
     <link rel="stylesheet" th:href="@{/styles/admin/pages/passenger.css}">
     <link rel="stylesheet" th:href="@{/styles/admin/layout/header.css}">
     <link rel="stylesheet" th:href="@{/styles/admin/layout/aside.css}">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css}">
 </head>
 <body>
     <div class="wrapper">
+        <div class="overlay"></div>
         <div class="spec-panel" style="display: none;">
             <div class="container">
                 <div class="spec-panel-inner">
@@ -162,6 +164,61 @@
                 </div>
             </section>
             <section class="main__table">
+                <div class="main__add-entity">
+                    <form th:action="@{/api/admin/passenger}" th:method="PUT" class="add-entity__form">
+                        <h2 class="add-entity__title">Новый пассажир</h2>
+                        <div class="error"></div>
+                        <ul class="add-entity__list">
+                            <h3 class="add-entity__item-title">Телефон</h3>
+                            <li class="add-entity__item">
+                                <input name="phoneNumber" type="text" class="add-entity__input" minlength="11">
+                            </li>
+                            <h3 class="add-entity__item-title">Почта</h3>
+                            <li class="add-entity__item">
+                                <input name="email" type="text" class="add-entity__input">
+                            </li>
+                            <h3 class="add-entity__item-title">Паспорт</h3>
+                            <li class="add-entity__item">
+                                <input name="passportNumber" type="text" class="add-entity__input">
+                            </li>
+                            <h3 class="add-entity__item-title">Дата рождения</h3>
+                            <li class="add-entity__item">
+                                <input name="birthDate" type="text" class="add-entity__input date">
+                            </li>
+                            <h3 class="add-entity__item-title">Имя</h3>
+                            <li class="add-entity__item">
+                                <input name="firstName" type="text" class="add-entity__input">
+                            </li>
+                            <h3 class="add-entity__item-title">Фамилия</h3>
+                            <li class="add-entity__item">
+                                <input name="middleName" type="text" class="add-entity__input">
+                            </li>
+                            <h3 class="add-entity__item-title">Отчество</h3>
+                            <li class="add-entity__item">
+                                <input name="lastName" type="text" class="add-entity__input">
+                            </li>
+                            <h3 class="add-entity__item-title">Пол</h3>
+                            <li class="add-entity__item">
+                                <select name="sex" class="add-entity__input">
+                                    <option value="MALE">MALE</option>
+                                    <option value="FEMALE">FEMALE</option>
+                                </select>
+                            </li>
+                            <h3 class="add-entity__item-title">Роль</h3>
+                            <li class="add-entity__item">
+                                <select name="role" class="add-entity__input">
+                                    <option value="ADMIN">ADMIN</option>
+                                    <option value="USER">USER</option>
+                                </select>
+                            </li>
+                            <h3 class="add-entity__item-title">Пароль</h3>
+                            <li class="add-entity__item">
+                                <input name="password" type="password" class="add-entity__input">
+                            </li>
+                        </ul>
+                        <button type="submit" class="add-entity__btn button">Добавить</button>
+                    </form>
+                </div>
                 <div class="container">
                     <div class="main__table-inner">
                         <div class="table__top">
@@ -343,47 +400,50 @@
                             <form th:action="@{/admin/passenger}" th:method="PUT" class="table__main-form" th:object="${passengerList}">
                                 <div>
                                     <ul class="table__main-list" th:each="passenger, stat: *{passengerList}">
-                                        <input type="hidden" th:field="*{passengerList[__${stat.index}__].id}" style="display: none">
+                                        <input name="id" type="hidden" th:field="*{passengerList[__${stat.index}__].id}" style="display: none">
                                         <li class="table__main-item">
-                                            <input type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].phoneNumber}" maxlength="12">
+                                            <input name="phoneNumber" type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].phoneNumber}" maxlength="12">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="email" class="table__main-input" th:field="*{passengerList[__${stat.index}__].email}">
+                                            <input name="email" type="email" class="table__main-input" th:field="*{passengerList[__${stat.index}__].email}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="number" class="table__main-input" th:field="*{passengerList[__${stat.index}__].passportNumber}">
+                                            <input name="passportNumber" type="number" class="table__main-input" th:field="*{passengerList[__${stat.index}__].passportNumber}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="date" class="table__main-input" th:field="*{passengerList[__${stat.index}__].birthDate}">
+                                            <input name="birthDate" type="date" class="table__main-input" th:field="*{passengerList[__${stat.index}__].birthDate}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].firstName}">
+                                            <input name="firstName" type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].firstName}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].lastName}">
+                                            <input name="lastName" type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].lastName}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].middleName}">
+                                            <input name="middleName" type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].middleName}">
                                         </li>
                                         <li class="table__main-item">
-                                            <select th:field="*{passengerList[__${stat.index}__].sex}">
+                                            <select name="sex" th:field="*{passengerList[__${stat.index}__].sex}">
                                                 <option value="MALE">MALE</option>
                                                 <option value="FEMALE">FEMALE</option>
                                             </select>
                                         </li>
                                         <li class="table__main-item">
-                                            <select th:field="*{passengerList[__${stat.index}__].role}">
+                                            <select name="role" th:field="*{passengerList[__${stat.index}__].role}">
                                                 <option value="ADMIN">ADMIN</option>
                                                 <option value="USER">USER</option>
                                             </select>
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].password}">
+                                            <input name="password" type="text" class="table__main-input" th:field="*{passengerList[__${stat.index}__].password}">
                                         </li>
 
                                     </ul>
                                 </div>
-                                <button class="table__main-form-btn button" type="submit">Сохранить</button>
+                                <div class="table__main-btn-box">
+                                    <a href="#" class="table__main-form-btn button add">Добавить</a>
+                                    <button class="table__main-form-btn button" type="submit">Сохранить</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -393,6 +453,10 @@
     </div>
 </body>
 <script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
+<script th:src="@{https://cdn.jsdelivr.net/npm/flatpickr}"></script>
+<script th:src="@{https://npmcdn.com/flatpickr/dist/l10n/ru.js}"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js}"></script>
+<script th:src="@{/js/admin/pages/passenger.js}"></script>
 <script th:src="@{/js/admin/layout/header.js}"></script>
 <script th:src="@{/js/admin/layout/search.js}"></script>
 </html>

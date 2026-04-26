@@ -73,4 +73,13 @@ public class AirportService {
                 .map(airportRepository::saveAndFlush)
                 .map(airportReadMapper::map);
     }
+
+    @Transactional
+    public AirportReadDto create(AirportCreateEditDto airportDto){
+        return Optional.ofNullable(airportDto)
+                .map(airportCreateEditMapper::map)
+                .map(airportRepository::save)
+                .map(airportReadMapper::map)
+                .orElseThrow();
+    }
 }

@@ -2,7 +2,10 @@ package com.example.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.proxy.HibernateProxy;
+import org.springframework.cache.annotation.Cacheable;
 
 import java.time.ZoneId;
 import java.util.Objects;
@@ -15,6 +18,8 @@ import java.util.Objects;
 @Builder
 @Entity
 @Table(name = "airport")
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Airport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

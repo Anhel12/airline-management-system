@@ -5,6 +5,7 @@ import com.example.database.entity.Role;
 import com.example.database.entity.Sex;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.validator.constraints.UniqueElements;
@@ -37,6 +38,7 @@ public class PassengerCreateEditDto {
 
     Sex sex;
 
+    @NotNull(message = "Роль обязательна!")
     Role role;
 
     @Size(min = 6, message = "Минимальная длина пароля 6 символов")

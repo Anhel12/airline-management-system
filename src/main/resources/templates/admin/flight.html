@@ -8,9 +8,11 @@
     <link rel="stylesheet" th:href="@{/styles/admin/pages/flight.css}">
     <link rel="stylesheet" th:href="@{/styles/admin/layout/header.css}">
     <link rel="stylesheet" th:href="@{/styles/admin/layout/aside.css}">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css}">
 </head>
 <body>
     <div class="wrapper">
+        <div class="overlay"></div>
         <div class="spec-panel" style="display: none;">
             <div class="container">
                 <div class="spec-panel-inner">
@@ -162,6 +164,35 @@
                 </div>
             </section>
             <section class="main__table">
+                <div class="main__add-entity">
+                    <form th:action="@{/api/admin/flight}" th:method="PUT" class="add-entity__form">
+                        <h2 class="add-entity__title">Новый рейс</h2>
+                        <div class="error"></div>
+                        <ul class="add-entity__list">
+                            <h3 class="add-entity__item-title">Номер</h3>
+                            <li class="add-entity__item">
+                                <input name="flightNumber" type="text" class="add-entity__input">
+                            </li>
+                            <h3 class="add-entity__item-title">Время вылета</h3>
+                            <li class="add-entity__item">
+                                <input name="departureDateTime" type="text" class="add-entity__input date">
+                            </li>
+                            <h3 class="add-entity__item-title">Время прилета</h3>
+                            <li class="add-entity__item">
+                                <input name="arrivalDateTime" type="text" class="add-entity__input date">
+                            </li>
+                            <h3 class="add-entity__item-title">Код аэропорта вылета</h3>
+                            <li class="add-entity__item">
+                                <input name="departureAirportId" type="text" class="add-entity__input">
+                            </li>
+                            <h3 class="add-entity__item-title">Код аэропорта прилета</h3>
+                            <li class="add-entity__item">
+                                <input name="arrivalAirportId" type="text" class="add-entity__input">
+                            </li>
+                        </ul>
+                        <button type="submit" class="add-entity__btn button">Добавить</button>
+                    </form>
+                </div>
                 <div class="container">
                     <div class="main__table-inner">
                         <div class="table__top">
@@ -292,31 +323,34 @@
                             <form th:action="@{/admin/flight}" th:method="PUT" class="table__main-form" th:object="${flightList}">
                                 <div>
                                     <ul class="table__main-list" th:each="flight, stat: *{flightList}">
-                                        <input type="hidden" th:field="*{flightList[__${stat.index}__].id}" style="display: none">
+                                        <input name="id" type="hidden" th:field="*{flightList[__${stat.index}__].id}" style="display: none">
                                         <li class="table__main-item">
-                                            <input type="text" class="table__main-input" th:field="*{flightList[__${stat.index}__].flightNumber}">
+                                            <input name="flightNumber" type="text" class="table__main-input" th:field="*{flightList[__${stat.index}__].flightNumber}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="datetime-local" class="table__main-input" th:field="*{flightList[__${stat.index}__].departureDateTime}">
+                                            <input name="departureDateTime" type="datetime-local" class="table__main-input" th:field="*{flightList[__${stat.index}__].departureDateTime}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="datetime-local" class="table__main-input" th:field="*{flightList[__${stat.index}__].arrivalDateTime}">
+                                            <input name="arrivalDateTime" type="datetime-local" class="table__main-input" th:field="*{flightList[__${stat.index}__].arrivalDateTime}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="number" class="table__main-input" th:field="*{flightList[__${stat.index}__].departureAirportId}">
+                                            <input name="departureAirportId" type="number" class="table__main-input" th:field="*{flightList[__${stat.index}__].departureAirportId}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="text" class="table__main-input" th:field="*{flightList[__${stat.index}__].departureAirportName}">
+                                            <input name="departureAirportName" type="text" class="table__main-input" th:field="*{flightList[__${stat.index}__].departureAirportName}" readonly>
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="number" class="table__main-input" th:field="*{flightList[__${stat.index}__].arrivalAirportId}">
+                                            <input name="arrivalAirportId" type="number" class="table__main-input" th:field="*{flightList[__${stat.index}__].arrivalAirportId}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="text" class="table__main-input" th:field="*{flightList[__${stat.index}__].arrivalAirportName}">
+                                            <input name="arrivalAirportName" type="text" class="table__main-input" th:field="*{flightList[__${stat.index}__].arrivalAirportName}" readonly>
                                         </li>
                                     </ul>
                                 </div>
-                                <button class="table__main-form-btn button" type="submit">Сохранить</button>
+                                <div class="table__main-btn-box">
+                                    <a href="#" class="table__main-form-btn button add">Добавить</a>
+                                    <button class="table__main-form-btn button" type="submit">Сохранить</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -326,6 +360,10 @@
     </div>
 </body>
 <script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
+<script th:src="@{https://cdn.jsdelivr.net/npm/flatpickr}"></script>
+<script th:src="@{https://npmcdn.com/flatpickr/dist/l10n/ru.js}"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js}"></script>
+<script th:src="@{/js/admin/pages/flight.js}"></script>
 <script th:src="@{/js/admin/layout/header.js}"></script>
 <script th:src="@{/js/admin/layout/search.js}"></script>
 </html>

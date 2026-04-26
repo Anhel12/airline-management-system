@@ -11,6 +11,7 @@
 </head>
 <body>
     <div class="wrapper">
+        <div class="overlay"></div>
         <div class="spec-panel" style="display: none;">
             <div class="container">
                 <div class="spec-panel-inner">
@@ -162,6 +163,35 @@
                 </div>
             </section>
             <section class="main__table">
+                <div class="main__add-entity">
+                    <form th:action="@{/api/admin/airport}" th:method="PUT" class="add-entity__form">
+                        <h2 class="add-entity__title">Новый аэропорт</h2>
+                        <div class="error"></div>
+                        <ul class="add-entity__list">
+                            <h3 class="add-entity__item-title">Код</h3>
+                            <li class="add-entity__item">
+                                <input name="code" type="text" class="add-entity__input" maxlength="3">
+                            </li>
+                            <h3 class="add-entity__item-title">Название</h3>
+                            <li class="add-entity__item">
+                                <input name="name" type="text" class="add-entity__input">
+                            </li>
+                            <h3 class="add-entity__item-title">Город</h3>
+                            <li class="add-entity__item">
+                                <input name="city" type="text" class="add-entity__input">
+                            </li>
+                            <h3 class="add-entity__item-title">Страна</h3>
+                            <li class="add-entity__item">
+                                <input name="country" type="text" class="add-entity__input">
+                            </li>
+                            <h3 class="add-entity__item-title">Временная зона</h3>
+                            <li class="add-entity__item">
+                                <input name="timezone" type="text" class="add-entity__input">
+                            </li>
+                        </ul>
+                        <button type="submit" class="add-entity__btn button">Добавить</button>
+                    </form>
+                </div>
                 <div class="container">
                     <div class="main__table-inner">
                         <div class="table__top">
@@ -258,25 +288,28 @@
                             <form class="table__main-form" th:action="@{/admin/airport}" th:method="PUT" th:object="${airportList}">
                                 <div>
                                     <ul class="table__main-list" th:each="airport, stat: *{airportList}">
-                                        <input type="hidden" th:field="*{airportList[__${stat.index}__].id}" style="display: none">
+                                        <input name="id" type="hidden" th:field="*{airportList[__${stat.index}__].id}" style="display: none">
                                         <li class="table__main-item">
-                                            <input type="text" class="table__main-input" th:field="*{airportList[__${stat.index}__].code}" maxlength="3">
+                                            <input name="code" type="text" class="table__main-input" th:field="*{airportList[__${stat.index}__].code}" maxlength="3">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="text" class="table__main-input" th:field="*{airportList[__${stat.index}__].name}">
+                                            <input name="name" type="text" class="table__main-input" th:field="*{airportList[__${stat.index}__].name}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="text" class="table__main-input" th:field="*{airportList[__${stat.index}__].city}">
+                                            <input name="city" type="text" class="table__main-input" th:field="*{airportList[__${stat.index}__].city}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="text" class="table__main-input" th:field="*{airportList[__${stat.index}__].country}">
+                                            <input name="country" type="text" class="table__main-input" th:field="*{airportList[__${stat.index}__].country}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="text" class="table__main-input" th:field="*{airportList[__${stat.index}__].timezone}">
+                                            <input name="timezone" type="text" class="table__main-input" th:field="*{airportList[__${stat.index}__].timezone}">
                                         </li>
                                     </ul>
                                 </div>
-                                <button class="table__main-form-btn button" type="submit">Сохранить</button>
+                                <div class="table__main-btn-box">
+                                    <a href="#" class="table__main-form-btn button add">Добавить</a>
+                                    <button class="table__main-form-btn button" type="submit">Сохранить</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -286,6 +319,8 @@
     </div>
 </body>
 <script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js}"></script>
+<script th:src="@{/js/admin/pages/airport.js}"></script>
 <script th:src="@{/js/admin/layout/header.js}"></script>
 <script th:src="@{/js/admin/layout/search.js}"></script>
 </html>

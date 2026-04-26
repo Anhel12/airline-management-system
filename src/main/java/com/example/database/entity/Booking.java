@@ -75,4 +75,11 @@ public class Booking {
                 .hashCode()
                 : getClass().hashCode();
     }
+
+    public void setBookingSeatList(List<BookingSeat> bookingSeatList) {
+        this.bookingSeatList.clear();
+        if(bookingSeatList != null){
+            this.bookingSeatList.addAll(bookingSeatList);
+        }
+    }
 }

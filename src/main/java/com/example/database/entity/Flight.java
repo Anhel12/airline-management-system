@@ -2,9 +2,10 @@ package com.example.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.proxy.HibernateProxy;
-
-import java.time.LocalDate;
+import org.springframework.cache.annotation.Cacheable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,8 @@ import java.util.Objects;
 @Builder
 @Entity
 @Table(name = "flight")
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

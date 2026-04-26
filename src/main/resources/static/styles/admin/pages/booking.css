@@ -15,6 +15,24 @@ html, body {
     overflow: hidden;
     
 }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.349);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.overlay--show {
+    opacity: 1;
+    visibility: visible;
+}
+
 .container {
     height: 100%;
     padding: 0 30px;
@@ -91,6 +109,67 @@ html, body {
 }
 
 /* ============================================= TABLE ============================================= */
+/* =========================================== ADD ENTITY ================================================= */
+
+.main__add-entity {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    z-index: 150;
+    background-color: #EDEDED;
+}
+.main__add-entity--show {
+    display: block;
+}
+
+.add-entity__form{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.add-entity__title {
+    white-space: nowrap;
+    font-size: 1rem;
+    font-weight: 400;
+    font-size: 1.25rem;
+}
+.add-entity__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.add-entity__item {
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin: 3px 3px;
+    width: 160px;
+}
+.add-entity__item-title {
+    white-space: nowrap;
+    font-size: 0.875rem;
+    margin-top: 10px;
+
+}
+.add-entity__input {
+    padding: 3px 3px;
+    border-radius: 5px;
+    height: 22px;
+    width: 100%;
+}
+.add-entity__btn {
+    background-color: #0af;
+    font-weight: 1rem;
+}
+/* ============================================= TABLE ==========================================================*/
 
 .main__table {
 }
@@ -246,11 +325,22 @@ html, body {
     display: none;
 }
 
-.table__main-form-btn{
+.table__main-btn-box {
     position: absolute;
-    background-color: #0af;
     right: 0;
-    bottom: -54px
+    bottom: -54px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.add {
+    height: 44px;
+}
+
+.table__main-form-btn{
+    background-color: #0af;
 }
 
 .table__main-form-btn:hover{

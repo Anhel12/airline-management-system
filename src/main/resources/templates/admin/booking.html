@@ -8,9 +8,11 @@
     <link rel="stylesheet" th:href="@{/styles/admin/pages/booking.css}">
     <link rel="stylesheet" th:href="@{/styles/admin/layout/header.css}">
     <link rel="stylesheet" th:href="@{/styles/admin/layout/aside.css}">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css}">
 </head>
 <body>
     <div class="wrapper">
+        <div class="overlay"></div>
         <div class="spec-panel" style="display: none;">
             <div class="container">
                 <div class="spec-panel-inner">
@@ -162,6 +164,39 @@
                 </div>
             </section>
             <section class="main__table">
+                <div class="main__add-entity">
+                    <form th:action="@{/api/admin/booking}" th:method="PUT" class="add-entity__form">
+                        <h2 class="add-entity__title">Новая бронь</h2>
+                        <div class="error"></div>
+                        <ul class="add-entity__list">
+                            <h3 class="add-entity__item-title">Номер</h3>
+                            <li class="add-entity__item">
+                                <input name="bookingNumber" type="text" class="add-entity__input">
+                            </li>
+                            <h3 class="add-entity__item-title">Дата брони</h3>
+                            <li class="add-entity__item">
+                                <input name="bookingDate" type="text" class="add-entity__input date">
+                            </li>
+                            <h3 class="add-entity__item-title">Номер рейса</h3>
+                            <li class="add-entity__item">
+                                <input name="flightNumber" type="text" class="add-entity__input">
+                            </li>
+                            <h3 class="add-entity__item-title">Общая стоимость</h3>
+                            <li class="add-entity__item">
+                                <input name="totalAmount" type="text" class="add-entity__input">
+                            </li>
+                            <h3 class="add-entity__item-title">Статус</h3>
+                            <li class="add-entity__item">
+                                <select name="status" class="add-entity__input">
+                                    <option value="CANCELED">CANCELED</option>
+                                    <option value="COMPLETED">COMPLETED</option>
+                                    <option value="CONFIRMED">CONFIRMED</option>
+                                </select>
+                            </li>
+                        </ul>
+                        <button type="submit" class="add-entity__btn button">Добавить</button>
+                    </form>
+                </div>
                 <div class="container">
                     <div class="main__table-inner">
                         <div class="table__top">
@@ -258,21 +293,21 @@
                             <form th:action="@{/admin/booking}" th:method="PUT" class="table__main-form" th:object="${bookingList}">
                                 <div>
                                     <ul class="table__main-list" th:each="booking, stat: *{bookingList}">
-                                        <input type="hidden" th:field="*{bookingList[__${stat.index}__].id}" style="display: none">
+                                        <input name="id" type="hidden" th:field="*{bookingList[__${stat.index}__].id}" style="display: none">
                                         <li class="table__main-item">
-                                            <input type="text" class="table__main-input" th:field="*{bookingList[__${stat.index}__].bookingNumber}">
+                                            <input name="bookingNumber" type="text" class="table__main-input" th:field="*{bookingList[__${stat.index}__].bookingNumber}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="date" class="table__main-input" th:field="*{bookingList[__${stat.index}__].bookingDate}">
+                                            <input name="bookingDate" type="date" class="table__main-input" th:field="*{bookingList[__${stat.index}__].bookingDate}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="number" class="table__main-input" th:field="*{bookingList[__${stat.index}__].flight_id}">
+                                            <input name="flightNumber" type="number" class="table__main-input" th:field="*{bookingList[__${stat.index}__].flight_id}">
                                         </li>
                                         <li class="table__main-item">
-                                            <input type="number" class="table__main-input" th:field="*{bookingList[__${stat.index}__].totalAmount}">
+                                            <input name="totalAmount" type="number" class="table__main-input" th:field="*{bookingList[__${stat.index}__].totalAmount}">
                                         </li>
                                         <li class="table__main-item">
-                                            <select th:field="*{bookingList[__${stat.index}__].status}">
+                                            <select name="status" th:field="*{bookingList[__${stat.index}__].status}">
                                                 <option value="CANCELED">CANCELED</option>
                                                 <option value="COMPLETED">COMPLETED</option>
                                                 <option value="CONFIRMED">CONFIRMED</option>
@@ -280,7 +315,10 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <button class="table__main-form-btn button" type="submit">Сохранить</button>
+                                <div class="table__main-btn-box">
+                                    <a href="#" class="table__main-form-btn button add">Добавить</a>
+                                    <button class="table__main-form-btn button" type="submit">Сохранить</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -290,6 +328,10 @@
     </div>
 </body>
 <script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
+<script th:src="@{https://cdn.jsdelivr.net/npm/flatpickr}"></script>
+<script th:src="@{https://npmcdn.com/flatpickr/dist/l10n/ru.js}"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js}"></script>
+<script th:src="@{/js/admin/pages/booking.js}"></script>
 <script th:src="@{/js/admin/layout/header.js}"></script>
 <script th:src="@{/js/admin/layout/search.js}"></script>
 </html>

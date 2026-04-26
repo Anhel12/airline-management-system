@@ -30,9 +30,40 @@ public class CacheConfiguration {
                         )
                         .build()
         );
+        var flightCache = Eh107Configuration.fromEhcacheCacheConfiguration(
+                CacheConfigurationBuilder.newCacheConfigurationBuilder(
+                                Object.class,
+                                Object.class,
+                                ResourcePoolsBuilder.heap(1000)
+                        )
+                        .withExpiry(
+                                ExpiryPolicyBuilder.timeToLiveExpiration(Duration.ofDays(1))
+                        )
+                        .build()
+        );
+
+        var airportCache = Eh107Configuration.fromEhcacheCacheConfiguration(
+                CacheConfigurationBuilder.newCacheConfigurationBuilder(
+                                Object.class,
+                                Object.class,
+                                ResourcePoolsBuilder.heap(1000)
+                        )
+                        .withExpiry(
+                                ExpiryPolicyBuilder.timeToLiveExpiration(Duration.ofDays(1))
+                        )
+                        .build()
+        );
         cacheManager.createCache(
                 "com.example.database.entity.Passenger",
                 passengerCache
+        );
+        cacheManager.createCache(
+                "com.example.database.entity.Flight",
+                flightCache
+        );
+        cacheManager.createCache(
+                "com.example.database.entity.Airport",
+                airportCache
         );
         return cacheManager;
     }

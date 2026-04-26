@@ -65,17 +65,6 @@ public class AdminController {
         return "admin/airport";
     }
 
-    @PutMapping("/airport")
-    public String airportUpdate(@ModelAttribute("airportList") AirportListWrapper airportListWrapper){
-
-        airportListWrapper.getAirportList().forEach(airportReadDto -> {
-                    AirportCreateEditDto dto = airportCreateEditMapper.map(airportReadDto);
-                    airportService.update(dto.getId(), dto);
-                });
-
-        return "redirect:/admin/airport";
-    }
-
     @GetMapping("/booking")
     public String booking(Model model,
                           BookingListWrapper bookingListWrapper,
@@ -90,13 +79,6 @@ public class AdminController {
         model.addAttribute("search", search);
 
         return "admin/booking";
-    }
-
-    @PutMapping("/booking")
-    public String bookingUpdate(@ModelAttribute("bookingList") BookingListWrapper bookingListWrapper){
-        bookingListWrapper.getBookingList().forEach(bookingDto -> bookingService.update(bookingDto.getId(), bookingDto));
-
-        return "redirect:/admin/booking";
     }
 
     @GetMapping("/flight")
@@ -115,13 +97,6 @@ public class AdminController {
         return "admin/flight";
     }
 
-    @PutMapping("/flight")
-    public String flightUpdate(@ModelAttribute("flightList") FlightListWrapper flightListWrapper){
-        flightListWrapper.getFlightList().forEach(flightDto -> flightService.update(flightDto.getId(), flightDto));
-
-        return "redirect:/admin/flight";
-    }
-
     @GetMapping("/passenger")
     public String passenger(Model model,
                             PassengerListWrapper passengerListWrapper,
@@ -136,12 +111,5 @@ public class AdminController {
         model.addAttribute("search", search);
 
         return "admin/passenger";
-    }
-
-    @PutMapping("/passenger")
-    public String passengerUpdate(@ModelAttribute("passengerList") PassengerListWrapper passengerListWrapper){
-        passengerListWrapper.getPassengerList().forEach(passengerDto -> passengerService.update(passengerDto.getId(), passengerDto));
-
-        return "redirect:/admin/passenger";
     }
 }

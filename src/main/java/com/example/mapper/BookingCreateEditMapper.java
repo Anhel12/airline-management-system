@@ -50,7 +50,6 @@ public class BookingCreateEditMapper implements Mapper<BookingCreateEditDto, Boo
         booking.setBookingNumber(bookingDto.getBookingNumber());
         booking.setBookingDate(bookingDto.getBookingDate());
         booking.setFlight(getFlight(bookingDto.getFlight_id()));
-        booking.setBookingSeatList(getBookingSeat(bookingDto.getSeat_id()));
         booking.setTotalAmount(bookingDto.getTotalAmount());
         booking.setStatus(bookingDto.getStatus());
     }
