@@ -8,7 +8,8 @@ $(function(){
         locale: "ru"
     });
 
-    $('.search__form-list a').on('click', function(){
+    $('.search__form-list a').on('click', function(e){
+        e.preventDefault();
 
         let $inputFrom = $('.inputFrom');
         let $inputTo = $('.inputTo');
