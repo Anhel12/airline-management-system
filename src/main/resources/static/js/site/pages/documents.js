@@ -4,8 +4,16 @@ $(function(){
         altInput: true,
         altFormat: "j F, Y",
         dateFormat: "Y-m-d",
-        locale: "ru"
+        locale: "ru",
+        maxDate: "today"
     });
+
+    $('.document-form__input').on('input', function (){
+        let value = $(this).val();
+        value = value.replace(/[^А-Яа-яЁё]/g, '');
+        $(this).val(value);
+    })
+
 
     $('.document-form').on("submit", function (e){
         e.preventDefault();
@@ -57,5 +65,4 @@ $(function(){
         }
 
     }
-    
 })

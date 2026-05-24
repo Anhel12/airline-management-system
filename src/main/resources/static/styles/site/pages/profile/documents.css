@@ -166,6 +166,7 @@ html, body {
     background: #767676;
     color: #fff;
     width: 100%;
+    text-transform: capitalize;
 }
 .no-input {
     margin-top: 4px;

@@ -1,12 +1,18 @@
 $(function () {
 
+    $(document).ready(function () {
+        $('.phone').mask('+7 (000) 000-00-00');
+    })
+
     $('.settings__self-info-form').on("submit", function (e){
         e.preventDefault();
 
         const form = $(this);
+        let phoneNumber = form.find('[name="phoneNumber"]').val()
+        phoneNumber = phoneNumber.replace(/\D/g, '');
 
         const data = {
-            phoneNumber: form.find('[name="phoneNumber"]').val(),
+            phoneNumber: phoneNumber,
             email: form.find('[name="email"]').val(),
         }
 

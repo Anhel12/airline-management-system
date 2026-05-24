@@ -162,7 +162,7 @@
                             <div class="error"></div>
                             <ul class="settings__list">
                                 <li class="settings__item">
-                                    <input name="phoneNumber" type="text" class="settings__input" placeholder="Номер телефона" maxlength="12" minlength="11" th:field="*{phoneNumber}">
+                                    <input name="phoneNumber" type="text" class="settings__input phone" placeholder="Номер телефона" maxlength="12" minlength="11" th:field="*{phoneNumber}">
                                 </li>
                                 <li class="settings__item">
                                     <input name="email" type="email" class="settings__input" placeholder="Почта" required th:field="*{email}">
@@ -307,6 +307,7 @@
 </body>
 <script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
 <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js}"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js}"></script>
 <script th:src="@{/js/site/layout/header.js}"></script>
 <script th:src="@{/js/site/pages/settings.js}"></script>
 </html>

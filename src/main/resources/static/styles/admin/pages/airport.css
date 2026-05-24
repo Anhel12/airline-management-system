@@ -16,6 +16,10 @@ html, body {
     
 }
 
+::-webkit-scrollbar {
+    width: 0;
+}
+
 .overlay {
     position: fixed;
     top: 0;
