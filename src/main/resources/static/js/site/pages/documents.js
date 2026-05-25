@@ -8,7 +8,7 @@ $(function(){
         maxDate: "today"
     });
 
-    $('.document-form__input').on('input', function (){
+    $('.name').on('input', function (){
         let value = $(this).val();
         value = value.replace(/[^А-Яа-яЁё]/g, '');
         $(this).val(value);
