@@ -101,17 +101,17 @@ $(function(){
     })
 // ТУт леттер спасинг
     $(".spec-panel__box-item--standart-letter-spacing").on("click", function(){
-        $("html").css("letter-spacing", 0 + "rem");
+        $("html, input, select").css("letter-spacing", 0 + "rem");
 
         saveSettings("letterSpacing", "standart");
     })
     $(".spec-panel__box-item--medium-letter-spacing").on("click", function(){
-        $("html").css("letter-spacing", .125 + "rem");
+        $("html, input, select").css("letter-spacing", .125 + "rem");
 
         saveSettings("letterSpacing", "medium");
     })
     $(".spec-panel__box-item--big-letter-spacing").on("click", function(){
-        $("html").css("letter-spacing", .25 + "rem");
+        $("html, input, select").css("letter-spacing", .25 + "rem");
 
         saveSettings("letterSpacing", "big");
     })

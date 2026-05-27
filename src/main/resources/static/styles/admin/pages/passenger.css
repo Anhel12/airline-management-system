@@ -77,6 +77,9 @@ html, body {
     grid-area: mn;
 }
 
+input, select {
+    font-size: 1rem;
+}
 /* ============================================= ASIDE ============================================= */
 
 .aside__nav-item:last-child {
@@ -183,7 +186,7 @@ html, body {
 }
 .table__top-list {
     display: grid;
-    grid-template: min-content / repeat(10, 1fr);
+    grid-template: min-content / repeat(9, 1fr);
     gap: 5px;
     justify-content: space-between;
 
@@ -242,11 +245,6 @@ html, body {
     grid-row: 1 / 2;
 }
 
-.table__top-item:last-child {
-    grid-column: 10 / 11;
-    grid-row: 1 / 2;
-}
-
 .table__top-item a{
     display: flex;
 }
@@ -298,7 +296,7 @@ html, body {
 }
 .table__main-list {
     display: grid;
-    grid-template: repeat(auto-fit, minmax(10px, 30px)) / repeat(10, 1fr);
+    grid-template: repeat(auto-fit, minmax(10px, 30px)) / repeat(9, 1fr);
     gap: 5px;
     justify-content: space-between;
 }
@@ -352,10 +350,6 @@ html, body {
     grid-row: 1 / 2;
 }
 
-.table__main-item:last-child {
-    grid-column: 10 / 11;
-    grid-row: 1 / 2;
-}
 .table__main-item select{
     font-family: "Finlandica", sans-serif;
     appearance: none;
